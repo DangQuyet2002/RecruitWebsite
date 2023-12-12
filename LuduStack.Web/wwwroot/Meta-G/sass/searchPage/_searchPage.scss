@@ -1,0 +1,100 @@
+.view-all-page-wrapper {
+    .main-content {
+        width: 100%;
+        .border-search-result-container {
+            width: 100%;
+            background-color: $primary-bg-color;
+            padding: 1.4px;
+            clip-path: $border-cutting-8;
+        
+            .search-result-container {
+                width: 100%;
+                background-color: $darker-bg-color;
+                clip-path: $border-cutting-8;
+                padding: 12px;
+        
+                .heading {
+                    margin-bottom: 24px;
+                    font-size: 18px;
+
+                    span {
+                        color: $pink-darker-text-color;
+                    }
+                }
+        
+                .search-result {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 12px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1368px) {
+    .view-all-page-wrapper {
+        .main-content {
+            
+            .border-search-result-container {
+                
+            
+                .search-result-container {
+                    padding: 0;
+                    
+                    .search-result {
+                        display: grid;
+                        grid-template-columns: repeat(3, 1fr);
+                        gap: 12px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 960px) {
+    .view-all-page-wrapper {
+        .main-content {
+            
+            .border-search-result-container {
+                
+            
+                .search-result-container {
+                    
+                    .search-result {
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: 12px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .side-bar-search-page {
+        display: none;
+    }
+
+    .view-all-page-wrapper {
+        .main-content {
+            
+            .border-search-result-container {
+                clip-path: none;
+                background: transparent;
+            
+                .search-result-container {
+                    background: transparent;
+                    .search-result {
+                        display: grid;
+                        grid-template-columns: repeat(1, 1fr);
+                        gap: 12px;
+                    }
+                }
+            }
+        }
+    }
+}
+

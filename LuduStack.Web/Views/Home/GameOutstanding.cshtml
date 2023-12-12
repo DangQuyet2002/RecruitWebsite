@@ -1,0 +1,91 @@
+﻿@using LuduStack.Domain.Models;
+@using MetaG.Application.ViewModels;
+@model List<Game>
+
+<div class="top-rank swiper-ranking">
+    <div class="top-rank-heading">
+        <img src="~/meta-g/assets/icon/ranking/trophy.svg" alt="">
+        <p>Nhiều người chơi nhất</p>
+    </div>
+
+    <div class="slider-ranking ranking swiper-wrapper">
+        @{
+            int count = 1;
+        }
+
+        @foreach (var data in Model)
+        {
+            <div class="border-ranking-item swiper-slide">
+                <div class="@((count == 1) ? "ranking-item top-1-box-shadow" : "ranking-item")">
+                    <div class="ranking-item-heading">
+                        @if (count == 1)
+                        {
+                            <img src="~/meta-g/assets/icon/ranking/Asset-6.png " alt="" />
+                            <p style="color: #ffb973">Hạng #1</p>
+                        }@if (count == 2)
+                        {
+                            <img src="~/meta-g/assets/icon/ranking/Asset-7.png" alt="" />
+                            <p style="color: #bd4ba3">Hạng #2</p>
+                        }@if (count == 3)
+                        {
+                            <img src="~/meta-g/assets/icon/ranking/Asset-8.png" alt="" />
+                            <p style="color: #bd4ba3">Hạng #3</p>
+                        }@if (count == 4)
+                        {
+                            <img src="~/meta-g/assets/icon/ranking/Asset-9.png" alt="" />
+                            <p style="color: #84819A">Hạng #4</p>
+                        }@if (count == 5)
+                        {
+                            <img src="~/meta-g/assets/icon/ranking/Asset-10.png" alt="" />
+                            <p style="color: #84819A">Hạng #5</p>
+                        }
+                    </div>
+
+                    <div class="ranking-item-content">
+                        <div class="ranking-item-img">
+                            <img src="@data.ThumbnailUrl" alt="" />
+                        </div>
+
+                        <div class="ranking-item-info">
+                            <p class="ranking-item-name">@data.Title</p>
+                            <div class="info-line">
+                                <p>Người chơi:</p>
+                                <span>@data.NumberPlays</span>
+                            </div>
+                            <div class="info-line">
+                                <p>Thể loại:</p>
+                                <span>@data.Genre</span>
+                            </div>
+                            <div class="info-line">
+                                <p>Nhà cung cấp:</p>
+                                <span>@data.DeveloperName</span>
+                            </div>
+                            @*<form method="post" asp-controller="game" asp-action="UpdateNumberPlays" asp-route-id="@data.Id">*@
+                            <form method="post" asp-controller="game" asp-action="Details" asp-route-id="@data.Id">
+                                <button type="submit" class="play-now-btn styled-btn medium-size">
+                                    Chơi ngay
+                                </button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            count++;
+
+            if (count > 5)
+            {
+                break;
+            }
+        }
+
+        <div class="border-view-all-btn swiper-slide">
+            <a href="~/meta-g/pages/viewAll.html" class="view-all-btn">
+                <img src="~/meta-g/assets/icon/ranking/menu.svg" alt="">
+                <p>Xem tất cả</p>
+            </a>
+        </div>
+    </div>
+
+</div>

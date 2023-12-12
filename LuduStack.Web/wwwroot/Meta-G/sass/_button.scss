@@ -1,0 +1,175 @@
+.small-size {
+    width: 158px;
+}
+
+.medium-size {
+    width: 75%;
+}
+
+.large-size {
+    width: 300px;
+}
+
+.max-size {
+    width: 100%;
+}
+
+.normal-style-btn {
+    height: 40px;
+    border: none;
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+    background: linear-gradient(to left, #824cf6 50%, #7339e7 50%);
+    clip-path: $border-cutting-8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
+}
+
+.styled-btn {
+    height: 40px;
+    border: none;
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+    background: linear-gradient(to left, #824cf6 50%, #7339e7 50%);
+    clip-path: $border-cutting-8-tr-corner;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
+}
+
+.styled-btn-down-corner {
+    height: 40px;
+    border: none;
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+    background: linear-gradient(to left, #824cf6 50%, #7339e7 50%);
+    clip-path: $border-cutting-8-down-corner;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
+}
+
+.send-message-style {
+    height: 40px;
+    border: none;
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+    background: linear-gradient(to left, #824cf6 50%, #7339e7 50%);
+    clip-path: polygon(
+        0 0,
+        calc(100% - 8px) 0,
+        100% 8px,
+        100% calc(100% - 8px),
+        calc(100% - 8px) 100%,
+        0 100%,
+        8px calc(100% - 8px),
+        8px 8px
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
+}
+
+.contact-style {
+    height: 34px;
+    font-size: 14px;
+    word-wrap: break-word;
+    background-color: #753ce9;
+    border: none;
+    color: #fff;
+    text-transform: uppercase;
+    clip-path: polygon(
+        16px 0px,
+        calc(100% - 8px) 0,
+        100% 8px,
+        100% calc(100% - 8px),
+        calc(100% - 8px) 100%,
+        8px 100%,
+        0 calc(100% - 8px),
+        6px 8px
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
+}
+
+.fee {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px;
+
+    span {
+        color: $yellow-text-color;
+    }
+}
+
+//navigation button
+
+
+.nav-btn {
+    width: 24px;
+    height: 24px;
+    background-color: $primary-bg-color;
+    clip-path: $border-cutting-4;
+    position: relative!important;
+
+    .forward-btn {
+        clip-path: polygon(20% 0, 20% 100%, 100% 50%);
+    }
+
+    .backward-btn {
+        clip-path: polygon(80% 0, 80% 100%, 0 50%);
+    }
+
+    .forward-btn,
+    .backward-btn {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 12px;
+        height: 12px;
+        background-color: $heading-color;
+    }
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
+}
+
+.nav-btn-group {
+    display: flex;
+    gap: 8px;
+}

@@ -1,0 +1,142 @@
+﻿@using MetaG.Application.ViewModels;
+@using MetaG.Domain.Models;
+
+@model GameCategoryViewModel
+
+@{
+    var operation = Model.Id == Guid.Empty ? "Add" : "Edit";
+    var title = SharedLocalizer["{0} Category", operation];
+    ViewData["Title"] = title;
+}
+
+@section ComponentStyles {
+    <link rel="stylesheet" href="~/css/switch.css">
+    <link rel="stylesheet" href="~/lib/select2/css/select2.min.css">
+    <link rel="stylesheet" href="~/lib/cropperjs/cropper.css" />
+}
+@section Scripts {
+
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+
+    <environment include="Development">
+        <script src="~/lib/select2/js/select2.full.min.js"></script>
+        <script src="~/lib/cropperjs/cropper.js"></script>
+        <script src="~/js/gamecategory/gamecategoryedit.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/gamecategory/gamecategoryedit.min.js" asp-append-version="true"></script>
+    </environment>
+}
+
+
+<section class="content container">
+    <div class="box bg-white">
+        <form id="frmCategorySave" asp-controller="gamecategory" asp-action="save" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="UserId" />
+            <input type="hidden" asp-for="CreateDate" />
+            <input type="hidden" asp-for="LargeThumbImageUrl" />
+            <input type="hidden" asp-for="CoverImageUrl" />
+
+            <div class="box-header with-border">
+                <h3 class="card-title">Add Category</h3>
+                <h6 class="card-subtitle">
+                    @SharedLocalizer["Fill in with the Category information"]
+                </h6>
+            </div>
+            <div class="box-body p-0 p-md-2">
+                <div class="vtabs customvtab col-12 px-0">
+                    <ul class="nav nav-tabs tabs-vertical text-capitalize" role="tablist">
+                        <li class="nav-item"> <a class="nav-link active show" data-toggle="tab" href="#tabbasic" role="tab" aria-expanded="true" aria-selected="true"><span class="d-sm-none"><i class="fas fa-home" aria-hidden="true"></i></span> <span class="d-none d-sm-block">@SharedLocalizer["basic"]</span> </a> </li>
+                    </ul>
+                    <div class="tab-content p-0">
+                        <div class="tab-pane active show p-0" aria-expanded="true">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label asp-for="Name"></label>
+                                    <input asp-for="Name" type="text" class="form-control">
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label asp-for="Genre"></label>
+                                    <select asp-for="Genre" asp-items="Html.GetEnumSelectList<GameGenre>()" class="form-control">
+                                        <option selected="selected" value="">Select</option>
+                                    </select>
+                                    <span asp-validation-for="Genre" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label asp-for="Description"></label>
+                                    <textarea asp-for="Description" class="form-control" rows="3" placeholder="Type the game description here"></textarea>
+                                    <span asp-validation-for="Description" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div>&nbsp;</div>
+                            
+                            <div class="col-md-12" style="max-width:200px">
+                                <label asp-for="LargeThumbImageUrl"></label>
+                                <br />
+                                <label class="label" data-toggle="tooltip" title="" data-original-title="Change the game Thumbnail">
+                                    <img class="rounded img-fluid" id="imgGameThumbnail" src="@Model.LargeThumbImageUrl" alt="gamethumbnail">
+                                    <input type="file" class="sr-only" id="gamethumbnail" name="gamethumbnail" accept="image/*">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-6 offset-sm-6 col-md-4 offset-md-8">
+                        <button type="button" id="btnCategorySave" class="btn btn-lg btn-primary btn-block"><i class="fas fa-save" aria-hidden="true">&nbsp;</i>@SharedLocalizer["Save"]</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<div class="modal fade" id="modalCropGameThumbnail" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width:300px ; margin-left:auto ; margin-right:auto">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="img-container p-10">
+                    <img id="cropImageGameThumbnail" src="@Constants.DefaultAvatar" class="img-fluid" alt="Crop Image Game Thumbnail " width="450" height="70">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="cropGameThumbnail">Crop</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalCropGameCoverImage" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="img-container p-10">
+                    <img id="cropImageGameCoverImage" src="@Constants.DefaultAvatar" class="img-fluid" alt="Crop Image Game Cover Image">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="cropGameCoverImage">Crop</button>
+            </div>
+        </div>
+    </div>
+</div>

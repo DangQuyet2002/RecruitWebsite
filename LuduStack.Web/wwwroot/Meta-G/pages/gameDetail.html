@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Thiết lập sự sáng tạo với META-G: Nền tảng lập trình game dành riêng cho những tâm hồn sáng tạo. Tạo và chia sẻ trải nghiệm game độc đáo với người dùng trên toàn thế giới. Bắt đầu sáng tạo ngay hôm nay!">
+        <link rel="stylesheet" href="../css/app.css" />  
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        
+        <title>Document</title>
+    </head>
+    <!-- sass ./sass/app.scss ./css/app.css --watch -->
+    <body>
+        <div class="wrapper">
+            <header>
+                <div class="container">
+                    <div class="header-container">
+                        <div class="header-info">
+                            <div class="info-item-group">
+                                <div class="info-item">
+                                    <img src="../assets/icon/header-info/wifi.svg" alt="">
+                                    <p class="info-item-count" style="color: #89f9ff">6.969</p>
+                                    <p class="info-item-name">Trực tuyến</p>
+                                </div>
+
+                                <div class="info-item">
+                                    <img src="../assets/icon/header-info/user.svg" alt="">
+                                    <p class="info-item-count" style="color: #ee6db0">6.969</p>
+                                    <p class="info-item-name">Người dùng</p>
+                                </div>
+
+                                <div class="info-item">
+                                    <img src="../assets/icon/header-info/gamepad.svg" alt="">
+                                    <p class="info-item-count" style="color: #b595fc">6.969</p>
+                                    <p class="info-item-name">Tựa game</p>
+                                </div>
+
+                                <div class="info-item">
+                                    <img src="../assets/icon/header-info/handfist.svg" alt="">
+
+                                    <p class="info-item-count" style="color: #6497fa">6.969</p>
+                                    <p class="info-item-name">Nhà cung cấp</p>
+                                </div>
+                            </div>
+
+                            <div class="social-item-group">
+                                <div class="social-item"><img src="../assets/icon/socialMedia/discord.svg" alt=""></div>
+
+                                <div class="social-item"><img src="../assets/icon/socialMedia/twitter.svg" alt=""></i></div>
+
+                                <div class="social-item">
+                                    <img src="../assets/icon/socialMedia/reddit.svg" alt="">
+                                </div>
+
+                                <div class="social-item"><img src="../assets/icon/socialMedia/tiktok.svg" alt=""></div>
+
+                                <div class="social-item">
+                                    <img src="../assets/icon/socialMedia/instagram-fill.svg" alt="">
+                                </div>
+
+                                <div class="social-item"><img src="../assets/icon/socialMedia/youtube.svg" alt=""></div>
+
+                                <div class="social-item"><img src="../assets/icon/socialMedia/facebook-fill.svg" alt=""></div>
+                            </div>
+                        </div>
+
+                        <div class="navbar" id="navbar">
+                            <div class="navbar-left">
+                                <a href="../index.html" alt="">
+                                    <div class="logo">
+                                        <img src="../assets/icon/logoMetaG.png" alt="" />
+                                        <p style="color: #4e28f5">Meta</p>
+                                        <p style="color: #bd4ba3">G</p>
+                                    </div>
+                                </a>
+                                <div class="categories">
+                                    <div class="category-item">
+                                        <div class="category-name">
+                                            <img class="freefire" src="../assets/icon/nav-bar/freefire.gif" alt="">
+                                            <span>Game hot</span>
+                                            <div class="shadow"></div>
+                                        </div>
+                                        <div class="shadow-top"></div>
+                                        <div class="shadow-bottom"></div>
+                                    </div>
+
+                                    <div class="category-item">
+                                        <div class="category-name">
+                                            <img src="../assets/icon/nav-bar/handfist.svg" alt="">
+                                            <span>Hành động</span>
+                                            <div class="shadow"></div>
+                                        </div>
+                                        <div class="shadow-top"></div>
+                                        <div class="shadow-bottom"></div>
+                                    </div>
+
+                                    <div class="category-item">
+                                        <div class="category-name">
+                                            <img src="../assets/icon/nav-bar/ghost.svg" alt="">
+                                            <span>Giải trí</span>
+                                            <div class="shadow"></div>
+                                        </div>
+                                        <div class="shadow-top"></div>
+                                        <div class="shadow-bottom"></div>
+                                    </div>
+
+                                    <div class="category-item">
+                                        <div class="category-name">
+                                            <img src="../assets/icon/nav-bar/hat.svg" alt="">
+                                            <span>Giáo dục</span>
+                                            <div class="shadow"></div>
+                                        </div>
+                                        <div class="shadow-top"></div>
+                                        <div class="shadow-bottom"></div>
+                                    </div>
+
+                                    <div class="category-item">
+                                        <div class="category-name">
+                                            <img src="../assets/icon/nav-bar/insertPiece.svg" alt="">
+                                            <span>Giải đố</span>
+                                            <div class="shadow"></div>
+                                        </div>
+                                        <div class="shadow-top"></div>
+                                        <div class="shadow-bottom"></div>
+                                    </div>
+
+                                    <div class="category-item">
+                                        <div class="category-name">
+                                            <img src="../assets/icon/nav-bar/ball.svg" alt="">
+                                            <span>Thể thao</span>
+                                            <div class="shadow"></div>
+                                        </div>
+                                        <div class="shadow-top"></div>
+                                        <div class="shadow-bottom"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="navbar-right">
+                                <div class="settings">
+                                    <div class="navbar-spacer"></div>
+                                    <div class="search">
+                                        <img src="../assets/icon/nav-bar/search.svg" alt="">
+                                    </div>
+                                    <div class="navbar-spacer"></div>                              
+                                    <div class="language">
+                                        <img src="../assets/icon/nav-bar/language.svg" alt="">
+                                        <p>VN</p>
+                                    </div>
+                                    <div class="navbar-spacer"></div>
+                                </div>
+
+                                <div class="auth">
+                                    <div class="user-rank">1</div>
+                                    <div class="avatar">
+                                        <img src="../assets/images/avt/vc.png" alt="" />
+                                    </div>
+                                    <div class="user-info">
+                                        <div class="">
+                                            <p class="user-name">Sieunhangao</p>
+                                            <div class="wallet">12345678.12</div>
+                                        </div>
+                                    </div>
+                                    <a href="./guestPage.html" alt="" class="logout">
+                                        <img src="../assets/icon/logout/logout.svg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main>
+                <div class="game-detail-container">
+                    <div class="main-game-section">
+                        <div class="game-content">
+                            <img src="../assets/images/gameDetail/lol-icon.png" alt="">
+                            <p>League of Legends</p>
+                            <button class="normal-style-btn small-size">Chơi ngay</button>
+                        </div>
+                    </div>
+
+                    <div class="game-info">
+                        <div class="overview-info">
+                            <div class="heading">
+                                <h2>League of Legends</h2>
+                                <div class="user-counting">
+                                    <p>Người chơi:</p>
+                                    <span>1.123.234</span>
+                                </div>
+                            </div>
+
+                            <div class="button-group">
+                                <button class="normal-style-btn small-size">
+                                    <img src="../assets/icon/gameDetail/share.svg" alt="">
+                                    Chia sẻ
+                                </button>
+                                <button class="normal-style-btn large-size">
+                                    <img src="../assets/icon/gameDetail/bug.svg" alt="">
+                                    Báo lỗi cho nhà phát triển
+                                </button>
+                            </div>
+
+                            <div class="info-lines">
+                                <div class="info-line">
+                                    <p>Đánh giá:</p>
+                                    <span class="evaluate">4,5 <p class="evaluate-number">(1.234 lượt đánh giá)</p></span>
+                                </div>
+                                <div class="info-line">
+                                    <p>Nhà cung cấp:</p>
+                                    <span class="pink-color">RiotGames</span>
+                                </div>
+                                <div class="info-line">
+                                    <p>Ngày ra mắt:</p>
+                                    <span>16 tháng 09 năm 2023</span>
+                                </div>
+                                <div class="info-line">
+                                    <p>Thể loại:</p>
+                                    <span class="pink-color">Hành Động <p>»</p> Chiến Thuật </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="detail-info">
+                            <div class="heading">
+                                Chi tiết game
+                            </div>
+
+                            <div class="detail">
+                                Liên Minh Huyền Thoại (League of Legends) là một tựa game trực tuyến thuộc thể loại MOBA (Multiplayer Online Battle Arena) được phát triển và phát hành bởi công ty Riot Games. 
+                                Tựa game này đã ra mắt lần đầu vào năm 2009 và nhanh chóng trở thành một trong những tựa game trực tuyến phổ biến nhất trên toàn thế giới. <br>
+                                Trong Liên Minh Huyền Thoại, người chơi sẽ tham gia vào các trận đấu 5v5, trong đó mỗi người chơi sẽ điều khiển một nhân vật được gọi là "Champion". 
+                                Mục tiêu của trò chơi là tiêu diệt đội địch và phá hủy Trụ cơ bản của đối phương để chiến thắng. <br>
+                                Tựa game này có một hệ thống đa dạng với hơn 150 nhân vật (Champions) khác nhau có các khả năng và vai trò riêng. 
+                                Người chơi có thể lựa chọn nhân vật phù hợp với phong cách chơi của mình để tham gia ...
+                            </div>
+
+                            <button class="normal-style-btn small-size">Chi tiết game »</button>
+                        </div>
+                    </div>
+
+                    <div class="evaluate-section">
+                        <div class="heading">
+                            <h2>Đánh giá</h2>
+                            <div class="dot"></div>
+                            <p>1.234 đánh giá</p>
+                        </div>
+
+                        <div class="comment-input">
+                            <input type="text" placeholder="Đánh giá của bạn" />
+                            <button class="normal-style-btn small-size">Đánh giá</button>
+                        </div>
+
+                        <div class="evaluate-stars">
+                            <p>Chọn mức đánh giá</p>
+                            <div class="stars">
+                                <div class="star"></div>
+                                <div class="star"></div>
+                                <div class="star"></div>
+                                <div class="star"></div>
+                                <div class="star"></div>
+                            </div>
+                        </div>
+
+                        <div class="comments-section">
+                            <div class="user-comment">
+                                <div class="heading">
+                                    <img src="../assets/images/avt/vc.png" alt="">
+                                    <p>Sieunhangao</p>
+                                </div>
+
+                                <div class="evaluate">
+                                    <div class="stars">
+                                        <div class="star full-star"></div>
+                                        <div class="star full-star"></div>
+                                        <div class="star full-star"></div>
+                                        <div class="star full-star"></div>
+                                        <div class="star half-star"></div>
+                                    </div>
+
+                                    <p>16/09/2023</p>
+                                </div>
+
+                                <p class="comment-content">
+                                    The game has smooth combat and nice graphics but I seriously can't cope with the bad community. 
+                                    They are toxic and it has pretty much become a culture for players to swear at each other now. 
+                                    The main reason is slangs and vulgar words are not censored, not at all. 
+                                    I can't find a lobby where I don't get cursed at nowadays.
+                                </p>
+                            </div>
+
+                            <div class="user-comment">
+                                <div class="heading">
+                                    <img src="../assets/images/avt/vc-2.svg" alt="">
+                                    <p>Dongbangsongcuulong</p>
+                                </div>
+
+                                <div class="evaluate">
+                                    <div class="stars">
+                                        <div class="star full-star"></div>
+                                        <div class="star full-star"></div>
+                                        <div class="star full-star"></div>
+                                        <div class="star full-star"></div>
+                                        <div class="star half-star"></div>
+                                    </div>
+
+                                    <p>16/09/2023</p>
+                                </div>
+
+                                <p class="comment-content">
+                                    Game dễ quá chơi đi mọi người, dễ chơi dễ chúng thưởng
+                                </p>
+                            </div>
+
+                            <div class="user-comment">
+                                <div class="heading">
+                                    <img src="../assets/images/avt/vc-3.svg" alt="">
+                                    <p>tienk3soju113</p>
+                                </div>
+
+                                <div class="evaluate">
+                                    <div class="stars">
+                                        <div class="star full-star"></div>
+                                        <div class="star full-star"></div>
+                                        <div class="star full-star"></div>
+                                        <div class="star full-star"></div>
+                                        <div class="star half-star"></div>
+                                    </div>
+
+                                    <p>16/09/2023</p>
+                                </div>
+
+                                <p class="comment-content">
+                                    bóp lag, hút máu người chơi, bảo mật kém, đội ngũ không hỗ trợ tốt i think this game is trying to make the match more laggy that we can win easily. 
+                                    Moreover, AOV is only make the costume more and more expensive so that the player take a large amount of money to purchase it, 
+                                    but they don't focus on the security, that's why a lot of people are not only lose their accounts but also lose their money. 
+                                    And the support team is really bad in executing this problem. In my opinion, 1-star vote is right
+                                </p>
+                            </div>
+
+                            <div class="user-comment">
+                                <div class="heading">
+                                    <img src="../assets/images/avt/vc-4.svg" alt="">
+                                    <p>kicmiusic113</p>
+                                </div>
+
+                                <div class="evaluate">
+                                    <div class="stars">
+                                        <div class="star full-star"></div>
+                                        <div class="star full-star"></div>
+                                        <div class="star full-star"></div>
+                                        <div class="star full-star"></div>
+                                        <div class="star half-star"></div>
+                                    </div>
+
+                                    <p>16/09/2023</p>
+                                </div>
+
+                                <p class="comment-content">
+                                    Don't go get me wrong, after 2y of playing, i still think AOV is a simple and fun game to play. 
+                                    However, it suffers from some fatal drawbacks. 
+                                    Players hack, cheat, afk, swear alot and the system does nothing about it it's so frustrating. 
+                                    The language system sucks, you can't update if you play in English and the translation is like half-done. 
+                                    Third is heros balancing, the meta stays pretty much the same after years and some heros just forever stay at the bottom and never get any tweak.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="view-all">
+                            <a href="#" alt="">Xem tất cả đánh giá »»</a>
+                        </div>
+                    </div>
+
+                    <div class="border-related-games">
+                        <div class="related-games">
+                            <div class="heading">
+                                CÁC TRÒ CHƠI LIÊN QUAN
+                            </div>
+
+                            <div class="related-games-grid">
+                                <div class="related-game-item">
+                                    <img src="../assets/images/gameDetail/related-games/related-1.webp" alt="">
+                                    <div class="related-game-info">
+                                        <p>League of Legends</p>
+                                        <div class="info-lines">
+                                            <div class="info-line">
+                                                <p>Người chơi: </p>
+                                                <span>1.123.234</span>
+                                            </div>
+                                            <div class="info-line">
+                                                <p>Thể loại: </p>
+                                                <span>Hành Động - Chiến Thuật</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="related-game-item">
+                                    <img src="../assets/images/gameDetail/related-games/related-2.webp" alt="">
+                                    <div class="related-game-info">
+                                        <p>Arlene McCoy</p>
+                                        <div class="info-lines">
+                                            <div class="info-line">
+                                                <p>Người chơi: </p>
+                                                <span>1.123.234</span>
+                                            </div>
+                                            <div class="info-line">
+                                                <p>Thể loại: </p>
+                                                <span>Hành Động - Chiến Thuật</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="related-game-item">
+                                    <img src="../assets/images/gameDetail/related-games/related-3.webp" alt="">
+                                    <div class="related-game-info">
+                                        <p>Eleanor Pena</p>
+                                        <div class="info-lines">
+                                            <div class="info-line">
+                                                <p>Người chơi: </p>
+                                                <span>1.123.234</span>
+                                            </div>
+                                            <div class="info-line">
+                                                <p>Thể loại: </p>
+                                                <span>Hành Động - Chiến Thuật</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="related-game-item">
+                                    <img src="../assets/images/gameDetail/related-games/related-4.webp" alt="">
+                                    <div class="related-game-info">
+                                        <p>Darlene Robertson</p>
+                                        <div class="info-lines">
+                                            <div class="info-line">
+                                                <p>Người chơi: </p>
+                                                <span>1.123.234</span>
+                                            </div>
+                                            <div class="info-line">
+                                                <p>Thể loại: </p>
+                                                <span>Hành Động - Chiến Thuật</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="related-game-item">
+                                    <img src="../assets/images/gameDetail/related-games/related-5.webp" alt="">
+                                    <div class="related-game-info">
+                                        <p>Dragon ball super</p>
+                                        <div class="info-lines">
+                                            <div class="info-line">
+                                                <p>Người chơi: </p>
+                                                <span>1.123.234</span>
+                                            </div>
+                                            <div class="info-line">
+                                                <p>Thể loại: </p>
+                                                <span>Hành Động - Chiến Thuật</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="related-game-item">
+                                    <img src="../assets/images/gameDetail/related-games/related-6.webp" alt="">
+                                    <div class="related-game-info">
+                                        <p>Nano machine pro</p>
+                                        <div class="info-lines">
+                                            <div class="info-line">
+                                                <p>Người chơi: </p>
+                                                <span>1.123.234</span>
+                                            </div>
+                                            <div class="info-line">
+                                                <p>Thể loại: </p>
+                                                <span>Hành Động - Chiến Thuật</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="related-game-item">
+                                    <img src="../assets/images/gameDetail/related-games/related-7.webp" alt="">
+                                    <div class="related-game-info">
+                                        <p>Battle of gods</p>
+                                        <div class="info-lines">
+                                            <div class="info-line">
+                                                <p>Người chơi: </p>
+                                                <span>1.123.234</span>
+                                            </div>
+                                            <div class="info-line">
+                                                <p>Thể loại: </p>
+                                                <span>Hành Động - Chiến Thuật</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="related-game-item">
+                                    <img src="../assets/images/gameDetail/related-games/related-8.webp" alt="">
+                                    <div class="related-game-info">
+                                        <p>God of wars</p>
+                                        <div class="info-lines">
+                                            <div class="info-line">
+                                                <p>Người chơi: </p>
+                                                <span>1.123.234</span>
+                                            </div>
+                                            <div class="info-line">
+                                                <p>Thể loại: </p>
+                                                <span>Hành Động - Chiến Thuật</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="related-game-item">
+                                    <img src="../assets/images/gameDetail/related-games/related-9.webp" alt="">
+                                    <div class="related-game-info">
+                                        <p>Nice to meet you</p>
+                                        <div class="info-lines">
+                                            <div class="info-line">
+                                                <p>Người chơi: </p>
+                                                <span>1.123.234</span>
+                                            </div>
+                                            <div class="info-line">
+                                                <p>Thể loại: </p>
+                                                <span>Hành Động - Chiến Thuật</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="related-game-item">
+                                    <img src="../assets/images/gameDetail/related-games/related-10.webp" alt="">
+                                    <div class="related-game-info">
+                                        <p>Lake of monsters</p>
+                                        <div class="info-lines">
+                                            <div class="info-line">
+                                                <p>Người chơi: </p>
+                                                <span>1.123.234</span>
+                                            </div>
+                                            <div class="info-line">
+                                                <p>Thể loại: </p>
+                                                <span>Hành Động - Chiến Thuật</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="related-game-item">
+                                    <img src="../assets/images/gameDetail/related-games/related-11.webp" alt="">
+                                    <div class="related-game-info">
+                                        <p>Eat the cakes</p>
+                                        <div class="info-lines">
+                                            <div class="info-line">
+                                                <p>Người chơi: </p>
+                                                <span>1.123.234</span>
+                                            </div>
+                                            <div class="info-line">
+                                                <p>Thể loại: </p>
+                                                <span>Hành Động - Chiến Thuật</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="related-game-item">
+                                    <img src="../assets/images/gameDetail/related-games/related-12.webp" alt="">
+                                    <div class="related-game-info">
+                                        <p>It's time to rise</p>
+                                        <div class="info-lines">
+                                            <div class="info-line">
+                                                <p>Người chơi: </p>
+                                                <span>1.123.234</span>
+                                            </div>
+                                            <div class="info-line">
+                                                <p>Thể loại: </p>
+                                                <span>Hành Động - Chiến Thuật</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="./viewAll.html" class="button-div">
+                        <button class="normal-style-btn">Xem tất cả các game</button>
+                    </a>
+                </div>
+            </main>
+
+            <footer>
+                <div class="container">
+                    <div class="mail">
+                        <div class="mail-info">
+                            <strong>Trở thành đối tác độc quyền</strong>
+                            <p>Hãy là người đầu tiên biết về các ưu đãi của chúng tôi</p>
+                        </div>
+
+                        <div class="mail-box">
+                            <div class="mail-box-input">
+                                <img src="../assets/icon/footer/mail.svg" alt="">
+                                <input type="text" placeholder="Để lại email của bạn" />
+                            </div>
+                            <button>Gửi</button>
+                        </div>
+                    </div>
+
+                    <div class="footer-info">
+                        <a href="../index.html" alt="">
+                            <div class="logo">
+                                <img src="../assets/icon/logoMetaG.png" alt="" />
+                                <p style="color: #4e28f5">Meta</p>
+                                <p style="color: #bd4ba3">G</p>
+                            </div>
+                        </a>
+
+                        <div class="introduce">
+                            Chào mừng bạn đến với META-G - nơi tận hưởng trò chơi điện tử đa dạng và
+                            thú vị. Với hàng ngàn trò chơi từ nhiều thể loại khác nhau, bạn có thể
+                            trải nghiệm, thư giãn và thách thức bản thân. Giao diện đơn giản, truy
+                            cập dễ dàng và cập nhật thường xuyên là những điểm mạnh của trang web
+                            của chúng tôi. Hãy tham gia ngay và khám phá thế giới trò chơi tuyệt vời
+                            cùng chúng tôi!
+                        </div>
+
+                        <div class="contact">
+                            <div class="contact-item">
+                                <img src="../assets/icon/footer/phone.svg" alt="">
+                                <div class="contact-item-info">
+                                    <p>Số di động</p>
+                                    <p class="color">038-383-3838</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <img src="../assets/icon/footer/mail.svg" alt="">
+                                <div class="contact-item-info">
+                                    <p>Mail</p>
+                                    <p class="color">contact@metag.vn</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <img src="../assets/icon/footer/locate.svg" alt="">
+                                <div class="contact-item-info">
+                                    <p>Địa chỉ</p>
+                                    <p class="color">16 Ngõ 204 Trần Duy Hưng, Cầu Giấy, Hà Nội</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bottom-section">
+                        <div class="bottom-section-col">
+                            <p class="heading">Hành Động</p>
+                            <a href="#" class="type">Phiêu lưu</a>
+                            <a href="#" class="type">Võ Thuật</a>
+                            <a href="#" class="type">Đối Kháng</a>
+                            <a href="#" class="type">Bắn Súng</a>
+                            <a href="#" class="type">XEM TẤT CẢ >></a>
+                        </div>
+
+                        <div class="bottom-section-col">
+                            <p class="heading">Giải Trí</p>
+                            <a href="#" class="type">Xây Dựng</a>
+                            <a href="#" class="type">Âm Nhạc</a>
+                            <a href="#" class="type">Thời Trang</a>
+                            <a href="#" class="type">Nấu Ăn</a>
+                            <a href="#" class="type">XEM TẤT CẢ >></a>
+                        </div>
+
+                        <div class="bottom-section-col">
+                            <p class="heading">Giáo Dục</p>
+                            <a href="#" class="type">Từ Vựng</a>
+                            <a href="#" class="type">Toán Học</a>
+                            <a href="#" class="type">Ngôn Ngữ</a>
+                            <a href="#" class="type">Lịch Sử</a>
+                            <a href="#" class="type">XEM TẤT CẢ >></a>
+                        </div>
+
+                        <div class="bottom-section-col">
+                            <p class="heading">Giải Đố</p>
+                            <a href="#" class="type">Trí Tuệ</a>
+                            <a href="#" class="type">Giải Mã</a>
+                            <a href="#" class="type">Logic</a>
+                            <a href="#" class="type">Xếp Hình</a>
+                            <a href="#" class="type">XEM TẤT CẢ >></a>
+                        </div>
+
+                        <div class="bottom-section-col">
+                            <p class="heading">Thể Thao</p>
+                            <a href="#" class="type">Bóng Đá</a>
+                            <a href="#" class="type">Bóng Rổ</a>
+                            <a href="#" class="type">Đua Xe</a>
+                            <a href="#" class="type">Đánh Golf</a>
+                            <a href="#" class="type">XEM TẤT CẢ >></a>
+                        </div>
+                    </div>
+
+                    <div class="bottom-bar">
+                        <div class="social-item-group">
+                            <div class="social-item"><img src="../assets/icon/socialMedia/discord.svg" alt=""></div>
+
+                            <div class="social-item"><img src="../assets/icon/socialMedia/twitter.svg" alt=""></i></div>
+
+                            <div class="social-item">
+                                <img src="../assets/icon/socialMedia/reddit.svg" alt="">
+                            </div>
+
+                            <div class="social-item"><img src="../assets/icon/socialMedia/tiktok.svg" alt=""></div>
+
+                            <div class="social-item">
+                                <img src="../assets/icon/socialMedia/instagram-fill.svg" alt="">
+                            </div>
+
+                            <div class="social-item"><img src="../assets/icon/socialMedia/youtube.svg" alt=""></div>
+
+                            <div class="social-item"><img src="../assets/icon/socialMedia/facebook-fill.svg" alt=""></div>
+                        </div>
+
+                        <div class="copyright">© 2023, All Rights Reserved</div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <div class="mobile-menu" id="menu">
+            <div class="spacer-mobile-menu"></div>
+            <div class="heading">
+                <div class="user-info">
+                    <div class="">
+                        <p class="user-name">Sieunhangao</p>
+                        <div class="wallet"> <img src="../assets/icon/coin/Coins.png" alt="">  12345678.12</div>
+                    </div>
+                </div>
+
+                <a class="logout" href="./guestPage.html" alt="">
+                    <img src="../assets/icon/logout/logout.svg" alt="">
+                </a>
+            </div>
+            <div class="spacer-mobile-menu"></div>
+
+            <div class="categories-menu-mobile">
+                <div class="category-item-mobile">
+                        <div class="category-name-mobile">
+                            <img class="freefire" src="../assets/icon/nav-bar/freefire.gif" alt="">
+                            <span>Game hot</span>
+                            <div class="shadow"></div>
+                        </div>
+                        <div class="shadow-top"></div>
+                        <div class="shadow-bottom"></div>
+                    </div>
+
+                <div class="category-item-mobile">
+                        <div class="category-name-mobile">
+                            <img src="../assets/icon/nav-bar/handfist.svg" alt="">
+                            <span>Hành động<span>
+                            <div class="shadow"></div>
+                        </div>
+                        <div class="shadow-top"></div>
+                        <div class="shadow-bottom"></div>
+                    </div>
+
+                <div class="category-item-mobile">
+                        <div class="category-name-mobile">
+                            <img src="../assets/icon/nav-bar/ghost.svg" alt="">
+                            <span>Giải trí</span>
+                            <div class="shadow"></div>
+                        </div>
+                        <div class="shadow-top"></div>
+                        <div class="shadow-bottom"></div>
+                    </div>
+
+                <div class="category-item-mobile">
+                        <div class="category-name-mobile">
+                            <img src="../assets/icon/nav-bar/hat.svg" alt="">
+                            <span>Giáo dục</span>
+                            <div class="shadow"></div>
+                        </div>
+                        <div class="shadow-top"></div>
+                        <div class="shadow-bottom"></div>
+                    </div>
+
+                <div class="category-item-mobile">
+                        <div class="category-name-mobile">
+                            <img src="../assets/icon/nav-bar/insertPiece.svg" alt="">
+                            <span>Giải đố</span>
+                            <div class="shadow"></div>
+                        </div>
+                        <div class="shadow-top"></div>
+                        <div class="shadow-bottom"></div>
+                    </div>
+
+                <div class="category-item-mobile">
+                        <div class="category-name-mobile">
+                            <img src="../assets/icon/nav-bar/ball.svg" alt="">
+                            <span>Thể thao</span>
+                            <div class="shadow"></div>
+                        </div>
+                        <div class="shadow-top"></div>
+                        <div class="shadow-bottom"></div>
+                    </div>               
+            </div>
+
+            <div class="spacer-mobile-menu"></div>
+            <div class="language">
+                <img src="../assets/icon/nav-bar/language.svg" alt="">
+                <p>VN</p>
+            </div>
+            <div class="spacer-mobile-menu"></div>
+
+            <div class="menu-mobile-info">
+                <div class="social-item-group">
+                    <div class="social-item"><img src="../assets/icon/socialMedia/discord.svg" alt=""></div>
+    
+                    <div class="social-item"><img src="../assets/icon/socialMedia/twitter.svg" alt=""></i></div>
+    
+                    <div class="social-item">
+                        <img src="../assets/icon/socialMedia/reddit.svg" alt="">
+                    </div>
+    
+                    <div class="social-item"><img src="../assets/icon/socialMedia/tiktok.svg" alt=""></div>
+    
+                    <div class="social-item">
+                        <img src="../assets/icon/socialMedia/instagram-fill.svg" alt="">
+                    </div>
+    
+                    <div class="social-item"><img src="../assets/icon/socialMedia/youtube.svg" alt=""></div>
+    
+                    <div class="social-item"><img src="../assets/icon/socialMedia/facebook-fill.svg" alt=""></div>
+                </div>
+                
+                <div class="info-item-group">
+                    <div class="info-item">
+                        <img src="../assets/icon/header-info/wifi.svg" alt="">
+                        <p class="info-item-count" style="color: #89f9ff">6.969</p>
+                        <p class="info-item-name">Trực tuyến</p>
+                    </div>
+
+                    <div class="info-item">
+                        <img src="../assets/icon/header-info/user.svg" alt="">
+                        <p class="info-item-count" style="color: #ee6db0">6.969</p>
+                        <p class="info-item-name">Người dùng</p>
+                    </div>
+
+                    <div class="info-item">
+                        <img src="../assets/icon/header-info/gamepad.svg" alt="">
+                        <p class="info-item-count" style="color: #b595fc">6.969</p>
+                        <p class="info-item-name">Tựa game</p>
+                    </div>
+
+                    <div class="info-item">
+                        <img src="../assets/icon/header-info/handfist.svg" alt="">
+
+                        <p class="info-item-count" style="color: #6497fa">6.969</p>
+                        <p class="info-item-name">Nhà cung cấp</p>
+                    </div>
+                </div>       
+            </div>
+
+        </div>
+        
+        <div class="nav-menu-mobile">
+            <div class="nav-menu-item">
+                <img src="../assets/icon/mobile/home.svg" alt="">
+                <p>Trang chủ</p>
+            </div>
+            <div class="nav-menu-item">
+                <img src="../assets/icon/mobile/gamepad.svg" alt="">
+                <p>Danh mục</p>
+            </div>
+            <div class="nav-menu-item">
+                <img src="../assets/icon/mobile/search.svg" alt="">
+                <p>Tìm kiếm</p>
+            </div>
+            <div class="nav-menu-item" id="toggle-menu">
+                <img id="toggle-menu-icon" src="../assets/icon/mobile/menu.svg" alt="">
+                <p id="toggle-menu-name">Menu</p>
+            </div>
+        </div>
+    </body>
+    <script src="../js/fixedHeaderSideBar.js"></script>
+    <script src="../js/toggleMenu.js"></script>
+
+</html>

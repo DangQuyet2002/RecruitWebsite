@@ -1,0 +1,680 @@
+﻿@using MetaG.Application.ViewModels;
+@model DataHomeViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutHomePage.cshtml";
+}
+<style>
+    .content-handbook {
+        padding-top:20px;
+    }
+    .content-handbook.container {
+        padding: 20px;
+        background-color: #252244;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+
+    .content-handbook-title {
+        color: #ddd;
+        font-size: 24px;
+        margin-bottom: 20px;
+        text-align:center;
+    }
+
+    .content-handbook-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 20px;
+    }
+
+    .content-handbook-item {
+        margin-bottom: 20px;
+    }
+
+    .content-handbook-item-img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .content-handbook-item-title {
+        color: #ddd;
+        font-size: 17px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        line-height: 1.5;
+        max-height: 1.5em; /* 3 lines with 1.5em line-height */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+
+    .content-handbook-item-text {
+        color: #ddd;
+        font-size: 15px;
+        line-height: 1.5;
+        max-height: 4.5em; /* 3 lines with 1.5em line-height */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+
+    .content-handbook-seemore {
+        text-align: center;
+    }
+
+    .content-handbook-seemore-text {
+        color: rgb(69 29 160);
+        font-size: 18px;
+        margin-top: 40px;
+    }
+
+    /*Job*/
+    .box {
+        display: flex;
+        margin-left: -10px;
+        margin-right: -4px;
+        justify-content: space-between;
+    }
+
+    .box_group {
+        width: 49%;
+        border-radius: 4px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: end;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .box_notify-item {
+    }
+
+    .box__notify-link {
+        display: flex;
+        padding: 16px;
+        text-decoration: none;
+    }
+
+    .box__notify-info {
+        margin: auto 16px;
+        width: 80%;
+    }
+
+    .box_border{
+        padding: 20px;
+        background-color: #252244;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+
+    .box_link-img {
+        width: 25%;
+        border-radius: 4px;
+    }
+
+    .box__notify-name {
+        display: block;
+        font-size: 1rem;
+        color: white;
+    }
+
+    .box__notify-description {
+        font-size: 0.7rem;
+        font-weight: 200;
+        line-height: 1.6rem;
+        margin: 10px 1px 6px;
+        width: 100%;
+        overflow: hidden;
+        display: block;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        text-overflow: ellipsis;
+    }
+
+    .box_group-like {
+        position: absolute;
+        margin: 8px 18px 8px 18px;
+    }
+
+    .box_link-icon {
+        justify-content: space-between;
+        margin: 3px 10px 0 0;
+        color: #595959;
+        font-size: 0.8rem;
+        font-weight: 100;
+        color:white;
+    }
+
+    .box_link-icon-tab {
+        margin: 0 4px 0 4px;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .col-md-4 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+        padding-right: 15px;
+    }
+    .page-title-box {
+        display: flex;
+        font-size:12px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .box_group {
+        width:100%;
+        border: 0.5px solid rgb(227 238 251) !important;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .box_group-like {
+        display: flex;
+        align-items: center;
+    }
+
+    .box__notify-link {
+        display: flex;
+        align-items: center;
+    }
+
+    .box_link-img {
+        max-width: 100%;
+    }
+
+    .box__notify-info {
+        margin-left: 10px;
+    }
+
+    .box_link-icon {
+        display: flex;
+        align-items: center;
+    }
+
+    .see_more {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .see_more-btn {
+        padding: 10px 20px;
+        background-color: #ccc;
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .banner-qc {
+        flex: 1;
+        margin: 10px;
+        border: 2px solid #ccc; 
+        border-radius: 10px; 
+        overflow: hidden; 
+    }
+
+    .banner-qc img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px; 
+    }
+
+    .item {
+        flex-basis: calc(100% / 7 - 10px);
+        margin-bottom: 10px;
+        border: 1px solid #252244;
+        transition: border-color 0.3s ease;
+        border-radius: 10px;
+    }
+
+    .item:not(:last-child) {
+        margin-right: 10px;
+    }
+
+    .item img {
+        max-width: 100%;
+    }
+
+    .item:hover {
+        border-color: crimson;
+    }
+
+    .item-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .image-title {
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+    .image-description{
+        font-size: 13px;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+</style>
+
+@*@section GameHotContent {
+    <div class="top-rank">
+        @{
+            await Html.RenderPartialAsync("GameOutstanding", Model.GameOutstanding);
+        }
+    </div>
+}*@
+
+
+<div class="sectionA swiper-sectionA">
+    @{
+        await Html.RenderPartialAsync("ListBanner", Model.ListBanner);
+    }
+</div>
+
+
+<div class="content-handbook container">
+    <div class="row">
+        <div class="col-12" style="padding-bottom:20px ; padding-left:10px;">
+            <div class="page-title-box">
+                <h2 class="mb-sm-0">Nghề Nghiệp Nổi Bật</h2>
+            </div>
+        </div>
+    </div>
+    <h2 class="content-handbook-title"> </h2>
+    <div class="job" style="display:flex ; justify-content: space-between;">
+        <div class="item">
+            <div class="item-content">
+                <img src="~/meta-g/assets/images/1.jpg" />
+                <h5 class="image-title"><a style="color:mediumorchid">1000 </a>- việc</h5>
+                <p class="image-description">Bán sỉ - Bán lẻ - Quản lý cửa hàng</p>
+            </div>
+            
+        </div>
+        <div class="item">
+            <div class="item-content">
+                <img src="~/meta-g/assets/images/2.jpg" />
+                <h5 class="image-title"><a style="color:mediumorchid">1000 </a>- việc</h5>
+                <p class="image-description">Bán sỉ - Bán lẻ - Quản lý cửa hàng</p>
+            </div>
+
+        </div>
+        <div class="item">
+            <div class="item-content">
+                <img src="~/meta-g/assets/images/3.jpg" />
+                <h5 class="image-title"><a style="color:mediumorchid">1000 </a>- việc</h5>
+                <p class="image-description">Bán sỉ - Bán lẻ - Quản lý cửa hàng</p>
+            </div>
+
+        </div>
+        <div class="item">
+            <div class="item-content">
+                <img src="~/meta-g/assets/images/4.jpg" />
+                <h5 class="image-title"><a style="color:mediumorchid">1000 </a>- việc</h5>
+                <p class="image-description">Bán sỉ - Bán lẻ - Quản lý cửa hàng</p>
+            </div>
+
+        </div>
+        <div class="item">
+            <div class="item-content">
+                <img src="~/meta-g/assets/images/5.jpg" />
+                <h5 class="image-title"><a style="color:mediumorchid">1000 </a>- việc</h5>
+                <p class="image-description">Bán sỉ - Bán lẻ - Quản lý cửa hàng</p>
+            </div>
+
+        </div>
+        <div class="item">
+            <div class="item-content">
+                <img src="~/meta-g/assets/images/6.jpg" />
+                <h5 class="image-title"><a style="color:mediumorchid">1000 </a>- việc</h5>
+                <p class="image-description">Bán sỉ - Bán lẻ - Quản lý cửa hàng</p>
+            </div>
+            
+        </div>
+        <div class="item">
+            <div class="item-content">
+                <img src="~/meta-g/assets/images/8.jpg" />
+                <h5 class="image-title"><a style="color:mediumorchid">1000 </a>- việc</h5>
+                <p class="image-description">Bán sỉ - Bán lẻ - Quản lý cửa hàng</p>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="container box_border">
+        <div class="row">
+            <div class="col-12" style="padding-bottom:20px ; padding-left:10px;">
+                <div class="page-title-box">
+                    <h2 class="mb-sm-0">Việc làm tuyển gấp</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="box_group">
+                    <div class="box_group-like">
+                        <i class="fa-sharp fa-solid fa-heart"></i>
+                    </div>
+                    <div class="box__notify-link">
+                        <img src="~/meta-g/assets/images/job/vieclam24h_logo_customer.jpg" alt="" class="box_link-img">
+                        <div class="box__notify-info">
+                            <span class="box__notify-name">Thực Tập Sinh .NET</span>
+                            <span class="box__notify-description">
+                                CÔNG TY GIÁO DỤC VÀ Y TẾ NAM VIỆT
+                            </span>
+                            <div class="box_link-icon">
+                                <i class="box_link-icon-tab fa-solid fa-sack-dollar"></i>
+                                7-10tr
+                                <i class="box_link-icon-tab fa-sharp fa-solid fa-location-dot"></i>
+                                Hà Nội
+                                <i class="box_link-icon-tab fa-regular fa-calendar"></i>
+                                28/02/2023
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box_group">
+                    <div class="box_group-like">
+                        <i class="fa-sharp fa-solid fa-heart"></i>
+                    </div>
+                    <div class="box__notify-link">
+                        <img src="~/meta-g/assets/images/job/vieclam24h_logo_customer.jpg" alt="" class="box_link-img">
+                        <div class="box__notify-info">
+                            <span class="box__notify-name">Thực Tập Sinh .NET</span>
+                            <span class="box__notify-description">
+                                CÔNG TY GIÁO DỤC VÀ Y TẾ NAM VIỆT
+                            </span>
+                            <div class="box_link-icon">
+                                <i class="box_link-icon-tab fa-solid fa-sack-dollar"></i>
+                                7-10tr
+                                <i class="box_link-icon-tab fa-sharp fa-solid fa-location-dot"></i>
+                                Hà Nội
+                                <i class="box_link-icon-tab fa-regular fa-calendar"></i>
+                                28/02/2023
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box_group">
+                    <div class="box_group-like">
+                        <i class="fa-sharp fa-solid fa-heart"></i>
+                    </div>
+                    <div class="box__notify-link">
+                        <img src="~/meta-g/assets/images/job/vieclam24h_logo_customer.jpg" alt="" class="box_link-img">
+                        <div class="box__notify-info">
+                            <span class="box__notify-name">Thực Tập Sinh .NET</span>
+                            <span class="box__notify-description">
+                                CÔNG TY GIÁO DỤC VÀ Y TẾ NAM VIỆT
+                            </span>
+                            <div class="box_link-icon">
+                                <i class="box_link-icon-tab fa-solid fa-sack-dollar"></i>
+                                7-10tr
+                                <i class="box_link-icon-tab fa-sharp fa-solid fa-location-dot"></i>
+                                Hà Nội
+                                <i class="box_link-icon-tab fa-regular fa-calendar"></i>
+                                28/02/2023
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box_group">
+                    <div class="box_group-like">
+                        <i class="fa-sharp fa-solid fa-heart"></i>
+                    </div>
+                    <div class="box__notify-link">
+                        <img src="~/meta-g/assets/images/job/vieclam24h_logo_customer.jpg" alt="" class="box_link-img">
+                        <div class="box__notify-info">
+                            <span class="box__notify-name">Thực Tập Sinh .NET</span>
+                            <span class="box__notify-description">
+                                CÔNG TY GIÁO DỤC VÀ Y TẾ NAM VIỆT
+                            </span>
+                            <div class="box_link-icon">
+                                <i class="box_link-icon-tab fa-solid fa-sack-dollar"></i>
+                                7-10tr
+                                <i class="box_link-icon-tab fa-sharp fa-solid fa-location-dot"></i>
+                                Hà Nội
+                                <i class="box_link-icon-tab fa-regular fa-calendar"></i>
+                                28/02/2023
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box_group">
+                    <div class="box_group-like">
+                        <i class="fa-sharp fa-solid fa-heart"></i>
+                    </div>
+                    <div class="box__notify-link">
+                        <img src="~/meta-g/assets/images/job/vieclam24h_logo_customer.jpg" alt="" class="box_link-img">
+                        <div class="box__notify-info">
+                            <span class="box__notify-name">Thực Tập Sinh .NET</span>
+                            <span class="box__notify-description">
+                                CÔNG TY GIÁO DỤC VÀ Y TẾ NAM VIỆT
+                            </span>
+                            <div class="box_link-icon">
+                                <i class="box_link-icon-tab fa-solid fa-sack-dollar"></i>
+                                7-10tr
+                                <i class="box_link-icon-tab fa-sharp fa-solid fa-location-dot"></i>
+                                Hà Nội
+                                <i class="box_link-icon-tab fa-regular fa-calendar"></i>
+                                28/02/2023
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box_group">
+                    <div class="box_group-like">
+                        <i class="fa-sharp fa-solid fa-heart"></i>
+                    </div>
+                    <div class="box__notify-link">
+                        <img src="~/meta-g/assets/images/job/vieclam24h_logo_customer.jpg" alt="" class="box_link-img">
+                        <div class="box__notify-info">
+                            <span class="box__notify-name">Thực Tập Sinh .NET</span>
+                            <span class="box__notify-description">
+                                CÔNG TY GIÁO DỤC VÀ Y TẾ NAM VIỆT
+                            </span>
+                            <div class="box_link-icon">
+                                <i class="box_link-icon-tab fa-solid fa-sack-dollar"></i>
+                                7-10tr
+                                <i class="box_link-icon-tab fa-sharp fa-solid fa-location-dot"></i>
+                                Hà Nội
+                                <i class="box_link-icon-tab fa-regular fa-calendar"></i>
+                                28/02/2023
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box_group">
+                    <div class="box_group-like">
+                        <i class="fa-sharp fa-solid fa-heart"></i>
+                    </div>
+                    <div class="box__notify-link">
+                        <img src="~/meta-g/assets/images/job/vieclam24h_logo_customer.jpg" alt="" class="box_link-img">
+                        <div class="box__notify-info">
+                            <span class="box__notify-name">Thực Tập Sinh .NET</span>
+                            <span class="box__notify-description">
+                                CÔNG TY GIÁO DỤC VÀ Y TẾ NAM VIỆT
+                            </span>
+                            <div class="box_link-icon">
+                                <i class="box_link-icon-tab fa-solid fa-sack-dollar"></i>
+                                7-10tr
+                                <i class="box_link-icon-tab fa-sharp fa-solid fa-location-dot"></i>
+                                Hà Nội
+                                <i class="box_link-icon-tab fa-regular fa-calendar"></i>
+                                28/02/2023
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box_group">
+                    <div class="box_group-like">
+                        <i class="fa-sharp fa-solid fa-heart"></i>
+                    </div>
+                    <div class="box__notify-link">
+                        <img src="~/meta-g/assets/images/job/vieclam24h_logo_customer.jpg" alt="" class="box_link-img">
+                        <div class="box__notify-info">
+                            <span class="box__notify-name">Thực Tập Sinh .NET</span>
+                            <span class="box__notify-description">
+                                CÔNG TY GIÁO DỤC VÀ Y TẾ NAM VIỆT
+                            </span>
+                            <div class="box_link-icon">
+                                <i class="box_link-icon-tab fa-solid fa-sack-dollar"></i>
+                                7-10tr
+                                <i class="box_link-icon-tab fa-sharp fa-solid fa-location-dot"></i>
+                                Hà Nội
+                                <i class="box_link-icon-tab fa-regular fa-calendar"></i>
+                                28/02/2023
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box_group">
+                    <div class="box_group-like">
+                        <i class="fa-sharp fa-solid fa-heart"></i>
+                    </div>
+                    <div class="box__notify-link">
+                        <img src="~/meta-g/assets/images/job/vieclam24h_logo_customer.jpg" alt="" class="box_link-img">
+                        <div class="box__notify-info">
+                            <span class="box__notify-name">Thực Tập Sinh .NET</span>
+                            <span class="box__notify-description">
+                                CÔNG TY GIÁO DỤC VÀ Y TẾ NAM VIỆT
+                            </span>
+                            <div class="box_link-icon">
+                                <i class="box_link-icon-tab fa-solid fa-sack-dollar"></i>
+                                7-10tr
+                                <i class="box_link-icon-tab fa-sharp fa-solid fa-location-dot"></i>
+                                Hà Nội
+                                <i class="box_link-icon-tab fa-regular fa-calendar"></i>
+                                28/02/2023
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+@*<div class="container">
+    <div class="border-slide-section">
+        @{
+            await Html.RenderPartialAsync("GameMostplayers", Model.MostPlayers);
+        }
+    </div>
+    <div class="categories-section">
+        @{
+            await Html.RenderPartialAsync("ListCategory", Model.ListCategory);
+        }
+    </div>
+    <div class="border-slide-section">
+        @{
+            await Html.RenderPartialAsync("GetPaidGames", Model.GetPaidGames);
+        }
+    </div>
+</div>
+<div class="banner-section">
+    @{
+        await Html.RenderPartialAsync("BannerContact");
+    }
+</div>
+
+<div class="container">
+    <div class="second-slide-section-group">
+        @{
+            await Html.RenderPartialAsync("GamesWithPrizes");
+        }
+
+        <div class="slide-spacer"></div>
+
+        @{
+            await Html.RenderPartialAsync("GameChallenge");
+        }   
+    </div>
+</div>*@
+<div class="container" style="display: flex;justify-content: center ; padding-top:15px; cursor:pointer">
+    <div class="banner-qc">
+        <img src="~/meta-g/assets/images/content/banner-home-create-cv-small.png" />
+    </div>
+    <div class="banner-qc">
+        <img src="~/meta-g/assets/images/content/banner-home-exploring-small.png" />
+    </div>
+</div>
+
+
+<div class="content-handbook container">
+    <div class="row">
+            <div class="col-12" style="padding-bottom:20px ; padding-left:10px;">
+                <div class="page-title-box">
+                <h2 class="mb-sm-0">Cẩm nang nghề nghiệp</h2>
+                </div>
+            </div>
+        </div>
+    <div class="content-handbook-list">
+        <div class="content-handbook-item col-xl-4 col-12">
+            <div class="content-handbook-item-list">
+                <img src="~/meta-g/assets/images/content/coaching-la-gi-06.jpg" alt="" class="content-handbook-item-img">
+                <div class="content-handbook-item-title">Coaching là gì? Kỹ năng cần thiết để thành công trong nghề Coaching.</div>
+                <div class="content-handbook-item-text">
+                    Coaching là một nghề đang hot hiện nay, hấp dẫn rất nhiều bạn trẻ. Tuy nhiên, không phải ai cũng hiểu coaching nghĩa là gì. Bài viết này giúp bạn nắm được những khái niệm cơ bản về coaching, nghề coaching và coaching online là gì. Đồng thời, bài viết cũng sẽ giải đáp thắc mắc: Nếu muốn theo đuổi nghề coaching, bạn cần có những kỹ năng nào để thành công?
+                </div>
+            </div>
+        </div>
+        <div class="content-handbook-item col-xl-4 col-12">
+            <div class="content-handbook-item-list">
+                <img src="~/meta-g/assets/images/content/Hoa-don-do-la-gi-06.jpg" alt="" class="content-handbook-item-img">
+                <div class="content-handbook-item-title">Hóa đơn đỏ là gì? Quy trình xuất hóa đơn đỏ.</div>
+                <div class="content-handbook-item-text">
+                    Coaching là một nghề đang hot hiện nay, hấp dẫn rất nhiều bạn trẻ. Tuy nhiên, không phải ai cũng hiểu coaching nghĩa là gì. Bài viết này giúp bạn nắm được những khái niệm cơ bản về coaching, nghề coaching và coaching online là gì. Đồng thời, bài viết cũng sẽ giải đáp thắc mắc: Nếu muốn theo đuổi nghề coaching, bạn cần có những kỹ năng nào để thành công?
+                </div>
+            </div>
+        </div>
+        <div class="content-handbook-item col-xl-4 col-12">
+            <div class="content-handbook-item-list">
+                <img src="~/meta-g/assets/images/content/outsource-la-gi-thumbnail.jpg" alt="" class="content-handbook-item-img">
+                <div class="content-handbook-item-title">Outsource là gì? Làm thế nào để quản lý outsource hiệu quả nhất?.</div>
+                <div class="content-handbook-item-text">
+                    Bên cạnh việc tuyển dụng và sử dụng nguồn nhân lực nội bộ, nhiều công ty còn lựa chọn hình thức outsource (thuê ngoài) cho một số vị trí hoặc công việc. Outsource có thể giúp các công ty cắt giảm chi phí và tối ưu hóa năng suất công việc. Tuy nhiên để đạt được mục đích này, các công ty cần đảm bảo công tác quản lý outsource hiệu quả. Vậy làm thế nào để quy trình outsource mang đến nhiều lợi ích nhất?
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-handbook-seemore">
+        <p class="content-handbook-seemore-text">
+            Xem thêm cẩm nang nghề nghiệp
+
+        </p>
+    </div>
+</div>
+

@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = SharedLocalizer["Idea Machine"];
+    ViewData["Description"] = SharedLocalizer["Generate random game ideas."];
+    ViewData["Url"] = ViewData["BaseUrl"] + Url.Action("index", "gameidea", new { area = "tools" });
+    ViewData["OgImage"] = ViewData["BaseUrl"] + "/images/og/ogcreativemachine.png";
+
+    var isAjax = ViewContext.HttpContext.Request.IsAjaxRequest();
+    var canInteract = User.Identity.IsAuthenticated;
+
+    if (isAjax)
+    {
+        Layout = null;
+    }
+
+    var showAds = (bool)(ViewData["ShowAds"] ?? false);
+}
+
+@section ComponentStyles {
+    <link href='https://fonts.googleapis.com/css?family=Chelsea Market:700,400' rel='stylesheet' type='text/css'>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/gameidea.css">
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/gameidea.min.css">
+    </environment>
+}
+
+@section Scripts {
+    <environment include="Development">
+        <script src="~/js/shared/gameideamachine.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/shared/gameideamachine.min.js" asp-append-version="true"></script>
+    </environment>
+
+    <script>
+        $(function () {
+            GAMEIDEAMACHINE.Init();
+        })
+    </script>
+}
+
+@section TranslatedMessages {
+    <span class="msg" data-msg-id="msgUrlPlaceholder">@SharedLocalizer["placeholder message"]</span>
+}
+
+<section class="content container">
+    <div id="featurecontainer" class="pb-3 bg-light">
+        <input type="hidden" id="urls" value="urls"
+               data-url-get-elements="@Url.Action("getelements", "gameidea", new { area = "tools" })" />
+        <input type="hidden" id="isajax" value="@isAjax.ToString().ToLower()" />
+        <input type="hidden" id="gameIdeaStandalone" value="true" />
+
+        <div class="row">
+            <div class="col-12 py-3 px-4 mb-2">
+                <h1><i class="fas fa-fw fa-dice" aria-hidden="true"></i> @ViewData["Title"]</h1>
+            </div>
+
+            <div class="col-12 px-4">
+                <p>@SharedLocalizer["Are you in a creative block? Need an idea for a game? Here is where your problems end. Press the button below to generate an awesome brand new idea for you to work on. If you don't like one of the aspects the machine picked for you, just click on it to pick just that aspect again."]</p>
+            </div>
+
+            <div class="col-12 px-4 text-center">
+                <p>@Html.Raw(SharedLocalizer["There are {0} possible combinations.", "<span id=\"txtCombinations\">999</span>"])</p>
+            </div>
+
+            <div class="col-12 mb-4">
+                <partial name="_IdeaGenerator" />
+            </div>
+
+            @if (!canInteract)
+            {
+                <div class="col-12 text-center">
+                    <span class="rounded-0 border-0">@SharedLocalizer["If you like this tool, consider joining our community by"] <a asp-area="" asp-controller="account" asp-action="register" asp-route-returnUrl="@Url.Action("index", "gameidea", new { area = "tools" })" class="text-uppercase">@SharedLocalizer["clicking here"]</a>.</span>
+                </div>
+            }
+
+            <div class="col-12 text-center"><span>@SharedLocalizer["Wanna know how much it would cost to produce this game?"]</span> <span class="font-weight-bold">@Html.ActionLink(SharedLocalizer["Check it out!"], "index", "costcalculator", new { area = "tools" })</span></div>
+        </div>
+
+        @if (showAds)
+        {
+            <div class="rounded-0 p-2 mb-2 mt-3">
+                <partial name="_GoogleAdFeed" />
+            </div>
+        }
+    </div>
+</section>

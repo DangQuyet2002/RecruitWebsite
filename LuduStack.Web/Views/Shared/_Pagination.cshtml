@@ -1,0 +1,52 @@
+﻿@model IPagination
+@{
+    Layout = null;
+
+    var threshold = Constants.PagingThreshold;
+}
+
+<div class="d-flex flex-row">
+    @if (Model.TotalPageCount > 1)
+    {
+        <nav aria-label="@SharedLocalizer[" Pagination"]">
+            <ul class="pagination pagination-sm mb-2">
+                @for (int i = 1; i <= Model.TotalPageCount; i++)
+                {
+                    var absDiff = Math.Abs(Model.Page - i);
+
+                    if (absDiff <= threshold)
+                    {
+                        <li class="page-item@(i == Model.Page ? " active" : string.Empty)">
+                            <a asp-protocol="@ViewData[" protocol"]" asp-host="@ViewData[" host"]" asp-area="@Model.Area" asp-controller="@Model.Controller" asp-action="@Model.Action" asp-route-page="@i" title="@SharedLocalizer[" Page {0}", i]" class="page-link text-center">@i</a>
+                        </li>
+                    }
+                    else if (absDiff == (threshold + 1))
+                    {
+                        <li class="page-item">
+                            <span class="page-link text-muted text-center">...</span>
+                        </li>
+                    }
+                }
+            </ul>
+        </nav>
+    }
+
+    <div class="d-block pagination pagination-sm ml-auto mb-2">
+        @if (!string.IsNullOrWhiteSpace(Model.PaginationMessage))
+        {
+            <span class="d-inline-block rounded page-link text-muted">@SharedLocalizer[Model.PaginationMessage, Model.TotalCount]</span>
+        }
+
+        @if (Model.TotalCount > 1)
+        {
+            if (Model.Bottom)
+            {
+                <button type="button" class="d-inline-block rounded page-link text-muted btn-scrollto btn-scrollto-top" title="@SharedLocalizer["Scroll to the top"]"><i class="fas fa-angle-double-up" aria-hidden="true"></i></button>
+            }
+            else
+            {
+                <button type="button" class="d-inline-block rounded page-link text-muted btn-scrollto btn-scrollto-bottom" title="@SharedLocalizer["Scroll to the bottom"]"><i class="fas fa-angle-double-down" aria-hidden="true"></i></button>
+            }
+        }
+    </div>
+</div>

@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Company>LuduStack</Company>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LuduStack.Domain.Core\LuduStack.Domain.Core.csproj" />
+  </ItemGroup>
+
+</Project>

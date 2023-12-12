@@ -1,0 +1,97 @@
+//font
+$font: 'Montserrat';
+
+//color
+$text-color: #fff;
+$heading-color: #f377d7;
+$aqua-text-color: #89f9ff; //value text
+$gray-text-color: #84819a; //key
+$gray-darker-text-color: #b7b2dc;
+$yellow-text-color: #fed843;
+$pink-text-color: #DA4472;
+$pink-darker-text-color: #BD4BA3;
+$heading-footer-text-color: #4e28f5;
+$social-item-color: #676581;
+$primary-bg-color: #252244;
+$darker-bg-color: #141225;
+$shadow-color: #373749;
+$shadow-side-color: #8b8a9e;
+$input-bg-color: #34305E;
+//border
+$border-cutting-8: polygon(
+    8px 0,
+    calc(100% - 8px) 0,
+    100% 8px,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    8px 100%,
+    0 calc(100% - 8px),
+    0 8px
+);
+
+$border-cutting-4: polygon(
+    4px 0,
+    calc(100% - 4px) 0,
+    100% 4px,
+    100% calc(100% - 4px),
+    calc(100% - 4px) 100%,
+    4px 100%,
+    0 calc(100% - 4px),
+    0 4px
+);
+
+$border-cutting-9: polygon(
+    9px 0,
+    calc(100% - 9px) 0,
+    100% 9px,
+    100% calc(100% - 9px),
+    calc(100% - 9px) 100%,
+    9px 100%,
+    0 calc(100% - 9px),
+    0 9px
+);
+
+$border-cutting-right-side-8: polygon(
+    0 0,
+    calc(100% - 8px) 0,
+    100% 8px,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    0 100%
+);
+
+$border-cutting-right-side-12: polygon(
+    0 0,
+    calc(100% - 12px) 0,
+    100% 12px,
+    100% calc(100% - 12px),
+    calc(100% - 12px) 100%,
+    0 100%
+);
+
+
+$border-cutting-8-tr-corner: polygon( 
+    8px 0,
+    100% 0,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    8px 100%,
+    0 calc(100% - 8px),
+    0 8px
+); //top right
+
+$border-cutting-8-down-corner: polygon( 
+    0 0,
+    100% 0,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    8px 100%,
+    0 calc(100% - 8px),
+); //only bottom cutting
+
+
+//Item size
+$logout-button-width: 54px;
+$user-info-div-width: 192px;
+
+

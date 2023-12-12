@@ -1,0 +1,107 @@
+﻿@model GameViewModel
+@{
+    Layout = null;
+    var externalLinks = Model.ExternalLinks.Where(x => !x.IsStore && (x.Type == ExternalLinkType.General || x.Type == ExternalLinkType.ProfileAndGame));
+}
+
+<div><img src="@Model.ThumbnailUrl" class="rounded w-100 img-fluid" alt="@SharedLocalizer["Game Thumbnail"]" /></div>
+
+@if (externalLinks.Any())
+{
+    <div class="col-12 mt-n4 text-center">
+        @foreach (var item in externalLinks)
+        {
+            <a href="@item.Value" target="_blank" class="mt-1 btn rounded-circle btn-social-icon @(item.ColorClass)">
+                <i class="@item.IconClass" aria-hidden="true"></i>
+            </a>
+        }
+    </div>
+}
+else
+{
+    <span>&nbsp;</span>
+}
+
+<hr class="m-0 my-2" />
+
+<div class="game-info rounded-0 bg-white">
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-6 form-label text-uppercase item">
+                    @SharedLocalizer["Genre"]
+                </div>
+                @*<div class="col-6 itemvalue">
+                    @SharedLocalizer[Model.Genre.ToUiInfo().Display]
+                </div>*@
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="row">
+                <div class="col-6 form-label text-uppercase item">
+                    @SharedLocalizer["Engine"]
+                </div>
+                <div class="col-6 itemvalue">
+                    @if (Model.Engine == GameEngine.Custom)
+                    {
+                        @(String.IsNullOrWhiteSpace(Model.CustomEngineName) ? SharedLocalizer["Custom"] : String.Format("({0})", Model.CustomEngineName))
+                    }
+                    else
+                    {
+                        @Model.Engine
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="row">
+                <div class="col-6 form-label text-uppercase item">
+                    @SharedLocalizer["Main Language"]
+                </div>
+                <div class="col-6 itemvalue">
+                    @Model.Language.ToDisplayName()
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="row">
+                <div class="col-6 form-label text-uppercase item">
+                    @SharedLocalizer["Status"]
+                </div>
+                <div class="col-6 itemvalue">
+                    @Model.Status
+                </div>
+            </div>
+        </div>
+        @if (Model.ReleaseDate.HasValue)
+        {
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-6 form-label text-uppercase item">
+                        @SharedLocalizer["Release Date"]
+                    </div>
+                    <div class="col-6 itemvalue">
+                        @Model.ReleaseDate.Value.ToShortDateString()
+                    </div>
+                </div>
+            </div>
+        }
+        @if (Model.Platforms.Any())
+        {
+            <div class="col-12">
+                <hr />
+                <div class="row text-center">
+                    <div class="col-12 form-label text-uppercase item">
+                        @SharedLocalizer["Platforms"]
+                    </div>
+                    <div class="col-12 itemvalue release-platforms">
+                        @foreach (var platform in Model.Platforms)
+                        {
+                            <i class="fab fa-2x fa-@(platform.GetAttributeOfType<UiInfoAttribute>().Class)" aria-hidden="true" title="@platform"></i>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

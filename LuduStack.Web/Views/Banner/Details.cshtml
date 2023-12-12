@@ -1,0 +1,215 @@
+﻿@model UserContentViewModel
+@{
+    ViewData["Title"] = Model.Title;
+    ViewData["Description"] = Model.Introduction.Contains(SharedLocalizer["Content posted on"]) ? SharedLocalizer["Content posted on"] + " " + Model.CreateDate.ToString() : String.Format("{0} - {1}", Model.Title, Model.Introduction);
+    ViewData["Url"] = ViewData["BaseUrl"] + Url.Action("details", "content", new { id = Model.Id });
+    ViewData["OgImage"] = Model.FeaturedImage;
+    ViewData["OgType"] = "article";
+
+    var hasFeaturedImage = !string.IsNullOrWhiteSpace(Model.FeaturedImage);
+    var featuredImageIsYoutube = hasFeaturedImage && Model.FeaturedImage.Contains("youtu");
+
+    var showAds = (bool)(ViewData["ShowAds"] ?? false);
+}
+
+@section OpenGraphMeta {
+    <meta property="og:article:author" content="@Model.AuthorName">
+}
+
+@section Styles {
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/polls.css" />
+        <link rel="stylesheet" href="~/lib/nanogallery2/css/nanogallery2.min.css">
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/contentdetails.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nanogallery2/3.0.5/css/nanogallery2.min.css"
+              integrity="sha512-6sOT9zKSKq1CYgNMqtcY84tFPDnG1yX5mxwdGQiAVpAomVr2kUKJ//pFeU/KfaZDVCOru5iFOVswpT4RWWF2dQ=="
+              crossorigin="anonymous" />
+    </environment>
+}
+
+@section Scripts {
+
+    <environment include="Development">
+        <script src="~/js/shared/polls.js"></script>
+        <script src="~/js/shared/contentactions.js"></script>
+        <script src="~/lib/nanogallery2/jquery.nanogallery2.js"></script>
+        <script src="~/js/shared/gallery.js"></script>
+        <script src="~/js/content/contentdetails.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/nanogallery2/3.0.5/jquery.nanogallery2.min.js"
+                integrity="sha512-tvpLVnZrWnnNzV2921XEMx4xkFTUF8xg3s+Mi6cvC/R7A6X1FkpBUXPJFa3Xh5uD9BvOZ2tHeYq/5ZqrweW86Q=="
+                crossorigin="anonymous"></script>
+
+        <script src="~/js/content/contentdetails.min.js" asp-append-version="true"></script>
+    </environment>
+
+    <script src="~/lib/embedo/embedo.min.js"></script>
+    <script>
+        if (typeof Embedo === 'function') {
+            var embedo = new Embedo({
+                youtube: true,
+                facebook: {
+                    appId: $('meta[property="fb:app_id"]').attr('content'),
+                    version: 'v3.2',
+                    width: "100%"
+                }
+            });
+
+            var oembeds = $('oembed');
+
+            oembeds.each(function (index, element) {
+                $(element).find('embed').hide();
+
+                var w = $(element).closest('.videowrapper').width();
+                var h = w * 9 / 16;
+
+                embedo.load(element, element.innerHTML, {
+                    width: w,
+                    height: h,
+                    centerize: true,
+                    strict: false
+                })
+                    .done(function (xpto) {
+                        //$(element).find('embed').addClass('embed-responsive').show();
+                    });
+            });
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+        "@@context":"http://schema.org",
+        "@@type":"SocialMediaPosting",
+        "@@id":"@(ViewData["Url"])",
+        "headline":"@(JavaScriptEncoder.Default.Encode(Model.Title))",
+        "image": "@((hasFeaturedImage && featuredImageIsYoutube) || !hasFeaturedImage ? ViewData["BaseUrl"] + "/images/og/img_facebook600x315.png" : ViewData["BaseUrl"] + Model.FeaturedImage)",
+        "datePublished": "@Model.CreateDate.ToString("yyyy-MM-dd")",
+        "author":{
+        "@@type":"Person",
+        "name":"@Model.AuthorName",
+        "url":"@(ViewData["BaseUrl"] + "/u/" + Model.UserHandler)"
+        }
+        },
+        "sharedContent":{
+        "@@type":"WebPage",
+        "headline":"@(JavaScriptEncoder.Default.Encode(Model.Introduction))",
+        "url":"@(ViewData["Url"])",
+        "image": "@Model.FeaturedImage",
+        "author":{
+        "@@type":"Person",
+        "name":"@Model.AuthorName"
+        }
+        }
+        }
+    </script>
+}
+
+<section class="content container">
+    <div class="box box-content p-0 bg-white contentitem htmlcontent">
+        <div class="col-12 p-2">
+            <div class="row">
+                <div class="col-12">
+                    <h1 data-language="@Model.Language" class="float-left @(!Model.IsComplex ? "sr-only" : string.Empty)">
+                        @Model.Title
+                    </h1>
+                    @if (Model.Permissions.CanEdit)
+                    {
+                        <span class="float-right">
+                            <a asp-area="" asp-controller="content" asp-action="edit" asp-route-id="@Model.Id" class="btn btn-default bg-transparent"><i class="fa fa-pencil-alt" aria-hidden="true"></i></a>
+                        </span>
+                    }
+                </div>
+            </div>
+        </div>
+        @if (Model.HasFeaturedImage)
+        {
+            <div class="box-body p-0 text-center overflow-hidden rounded-0">
+                @if (Model.FeaturedMediaType == MediaType.Youtube)
+                {
+                    <div class="videowrapper"><oembed>@Model.FeaturedImage</oembed></div>
+                }
+                else if (Model.FeaturedMediaType == MediaType.Video)
+                {
+                    <video src="@Model.FeaturedImage" width="500" height="281" controls>
+                        <track kind="captions" src="~/default.vtt" srclang="en">
+                    </video>
+                }
+                else
+                {
+                    <img data-src="@Model.FeaturedImage" src="@Model.FeaturedImageLquip" class="img-fluid lazyload blur-up" style="width:100%" alt="@(String.IsNullOrWhiteSpace(Model.Title) ? SharedLocalizer["User Content"] : Model.Title)" />
+                }
+            </div>
+        }
+        <div class="box-body">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <partial name="_AuthorDetails" model="Model" />
+                </div>
+                @if (Model.GameId.HasValue)
+                {
+                    <div class="col-12 col-md-6 text-right">
+                        <div>
+                            <a asp-area="" asp-controller="game" asp-action="details" asp-route-id="@Model.GameId">
+                                <span class="mr-2">@Model.GameTitle</span>
+                                <img src="@Model.GameThumbnail" height="50" class="float-right" alt="Game Thumbnail" />
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+            @Html.Raw(Model.Introduction)
+        </div>
+        <hr />
+
+        <div class="box-body">
+            @Html.Raw(Model.Content)
+        </div>
+
+        @if (Model.HasPoll)
+        {
+            <div class="poll-wrapper">
+                @{
+                    var pollName = String.Format("poll_{0}", Model.Id);
+                    <ul class="poll @(User.Identity.IsAuthenticated ? "canvote" : " cannotvote")" id="@pollName">
+                        @for (int i = 0; i < Model.Poll.PollOptions.Count; i++)
+                        {
+                            var option = Model.Poll.PollOptions.ElementAt(i);
+                            var optionName = String.Format("poll_{0}_{1}", Model.Id, option.Id);
+                            <li class="@(option.CurrentUserVoted ? "voted" : "notvoted") ">
+                                <span class="perc-back" style="width: @String.Format("{0}%", option.VotePercentageText)"></span>
+                                <input type="radio" class="poll-option" name="@pollName" id="@optionName" value="@option.Id">
+                                <label for="@optionName">
+                                    <span>@option.Text</span>
+                                </label>
+                                <span class="perc-number">@(option.VotePercentageText)%</span>
+                            </li>
+                        }
+                    </ul>
+                    <div class="col-12 px-3 text-right">
+                        <span class="poll-vote-count">@Model.Poll.TotalVotes</span>
+                        &nbsp;@SharedLocalizer["votes"]
+                    </div>
+                }
+            </div>
+        }
+
+        @if (showAds)
+        {
+            <div class="rounded-0 p-0 px-lg-5 my-3 mx-auto">
+                <partial name="_GoogleAdFeed" />
+            </div>
+        }
+
+        @if (Model.Media.Count > 1)
+        {
+            <div class="tab-pane m-3">
+                <div class="mediagallery" id="postgallery" data-isgallery="true" data-hasitems="@(Model.Media.Count > 0 ? "true" : "false")" data-items="@Model.NanoGaleryJson">
+                </div>
+            </div>
+        }
+
+        <partial name="_CommentSection" model="Model" />
+    </div>
+</section>

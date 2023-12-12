@@ -1,0 +1,173 @@
+﻿@model ForumPostViewModel
+@{
+    ViewData["Title"] = Model.Title;
+    ViewData["Description"] = SharedLocalizer["Topic posted on {0}", Model.CreateDate.ToString()];
+    ViewData["Url"] = ViewData["BaseUrl"] + Url.Action("viewtopic", "forum", new { area = "community", id = Model.Id });
+    ViewData["OgImage"] = ViewData["BaseUrl"] + "/images/og/ogforums.png";
+    ViewData["OgImageWidth"] = 1200;
+    ViewData["OgImageHeight"] = 630;
+
+    var authorUrl = Url.Action("details", "profile", new { area = string.Empty, userHandler = Model.UserHandler });
+    var authorLink = string.Format("<a href=\"{0}\" class=\"boldlink\">{1}</a>", authorUrl, Model.AuthorName);
+
+    var categoryUrl = Url.Action("category", "forum", new { area = "community", handler = Model.CategoryHandler });
+    var categoryLink = string.Format("<a href=\"{0}\" class=\"boldlink\">{1}</a>", categoryUrl, Model.CategoryName);
+
+    var replyModel = new ForumPostViewModel
+    {
+        Id = Guid.Empty,
+        ForumCategoryId = Model.ForumCategoryId,
+        OriginalPostId = Model.OriginalPostId
+    };
+
+    var goToLastest = (bool)(ViewData["latest"] ?? false);
+}
+
+@section OpenGraphMeta {
+    <meta property="og:article:author" content="@Model.AuthorName">
+}
+
+@section Styles {
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/highlightjs/styles/default.min.css">
+        <link rel="stylesheet" href="~/lib/nanogallery2/css/nanogallery2.min.css">
+        <link rel="stylesheet" href="~/css/forum.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/styles/default.min.css"
+              integrity="sha512-3xLMEigMNYLDJLAgaGlDSxpGykyb+nQnJBzbkQy2a0gyVKL2ZpNOPIj1rD8IPFaJbwAgId/atho1+LBpWu5DhA=="
+              crossorigin="anonymous"
+              referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nanogallery2/3.0.5/css/nanogallery2.min.css"
+              integrity="sha512-6sOT9zKSKq1CYgNMqtcY84tFPDnG1yX5mxwdGQiAVpAomVr2kUKJ//pFeU/KfaZDVCOru5iFOVswpT4RWWF2dQ=="
+              crossorigin="anonymous" />
+        <link rel="stylesheet" href="~/css/contentdetails.min.css" asp-append-version="true" />
+    </environment>
+}
+
+@section Scripts {
+    <environment include="Development">
+        <script src="~/thirdparty/ckeditor5-build-classic/build/ckeditor.js"></script>
+        <script src="~/lib/highlightjs/highlight.min.js"></script>
+        <script src="~/lib/highlightjs/languages/csharp.min.js"></script>
+        <script src="~/js/shared/pagination.js"></script>
+        <script src="~/js/shared/wysiwygeditor.js"></script>
+        <script src="~/js/forum/forumcommon.js"></script>
+        <script src="~/js/forum/forumpostdetails.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/thirdparty/ckeditor5-build-classic/build/ckeditor.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js"
+                integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ=="
+                crossorigin="anonymous"
+                referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/csharp.min.js"
+                integrity="sha512-X18ZEfQ3SPnexB5QRmg4fp9QjaFa/jEiw7J1TsWWPIJGgvVyLXrI8fdaZOqbbsfX5byF9/CovS++zG5QL8EZ+A=="
+                crossorigin="anonymous"
+                referrerpolicy="no-referrer"></script>
+        <script src="~/js/forum/forumpostdetails.min.js" asp-append-version="true"></script>
+    </environment>
+    <script type="application/ld+json">
+        {
+        "@@context":"http://schema.org",
+        "@@type":"DiscussionForumPosting",
+        "@@id":"@(ViewData["Url"])",
+        "headline":"@(JavaScriptEncoder.Default.Encode(Model.Title))",
+        "datePublished": "@Model.CreateDate.ToString("yyyy-MM-dd")",
+        "author":{
+        "@@type":"Person",
+        "name":"@Model.AuthorName",
+        "url":"@(ViewData["BaseUrl"] + "/u/" + Model.UserHandler)"
+        }
+        },
+        "sharedContent":{
+        "@@type":"WebPage",
+        "url":"@(ViewData["Url"])",
+        "author":{
+        "@@type":"Person",
+        "name":"@Model.AuthorName"
+        }
+        }
+        }
+    </script>
+}
+@section TranslatedMessages {
+    <span class="msg" data-msg-id="msgNeedLoginToVote">@SharedLocalizer["You need to be logged in to be able to vote on posts."]</span>
+}
+
+<section id="featurecontainer" class="col-12 container">
+    <input type="hidden" id="urls" value="urls"
+           data-url-replies="@Url.Action("repliesbytopic", "forum", new { area = "community", topicId = Model.Id, latest = goToLastest })"
+           data-url-vote="@Url.Action("vote", "forum", new { area = "community" })" />
+    @if (goToLastest)
+    {
+        <input type="hidden" id="hdnLatest" value="1" />
+    }
+
+    <div class="box p-0 bg-white htmlcontent">
+
+        <div class="col-12 p-2">
+            <div class="row">
+                <div class="col-12">
+                    <div class="float-left mr-2">
+                        <a asp-area="community" asp-controller="forum" asp-action="category" asp-route-handler="@Model.CategoryHandler" class="btn btn-outline-secondary"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                    </div>
+                    <h1 data-language="@Model.Language" class="h3">
+                        @(string.IsNullOrWhiteSpace(Model.Title) ? Html.Raw("&nbsp;") : Model.Title)
+                    </h1>
+                    <hr class="my-2" />
+                    <span class="badge badge-dark d-inline">@SharedLocalizer[Model.Language.ToString()]</span>
+                    <span class="d-inline">@Html.Raw(SharedLocalizer["Posted by {0} on {1}, {2}", authorLink, categoryLink, Model.CreatedRelativeTime])</span>
+                </div>
+            </div>
+        </div>
+
+        <partial name="_ForumPostViewEdit" model="Model" />
+
+        <div id="divReplies">
+            <hr class="m-2" />
+        </div>
+    </div>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="p-0 bg-white postreply">
+            <form id="frmSendReply" asp-area="community" asp-controller="forum" asp-action="savepost" method="post">
+                <input type="hidden" asp-for="ForumCategoryId" />
+                <input type="hidden" asp-for="OriginalPostId" />
+                <input type="hidden" asp-for="Language" />
+                <input type="hidden" id="hdnReplyPostId" name="ReplyPostId" />
+                <input type="hidden" id="hdnReplyUserId" name="ReplyUserId" />
+
+                <div class="d-flex p-3">
+                    <div class="mr-2">
+                        <img class="rounded-circle" src="@ViewData["ProfileImage"]" alt="This is @ViewData["Username"]">
+                    </div>
+
+                    <div class="d-flex flex-fill flex-column">
+                        <div id="postreplyalert" class="alert alert-info d-none" role="alert">
+                            @Html.Raw(SharedLocalizer["Replying to {0}", string.Format("<span id=\"postreplyauthorname\">{0}</span>", "meh").ToString()])
+
+                            <button type="button" class="close" id="btnclosereplyalert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="mb-2">
+                            <textarea id="txtContentNewReply" name="Content" class="form-control txtReply wysiwygeditor" rows="5"></textarea>
+                        </div>
+
+                        <div class="d-flex">
+                            <div class="mr-auto">
+                                <a asp-area="community" asp-controller="forum" asp-action="category" asp-route-handler="@Model.CategoryHandler" class="btn btn-outline-secondary"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-lg btn-primary text-capitalize btn-post-save-reply"><i class="far fa-paper-plane" aria-hidden="true"></i> @SharedLocalizer["reply"]</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    }
+</section>

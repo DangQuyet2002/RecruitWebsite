@@ -1,0 +1,89 @@
+# ASP.NET Core (.NET Framework)
+# Build and test ASP.NET Core projects targeting the full .NET Framework.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- development
+- master
+pr:
+- master
+
+pool:
+  name: Azure Pipelines
+  vmImage: 'windows-2022'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+  artifactName: 'ludustackweb'
+  isMain: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
+
+steps:
+    - task: freestyle@0
+      displayName: Semantic Release
+      inputs:
+        gitHubServiceConnection: 'githubindievisible'
+        configPath: '.releaserc'
+        cwd: '$(Build.Repository.LocalPath)'
+
+    - task: gittagloader@1
+      inputs:
+        filter: 'Latest'
+        lines: '100'
+      condition: and(succeeded(), eq(variables.isMain, true))
+
+    - bash: |
+        echo "Latest Tag Found: $(Tag.Label)"
+      displayName: Echo Tag
+      condition: and(succeeded(), eq(variables.isMain, true))
+
+    - bash: |
+        echo "##vso[build.updatebuildnumber]$(Tag.Label)"
+      name: SetReleaseBuildNumber
+      displayName: Set Release Build Number
+      condition: and(succeeded(), eq(variables.isMain, true))
+
+    - task: DotNetCoreCLI@2
+      displayName: Restore Packages
+      inputs:
+        command: 'restore'
+        projects: '$(solution)'
+
+    - task: DotNetCoreCLI@2
+      displayName: Build Solution
+      inputs:
+        command: 'build'
+        projects: '$(solution)'
+        arguments: '--configuration $(buildConfiguration) --no-restore'
+
+    - task: DotNetCoreCLI@2
+      displayName: 'Run Tests'
+      inputs:
+        command: 'test'
+        projects: '**/*Tests.csproj'
+        arguments: '--configuration $(buildConfiguration) --no-restore --no-build --logger trx --collect:"XPlat Code Coverage" --settings coverlet.runsettings'
+        workingDirectory: '$(Build.SourcesDirectory)'
+
+    - task: PublishCodeCoverageResults@1
+      displayName: 'Publish code coverage'
+      inputs:
+        codeCoverageTool: 'Cobertura'
+        summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
+
+    - task: DotNetCoreCLI@2
+      displayName: Publish
+      inputs:
+        command: publish
+        projects: '$(solution)'
+        arguments: '--configuration $(buildConfiguration) --output $(build.artifactstagingdirectory)'
+        publishWebProjects: true
+        zipAfterPublish: true
+
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact'
+      inputs:
+        PathtoPublish: '$(build.artifactstagingdirectory)'
+        ArtifactName: '$(artifactName)'
+

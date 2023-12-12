@@ -1,0 +1,166 @@
+﻿@{ Layout = "~/Views/Help/_HelpLayout.cshtml";
+    ViewData["Title"] = SharedLocalizer["special thanks"].Value.ToUpper();
+    ViewData["Description"] = SharedLocalizer["We want to thank everyone that at some point helped us. Thank you all! You are awesome!"];
+    ViewData["Url"] = ViewData["BaseUrl"] + Url.Action("specialthanks", "help", new { area = string.Empty });
+    ViewData["OgImage"] = ViewData["BaseUrl"] + "/images/og/oglove.png";
+    ViewData["OgImageWidth"] = 1200;
+    ViewData["OgImageHeight"] = 630;
+
+    ViewData["HelpActive"] = "specialthanks"; }
+
+<h3 class="text-capitalize">
+    @SharedLocalizer["people"]
+</h3>
+
+<div class="table-responsive">
+    <table class="table table-bordered hover table-striped">
+        <caption class="sr-only">@SharedLocalizer["Here are our special thanks for people."]</caption>
+        <thead>
+            <tr class="text-capitalize">
+                <th scope="col">@SharedLocalizer["who"]</th>
+                <th scope="col">@SharedLocalizer["what"]</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <a asp-area="" asp-controller="profile" asp-action="details" asp-route-userHandler="cadko">
+                        Denis Mokhin
+                    </a>
+                </td>
+                <td>
+                    The first person to support the idea and to join the team. Thank you, my friend!
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a asp-area="" asp-controller="profile" asp-action="details" asp-route-userHandler="diegoras">
+                        Diego Ras
+                    </a>
+                </td>
+                <td>
+                    Great suggestions about the localization tool and hard work on testing. Thank you so much!
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a asp-area="" asp-controller="profile" asp-action="details" asp-route-userHandler="blasterlizardco">
+                        Blaster Lizard Co.
+                    </a>
+                </td>
+                <td>
+                    All the support and testing. Thank you!
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a asp-area="" asp-controller="profile" asp-action="details" asp-route-userHandler="kleberandrade">
+                        Kleber Andrade
+                    </a>
+                </td>
+                <td>
+                    Thank you for all your support and for being such an inspiration to me.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a asp-area="" asp-controller="profile" asp-action="details" asp-route-userHandler="m-r-williams">
+                        Max Williams
+                    </a>
+                </td>
+                <td>
+                    Testing and bug reporting.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a asp-area="" asp-controller="profile" asp-action="details" asp-route-userHandler="thepoinball">
+                        ThePoinball
+                    </a>
+                </td>
+                <td>
+                    For some great testing and bug reporting!
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a asp-area="" asp-controller="profile" asp-action="details" asp-route-userHandler="igor">
+                        CHILL & PLAY
+                    </a>
+                </td>
+                <td>
+                    For great insights and suggestions.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a asp-area="" asp-controller="profile" asp-action="details" asp-route-userHandler="indiexpo">
+                        indiexpo
+                    </a>
+                </td>
+                <td>
+                    For keeping a constant flow of posts on the platform. Thanks!
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://www.reddit.com/user/nrcoyote" target="_blank" rel="noopener noreferrer">
+                        nrcoyote (reddit)
+                    </a>
+                </td>
+                <td>
+                    Thank you for teaching me about computer assisted translation and game localization process.
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<hr />
+<h3 class="text-capitalize">
+    @SharedLocalizer["assets"]
+</h3>
+
+<div class="table-responsive">
+    <table class="table table-bordered hover table-striped">
+        <caption class="sr-only">@SharedLocalizer["Here are our special thanks for assets."]</caption>
+        <thead>
+            <tr class="text-capitalize">
+                <th scope="col">@SharedLocalizer["who"]</th>
+                <th scope="col">@SharedLocalizer["what"]</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <a href="https://www.flaticon.com/authors/freepik" target="_blank" rel="noopener noreferrer">
+                        freepik
+                    </a>
+                </td>
+                <td>
+                    Thank you for the awesome <a href="https://www.flaticon.com/packs/flags-collection-5" target="_blank" rel="noopener noreferrer">hexagon flags icon collection</a>.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://www.flaticon.com/authors/vectors-market" target="_blank" rel="noopener noreferrer">
+                        Vectors Market
+                    </a>
+                </td>
+                <td>
+                    Thank you for the great <a href="https://www.flaticon.com/packs/office-32" target="_blank" rel="noopener noreferrer">Office Icon Pack</a> and the <a href="https://www.flaticon.com/packs/medals-and-rewards" target="_blank" rel="noopener noreferrer">Medals and Rewards Icon Pack</a>.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://www.flaticon.com/authors/smashicons" target="_blank" rel="noopener noreferrer">
+                        Smashicons
+                    </a>
+                </td>
+                <td>
+                    Thank you for the beautifl <a href="https://www.flaticon.com/packs/game-development-3" target="_blank" rel="noopener noreferrer">Game Development Icon Pack</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

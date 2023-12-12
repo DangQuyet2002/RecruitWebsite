@@ -1,0 +1,443 @@
+.border-second-slide-section {
+    position: relative;
+    width: 48%;
+    background-color: $primary-bg-color;
+    clip-path: $border-cutting-8;
+    padding: 2px;
+    height: auto;
+}
+
+.second-slide-section {
+    padding: 12px;
+    background-color: $darker-bg-color;
+    clip-path: $border-cutting-8;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    
+
+    .heading {
+        display: flex;
+        gap: 16px;
+        p {
+            font-size: 24px;
+            text-transform: uppercase;
+            color: $heading-color;
+            letter-spacing: 0.65px;
+            word-wrap: break-word;
+        }
+    }
+
+    .slide-banner {
+        margin-top: 10px;
+        height: 262px;
+        background-color: $primary-bg-color;
+        clip-path: $border-cutting-8;
+        position: relative;
+        z-index: 1;
+
+        .first-div {
+            position: relative;
+            height: 100%;
+            width: 80%;
+            background: linear-gradient(104deg, #7d45f1 0%, rgba(125, 69, 241, 0) 100%);
+            clip-path: polygon(
+                0 0,
+                calc(100% - 12px) 0,
+                100% 12px,
+                calc(100% - 125px) 100%,
+                0 100%
+            );
+            z-index: 2;
+
+            .parallelogram {
+                position: absolute;
+                width: 200px;
+                height: 100px;
+                background-color: #495bfa1a;
+                clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+                z-index: 3;
+            }
+
+            .num1 {
+                top: 50%;
+                left: 6%;
+                transform: translateY(-50%);
+            }
+
+            .num2 {
+                top: 15%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .num3 {
+                top: 0;
+                right: 6%;
+            }
+
+            .num4 {
+                bottom: 5%;
+                right: 20%;
+            }
+        }
+
+        .rating {
+            position: absolute;
+            left: 2%;
+            top: 0;
+            z-index: 4;
+        }
+
+        .gift {
+            position: absolute;
+            right: 15%;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 4;
+        }
+
+        .text {
+            position: absolute;
+            left: 8%;
+            bottom: 20%;
+            z-index: 4;
+            h2 {
+                font-size: 16px;
+                font-weight: 700;
+                letter-spacing: 17px;
+                word-wrap: break-word;
+            }
+
+            h1 {
+                font-size: 28px;
+                font-weight: 700;
+                letter-spacing: 4px;
+                word-wrap: break-word;
+            }
+        }
+        .second-banner-text {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 4;
+            h1 {
+                font-size: 32px;
+                font-weight: 700;
+                letter-spacing: 15px;
+                word-wrap: break-word;
+            }
+            h2 {
+                font-size: 18px;
+                font-weight: 400;
+                word-wrap: break-word;
+            }
+        }
+
+        .rocket {
+            position: absolute;
+            left: 0;
+            top: 10%;
+            z-index: 4;
+        }
+
+        .rectangle {
+            position: absolute;
+            left: 25%;
+            bottom: 1%;
+            z-index: 4;
+        }
+
+        .union {
+            position: absolute;
+            left: 37%;
+            top: 2%;
+            z-index: 4;
+        }
+
+        .moneybag {
+            position: absolute;
+            right: 2%;
+            top: 10%;
+            z-index: 4;
+        }
+
+        .eclipse {
+            position: absolute;
+            right: 3%;
+            bottom: 10%;
+            z-index: 4;
+        }
+
+        .vector {
+            position: absolute;
+            left: 12%;
+            bottom: 10%;
+            z-index: 4;
+        }
+
+        .second-banner-first-div-width {
+            width: 40%;
+        }
+    }
+
+    .game-item-group {
+        margin-top: 12px;
+        height: auto;
+    }
+}
+
+@media only screen and (max-width: 1368px) {
+    .border-second-slide-section {
+        width: 100%;
+    }
+
+    .second-slide-section {
+        .heading {
+            display: flex;
+            align-items: center;
+        }
+
+        .game-item-group {
+            margin-top: 24px;
+            
+        }
+
+        .slide-banner {
+            .second-banner-first-div-width {
+                width: 60%;
+            }
+
+            .text {
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+
+                h2 {
+                    font-size: 20px;
+                }
+
+                h1 {
+                    font-size: 44px;
+                }
+            }
+
+            .gift {
+                right: 5%;
+            }
+
+            .rocket {
+                left: 14%;
+            }
+
+            .vector {
+                left: 22%;
+            }
+
+            .moneybag {
+                right: 22%;
+            }
+
+            .eclipse {
+                right: 23%;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 960px) {
+    .border-second-slide-section {
+        background: transparent;
+    }
+
+    .second-slide-section {
+        padding: 0;
+
+        .slide-banner {
+            .text {
+                text-align: center;
+                width: 100%;
+                left: 40%;
+                top: 60%;
+                text-wrap: wrap;
+
+                h2 {
+                    font-size: 20px;
+                    letter-spacing: 25px;
+                    margin-bottom: 4px;
+                }
+
+                h1 {
+                    font-size: 44px;
+                }
+            }
+
+            .gift {
+                right: 2%;
+            }
+
+            .second-banner-first-div-width {
+                width: 40%;
+            }
+
+            .rocket {
+                left: 2%;
+            }
+
+            .vector {
+                left: 14%;
+            }
+
+            .moneybag {
+                right: 2%;
+            }
+
+            .eclipse {
+                right: 4%;
+            }
+        }
+
+        .game-item-group {
+            margin-top: 24px;
+            
+        }
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .border-second-slide-section {
+        clip-path: none;
+    }
+
+    .second-slide-section {
+        padding: 0;
+        width: 100%;
+        clip-path: none;
+
+        .heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: row-reverse;
+            gap: 24px;
+            p {
+                font-size: 18px;
+                text-wrap: wrap;
+            }
+        }
+
+        .slide-banner {
+            margin-bottom: 12px;
+            .second-banner-first-div-width {
+                width: 96%;
+            }
+
+            .gift {
+                width: 120px;
+                transform: none;
+                top: 4%;
+            }
+
+            .rating {
+                width: 200px;
+            }
+
+            .first-div {
+                width: 96%;
+
+                .parallelogram {
+                    width: 150px;
+                    height: 75px;
+                }
+            }
+
+            .text {
+                left: 50%;
+                top: 72%;
+
+                h2 {
+                    font-size: 16px;
+                    letter-spacing: 12px;
+                    margin-bottom: 4px;
+                }
+
+                h1 {
+                    font-size: 24px;
+                }
+            }
+
+            .rectangle,
+            .eclipse,
+            .vector {
+                display: none;
+            }
+
+            .rocket {
+                width: 80px;
+                left: 6%;
+            }
+
+            .union {
+                left: 84%;
+            }
+
+            .moneybag {
+                right: 37%;
+                top: 10%;
+            }
+
+            .vector-mobile {
+                position: absolute;
+                left: 23%;
+                bottom: 48%;
+                z-index: 4;
+            }
+
+            .second-banner-text {
+                top: 70%;
+
+                h1 {
+                    font-size: 16px;
+                    letter-spacing: 12px;
+                    margin-bottom: 4px;
+                }
+
+                h2 {
+                    display: flex;
+                    justify-content: center;
+                    font-size: 24px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    word-wrap: break-word;
+                    letter-spacing: 5px;
+                }
+            }
+        }
+
+        .slider3 {
+            .remove-mobile {
+                width: 0;
+                display: none !important;
+            }
+
+            .slider3-mobile {
+                width: 100%;
+                display: flex !important;
+            }
+        }
+
+        .slider4 {
+            .remove-mobile {
+                width: 0;
+                display: none !important;
+            }
+
+            .slider4-mobile {
+                width: 100%;
+                display: flex !important;
+            }
+        }
+    }
+}

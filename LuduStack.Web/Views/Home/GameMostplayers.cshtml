@@ -1,0 +1,60 @@
+﻿@using LuduStack.Domain.Models;
+@using MetaG.Application.ViewModels;
+@model List<Game>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<div class="slide-section swiper">
+    <div class="heading">
+        <p class="mobile">tựa game miễn phí nổi bật</p>
+
+        <div class="nav-btn-group">
+            <div class="nav-btn swiper-button-prev backward-button">
+                <div class="backward-btn"></div>
+            </div>
+            <div class="nav-btn swiper-button-next forward-button">
+                <div class="forward-btn"></div>
+            </div>
+        </div>
+
+        <p class="desktop">tựa game miễn phí nổi bật</p>
+    </div>
+
+    <div class="slide-section-items swiper-wrapper" id="game-list">
+        @foreach (var item in Model)
+        {
+        <div class="game-item swiper-slide">
+            <div class="left-content">
+                    <img src="@item.ThumbnailUrl" alt="" />
+                <div class="score">4,5</div>
+            </div>
+
+            <div class="right-content">
+                <div class="info">
+                    <div class="info-heading">
+                            <p class="game-name">@item.Title</p>
+                            <p class="release-date">@item.PublishDate</p>
+                    </div>
+
+                    <div class="lines">
+                        <div class="info-line">
+                            <p>Người chơi:</p>
+                                <span>@item.NumberPlays</span>
+                        </div>
+                        <div class="info-line">
+                            <p>Thể loại:</p>
+                                <span>@item.Genre</span>
+                        </div>
+                        <div class="info-line">
+                            <p>Nhà cung cấp:</p>
+                                <span>@item.DeveloperName</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="@Url.Action("Details", "game", new { id = item.Id })" class="styled-btn max-size">CHƠI NGAY</a>
+            </div>
+        </div>
+        }
+    </div>
+</div>

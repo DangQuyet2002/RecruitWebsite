@@ -1,0 +1,490 @@
+.game-detail-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.main-game-section {
+    background: url(../../assets/images/gameDetail/lol-bg.webp) center no-repeat;
+    height: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -92px;
+    .game-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+
+        img {
+            clip-path: $border-cutting-8;
+        }
+
+        p {
+            font-size: 28px;
+            font-weight: 700;
+        }
+    }
+}
+
+.game-info {
+    display: flex;
+    gap: 24px;
+
+    .overview-info,
+    .detail-info {
+        width: 50%;
+        background-color: $primary-bg-color;
+        clip-path: $border-cutting-8;
+        padding: 12px;
+    }
+
+    .overview-info {
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+        gap: 24px;
+
+        .heading {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            h2 {
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 120%;
+            }
+
+            .user-counting {
+                display: flex;
+                gap: 4px;
+                p {
+                    color: $gray-text-color;
+                }
+
+                span {
+                    color: $aqua-text-color;
+                }
+            }
+        }
+
+        .button-group {
+            display: flex;
+            gap: 24px;
+
+            button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 12px;
+                gap: 4px;
+            }
+        }
+
+        .info-lines {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 40%;
+
+            .info-line {
+                position: relative;
+                display: flex;
+                span {
+                    position: absolute;
+                    left: 40%;
+                    width: 100%;
+                }
+
+                p {
+                    color: $gray-text-color;
+                }
+
+                .evaluate {
+                    font-weight: 700;
+                    display: flex;
+                    gap: 4px;
+                    .evaluate-number {
+                        color: $text-color;
+                        font-size: 12px;
+                        font-weight: 400;
+                        margin-top: 2px;
+                    }
+                }
+
+                .pink-color {
+                    color: $pink-text-color;
+                    display: flex;
+                    font-weight: 700;
+                    gap: 3px;
+                }
+            }
+        }
+    }
+    .detail-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 14px;
+        gap: 12px;
+
+        .heading {
+            font-weight: 700;
+            line-height: 120%;
+            font-size: 16px;
+        }
+
+        .detail {
+            color: $gray-darker-text-color;
+        }
+
+        button {
+            margin-left: 50%;
+            transform: translateX(-50%);
+            margin-top: 8px;
+            width: 180px;
+            font-size: 12px;
+            text-transform: none;
+        }
+    }
+}
+
+.evaluate-section {
+    background-color: $primary-bg-color;
+    clip-path: $border-cutting-8;
+    padding: 12px;
+
+    .star {
+        background-color: #6d6a85;
+        width: 18px;
+        height: 18px;
+        clip-path: polygon(
+            50% 0%,
+            61% 35%,
+            98% 35%,
+            68% 57%,
+            79% 91%,
+            50% 70%,
+            21% 91%,
+            32% 57%,
+            2% 35%,
+            39% 35%
+        );
+    }
+
+    .full-star {
+        background-color: $pink-text-color;
+    }
+
+    .half-star {
+        background: linear-gradient(to left, #6d6a85 50%, $pink-text-color 50%);
+    }
+
+    .stars {
+        display: flex;
+        gap: 2px;
+    }
+
+    .heading {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+        position: relative;
+
+        h2 {
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 120%;
+            text-transform: uppercase;
+        }
+
+        .dot {
+            width: 3px;
+            height: 3px;
+            clip-path: circle(50% at 50% 50%);
+            background-color: $gray-darker-text-color;
+        }
+
+        p {
+            color: $gray-darker-text-color;
+            font-size: 12px;
+            margin-bottom: 1px;
+        }
+    }
+
+    .comment-input {
+        margin-top: 28px;
+        width: 100%;
+        height: 40px;
+        background-color: $input-bg-color;
+        clip-path: $border-cutting-8;
+
+        input {
+            color: $text-color;
+            font-size: 16px;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            height: 100%;
+            width: 80%;
+            padding: 12px;
+        }
+
+        ::placeholder {
+            color: $gray-darker-text-color;
+            word-wrap: break-word;
+            font-size: 12px;
+            opacity: 0.8;
+            letter-spacing: 0.5px;
+        }
+
+        button {
+            float: right;
+            text-transform: none;
+        }
+    }
+
+    .evaluate-stars {
+        margin-top: 12px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        p {
+            color: $gray-darker-text-color;
+            font-size: 14px;
+            line-height: 120%;
+        }
+    }
+
+    .comments-section {
+        margin-top: 28px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        .user-comment {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            .heading {
+                display: flex;
+                gap: 8px;
+                margin-bottom: 8px;
+
+                img {
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 99px;
+                }
+
+                p {
+                    color: $pink-text-color;
+                    text-align: center;
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+            }
+
+            .evaluate {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+
+                p {
+                    font-size: 12px;
+                }
+            }
+
+            .comment-content {
+                font-size: 12px;
+            }
+        }
+    }
+
+    .view-all {
+        margin-top: 56px;
+        text-align: center;
+        font-size: 14px;
+        padding-bottom: 12px;
+        a {
+            color: $pink-text-color !important;
+        }
+    }
+}
+
+.border-related-games {
+    width: 100%;
+    clip-path: $border-cutting-8;
+    background-color: $primary-bg-color;
+    padding: 2px;
+
+    .related-games {
+        clip-path: $border-cutting-8;
+        background-color: $darker-bg-color;
+        padding: 12px;
+
+        .heading {
+            color: $heading-color;
+            font-size: 24px;
+            letter-spacing: 0.65px;
+        }
+
+        .related-games-grid {
+            display: grid;
+            margin-top: 20px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+
+            .related-game-item {
+                background-color: $primary-bg-color;
+                clip-path: $border-cutting-8;
+                
+                &:hover {
+                    opacity: 0.8;
+                    cursor: pointer;
+                }
+            }
+
+            .related-game-info {
+                padding: 12px;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+
+                p {
+                    font-size: 20px;
+                }
+
+                .info-lines {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4px;
+                    .info-line {
+                        display: flex;
+                        gap: 4px;
+    
+                        p {
+                            font-size: 12px;
+                            color: $gray-text-color;
+                        }
+                        span {
+                            font-size: 12px;
+                            color: $aqua-text-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.button-div {
+    margin: -12px auto 28px;
+
+    button {
+        width: 240px;
+    }
+}
+
+@media only screen and (max-width: 960px) {
+    .game-detail-container {
+        max-width: calc(100% - 24px);
+    }
+
+    .main-game-section {
+        margin-top: -130px;
+    }
+    
+    .game-info {
+        flex-direction: column;
+        
+        .overview-info,
+        .detail-info {
+            width: 100%;
+        }
+    }
+
+    .border-related-games {
+        .related-games {
+            .related-games-grid {
+                padding: 0 24px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+                .related-game-item {
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 420px) {
+    .main-game-section {
+        height: 200px;
+
+        .game-content {
+            img {
+                width: 52px;
+                height: 52px;
+            }
+
+            p {
+                font-size: 18px;
+            }
+        }
+    }
+
+    .game-info {
+        flex-direction: column;
+        
+        .overview-info,
+        .detail-info {
+            width: 100%;
+        }
+
+        .overview-info {
+            .button-group {
+                flex-direction: column;
+            }
+
+            .info-lines {
+                width: 100%;
+                .info-line {
+                    span {
+                        width: auto;
+                    }
+                }
+            }
+        }
+                                       
+        
+    }
+
+    .border-related-games {
+        background: transparent;
+        .related-games {
+            padding: 0;
+            .related-games-grid {
+                padding: 0;
+                grid-template-columns: repeat(1, 1fr);
+                gap: 12px;
+                .related-game-item {
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+}
+

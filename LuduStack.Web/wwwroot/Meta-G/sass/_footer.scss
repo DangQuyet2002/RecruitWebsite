@@ -1,0 +1,219 @@
+footer {
+    padding: 40px 0;
+    position: relative;
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 56px;
+    }
+    z-index: 99;
+}
+
+.mail {
+    width: 100%;
+    height: 104px;
+    padding: 28px 36px;
+    background-color: $primary-bg-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    clip-path: $border-cutting-8;
+
+    .mail-info {
+        font-size: 16px;
+        height: 44px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        strong {
+            text-transform: capitalize;
+            word-wrap: break-word;
+            font-weight: 500;
+        }
+
+        p {
+            opacity: 0.8;
+        }
+    }
+
+    .mail-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 24px;
+        padding-right: 8px;
+        height: 44px;
+        width: 460px;
+        background-color: $input-bg-color;
+        word-wrap: break-word;
+        clip-path: $border-cutting-4;
+
+        .mail-box-input {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            font-size: 16px;
+            img {
+                width: 24px;
+                margin-right: 8px;
+            }
+
+            input {
+                color: $text-color;
+                font-size: 16px;
+                background-color: transparent;
+                border: none;
+                outline: none;
+                height: 100%;
+            }
+        }
+
+        button {
+            color: $text-color;
+            font-size: 16px;
+            padding: 8px 30px;
+            background-color: #7f48f3;
+            outline: none;
+            border: none;
+            clip-path: $border-cutting-4;
+        }
+    }
+}
+
+.footer-info {
+    .logo {
+        margin-right: 48px;
+        font-family: 'Nico-Moji';
+        font-size: 18px;
+        word-wrap: break-word;
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+
+        img {
+            margin-right: 4px;
+        }
+    }
+
+    .introduce {
+        color: $gray-text-color;
+        margin-top: 16px;
+    }
+
+    .contact {
+        display: flex;
+        gap: 80px;
+        margin-top: 24px;
+        font-size: 16px;
+
+        .contact-item {
+            display: flex;
+            width: 100%;
+            gap: 12px;
+
+            img {
+                width: 32px;
+                height: 32px;
+            }
+
+            .contact-item-info {
+                .color {
+                    color: $pink-text-color;
+                    margin-top: 4px;
+                }
+            }
+        }
+    }
+}
+
+.bottom-section {
+    display: flex;
+    justify-content: space-between;
+}
+.bottom-section-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    .heading {
+        color: $heading-footer-text-color;
+        margin-bottom: 4px;
+        font-weight: 700;
+        font-size: 16px;
+    }
+
+    .type {
+        text-transform: none;
+        color: $gray-text-color;
+        font-size: 14px;
+    }
+}
+
+.bottom-bar {
+    padding: 24px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: $gray-text-color;
+    border-top: 1px solid gray;
+}
+
+@media only screen and (max-width: 420px) {
+    footer {
+        padding: 0;
+        margin-top: 40px;
+        margin-bottom: 56px;
+        .container {
+            max-width: 100%;
+            gap: 18px;
+            
+            .mail {
+                height: auto;
+                flex-direction: column;
+                gap: 10px;
+                padding: 28px 12px;
+
+                .mail-info {
+                    height: 64px;
+
+                    p {
+                        opacity: 0.8;
+                    }
+                }
+
+                .mail-box {
+                    width: 100%;
+                }
+            }
+
+            .footer-info {
+                padding: 0 12px;
+
+                .introduce {
+                    line-height: 24px;
+                    letter-spacing: 0.16px;
+                }
+                
+                .contact {
+                    flex-direction: column;
+                    gap: 36px;
+                }
+            }
+
+
+            .bottom-section {
+                padding: 0 12px;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 72px;
+            }
+
+            .bottom-bar {
+                padding: 24px 12px;
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    }
+}

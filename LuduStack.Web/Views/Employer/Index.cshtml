@@ -1,0 +1,558 @@
+﻿@{
+    ViewBag.Title = "Employer";
+    Layout = "~/Views/Shared/_LayoutHomePage.cshtml";
+}
+
+<style>
+    .employer {
+        margin-top: 60px;
+        position: relative;
+    }
+
+    .employer-slider {
+        display: flex;
+        padding: 40px 0;
+    }
+
+    .employer-slider-item {
+    }
+
+    .employer-slider-item-img {
+        width: 100%;
+        height: auto;
+    }
+
+    .employe-rslider-post {
+        margin: 10% auto;
+    }
+
+    .employe-rslider-post-text {
+        margin: 16px 0;
+        font-size: 15px;
+    }
+
+    .employe-slider-btn {
+        margin: 16px 0;
+    }
+
+    .employe-slider-sm {
+        padding: 12px 24px;
+        background-color: var(--color-bg);
+        color: #fff;
+        border-radius: 5px;
+        font-weight: 600;
+        font-size: 15px;
+    }
+
+    .employer-advantage {
+        padding: 30px 0;
+    }
+
+    .employer-advantage-title {
+        margin: 30px 0;
+        text-align: center;
+    }
+
+    .employer-advantage-list {
+    }
+
+    .employer-advantage-item {
+        display: flex;
+        justify-content: space-between;
+        margin: 12px 0;
+    }
+
+    .employer-advantage-item-img {
+        width: 20%;
+    }
+
+    .employer-advantage-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+
+    .employer-advantage-item-col {
+        margin-right: 24px;
+    }
+
+    .employer-advantage-item-col-name {
+    }
+
+    .employer-advantage-item-col-text {
+    }
+
+    .employer-advantage-end {
+        margin: 30px 0;
+        text-align: center;
+    }
+
+    .employer-advantage-end-name {
+    }
+
+    .employer-advantage-end-btn {
+        margin: 24px 0;
+    }
+
+    .employer-advantage-end-sm {
+        padding: 12px 10%;
+        background-color: var(--color-bg);
+        color: #fff;
+        font-weight: 600;
+        font-size: 15px;
+    }
+
+    .employer-useful {
+        padding: 30px 16px;
+        background-color: rgba(0, 0, 0, 0.04);
+        width: 100%;
+        border-radius: 5px;
+        margin: 30px 0;
+    }
+
+    .employer-useful-name {
+        text-align: center;
+        padding: 24px 0;
+    }
+
+    .employer-useful-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 24px 0;
+        margin: 16px 0;
+        border: 1px solid #ccc;
+        font-size: 17px;
+        font-weight: 600;
+        border-radius: 5px;
+    }
+
+        .employer-useful-item:hover {
+            cursor: pointer;
+            box-shadow: 1px 3px 5px #ccc;
+        }
+
+    .employer-useful-text {
+        margin: 0 16px;
+    }
+
+    .employer-useful-item-icon {
+        margin: 0 16px;
+    }
+
+    .employer-useful-btn {
+        margin: 16px 0;
+        text-align: center;
+    }
+
+    .employer-useful-sm {
+        padding: 12px 10%;
+        background-color: var(--color-bg);
+        color: #fff;
+        font-weight: 600;
+        font-size: 15px;
+    }
+
+    .employer-contact {
+        border: 1px solid #000;
+        margin: 50px 0;
+        border-radius: 5px;
+        box-shadow: 1px 5px 9px #ccc;
+    }
+
+    .employer-contact-name {
+        text-align: center;
+        margin: 30% auto;
+        color: #fff;
+    }
+
+    .employer-contact-img {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: left;
+        height: 100vh;
+    }
+
+    .employer-contact-title {
+        text-align: center;
+        color: #fff;
+    }
+
+    .employer-contact-text {
+        text-align: center;
+    }
+
+    .employer-contact-form {
+    }
+
+    .employer-contact-form-item {
+        font-size: 15px;
+        margin: 24px;
+    }
+
+        .employer-contact-form-item label {
+            font-weight: 600;
+        }
+
+    .employer-contact-form-inp {
+        border-radius: 5px;
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        color: #ccc;
+    }
+
+    .employer-contact-form-btn {
+        margin: 40px 24px;
+        text-align: center;
+    }
+
+    .employer-contact-form-sm {
+        width: 100%;
+        padding: 12px 0;
+        background-color: var(--color-bg);
+        color: #fff;
+        font-weight: 600;
+        border-radius: 5px;
+        font-size: 15px;
+    }
+
+
+
+
+
+
+    /*Sign*/
+
+    .sign {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999999;
+        display: none;
+    }
+
+    .sign-content {
+        border-radius: 10px;
+        background-color: #fff;
+        margin: 5% auto;
+        font-size: 15px;
+        overflow-y: scroll;
+        max-height: 90vh;
+    }
+
+    .sign-list {
+        margin: 16px;
+    }
+
+    .sign-header {
+        display: flex;
+        margin-top: 30px;
+        justify-content: space-between;
+    }
+
+    .sign-header-close {
+        cursor: pointer;
+        font-size: 20px;
+    }
+
+
+
+    .sign-header-name {
+        color: rgb(59, 59, 244);
+        text-align: center;
+    }
+
+
+
+
+
+    .sign-file-item {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        text-align: center;
+        padding: 12px 0
+    }
+
+    .sign-file-item-link {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .sign-detail {
+        margin: 30px 0;
+    }
+
+    .sign-detail-item {
+        margin-top: 24px;
+    }
+
+    .sign-detail-item-name {
+        padding: 12px;
+        border-radius: 5px;
+        background-color: rgb(246 246 246);
+        border: 1px solid #ccc;
+    }
+
+    .sign-btn {
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: end;
+    }
+
+    .sign-sm {
+        padding: 12px 24px;
+        color: #fff;
+        background-color: var(--color-bg);
+        border-radius: 5px;
+    }
+
+        .sign-sm:hover {
+            opacity: 0.7;
+        }
+</style>
+
+<div class="employer container-xxl">
+    <div class="employer-slider row">
+        <div class="employer-slider-item col-xl-6 col-12">
+            <img src="~/Scripts/img/landing_page_right.png" class="employer-slider-item-img" />
+        </div>
+        <div class="employer-slider-item col-xl-6 col-12">
+            <div class="employe-rslider-post ">
+                <h1 class="employe-rslider-post-name">
+                    Đừng tuyển người,
+                    hãy tuyển nhân tài
+                </h1>
+                <div class="employe-rslider-post-text">
+                    Kết nối triệu ứng viên ưng ý - Tuyển dụng ngay nhân tài đúng ý cùng Việc Làm 24h!
+                </div>
+                <div class="employe-slider-btn">
+                    <button type="submit" class="employe-slider-sm">Đăng tin tuyển dụng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="employer-advantage container" id="employer-advantage">
+
+        <h2 class="employer-advantage-title">NamVietJsc - Nền tảng tuyển dụng chất lượng & uy tin với nhiều năm kinh nghiệm</h2>
+        <div class="employer-advantage-list row">
+            <div class="employer-advantage-item col-xl-6 col-12">
+                <div class="employer-advantage-item-img ">
+                    <img src="~/Scripts/img/dhc.jpg" class="employer-advantage-img" />
+                </div>
+                <div class="employer-advantage-item-col ">
+                    <h3 class="employer-advantage-item-col-name">Tuyển dụng nhanh chóng</h3>
+                    <div class="employer-advantage-item-col-text">
+                        Tiếp cần gần 3 triệu ứng viên với hồ sơ được kiểm duyệt.
+                    </div>
+                </div>
+            </div>
+            <div class="employer-advantage-item col-xl-6 col-12">
+                <div class="employer-advantage-item-img ">
+                    <img src="~/Scripts/img/kimcuong.jpg" class="employer-advantage-img" />
+                </div>
+                <div class="employer-advantage-item-col">
+                    <h3 class="employer-advantage-item-col-name">Tuyển dụng nhanh chóng</h3>
+                    <div class="employer-advantage-item-col-text">
+                        Tiếp cần gần 3 triệu ứng viên với hồ sơ được kiểm duyệt.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="employer-advantage-list row">
+            <div class="employer-advantage-item col-xl-6 col-12">
+                <div class="employer-advantage-item-img ">
+                    <img src="~/Scripts/img/manny.jpg" class="employer-advantage-img" />
+                </div>
+                <div class="employer-advantage-item-col">
+                    <h3 class="employer-advantage-item-col-name">Tuyển dụng nhanh chóng</h3>
+                    <div class="employer-advantage-item-col-text">
+                        Tiếp cần gần 3 triệu ứng viên với hồ sơ được kiểm duyệt.
+                    </div>
+                </div>
+            </div>
+            <div class="employer-advantage-item col-xl-6 col-12">
+                <div class="employer-advantage-item-img ">
+                    <img src="~/Scripts/img/dhc.jpg" class="employer-advantage-img" />
+                </div>
+                <div class="employer-advantage-item-col ">
+                    <h3 class="employer-advantage-item-col-name">Tuyển dụng nhanh chóng</h3>
+                    <div class="employer-advantage-item-col-text">
+                        Tiếp cần gần 3 triệu ứng viên với hồ sơ được kiểm duyệt.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="employer-advantage-end">
+            <h2 class="employer-advantage-end-name">Bạn đã sẵn sàng để chọn nhân tài về cho công ty mình chưa?</h2>
+            <div class="employer-advantage-end-btn">
+                <button type="submit" onclick="document.getElementById('sign').style.display= 'flex'" " class="employer-advantage-end-sm">Bắt đầu tìm ngay</button>
+            </div>
+        </div>
+    </div>
+    <div class="employer-useful">
+        <div class="container">
+            <div class="row">
+                <h1 class="employer-useful-name">Kiến thức hữu ích để bạn tuyển dụng thành công</h1>
+                <div class="employer-useful-item col-12 col-xl-12">
+                    <div class="employer-useful-text">
+                        5 bước để doanh nghiệp phát triển chiến lược nội dung nhân sự
+                    </div>
+                    <div class="employer-useful-item-icon">
+                        <i class="fa-solid fa-forward"></i>
+                    </div>
+                </div>
+                <div class="employer-useful-item col-12 col-xl-12">
+                    <div class="employer-useful-text">
+                        5 bước để doanh nghiệp phát triển chiến lược nội dung nhân sự
+                    </div>
+                    <div class="employer-useful-item-icon">
+                        <i class="fa-solid fa-forward"></i>
+                    </div>
+                </div>
+                <div class="employer-useful-item col-12 col-xl-12">
+                    <div class="employer-useful-text">
+                        5 bước để doanh nghiệp phát triển chiến lược nội dung nhân sự
+                    </div>
+                    <div class="employer-useful-item-icon">
+                        <i class="fa-solid fa-forward"></i>
+                    </div>
+                </div>
+                <div class="employer-useful-item col-12 col-xl-12">
+                    <div class="employer-useful-text">
+                        5 bước để doanh nghiệp phát triển chiến lược nội dung nhân sự
+                    </div>
+                    <div class="employer-useful-item-icon">
+                        <i class="fa-solid fa-forward"></i>
+                    </div>
+                </div>
+                <div class="employer-useful-item">
+                    <div class="employer-useful-text">
+                        5 bước để doanh nghiệp phát triển chiến lược nội dung nhân sự
+                    </div>
+                    <div class="employer-useful-item-icon">
+                        <i class="fa-solid fa-forward"></i>
+                    </div>
+                </div>
+                <div class="employer-useful-btn">
+                    <button class="employer-useful-sm" type="submit">Xem tất cả</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="employer-contact container" id="employer-contact">
+        <div class="row">
+            <div class="employer-contact-img col-xl-6 col-12" style="background-image: url('../../Scripts/img/tuvan.jpg');">
+                <div class="employer-contact-name">
+                    <h2 class="employer-contact-title">Hãy để chúng tôi hỗ trợ tư vấn</h2>
+                    <div class="employer-contact-text">Chúng tôi luôn sẵn sàng hỗ trợ tư vấn và giải đáp thắc mắc của khác hàng về tuyển dụng nhân sự qua NamVietJsc. </div>
+                </div>
+            </div>
+            <div class="employer-contact-form col-xl-6 col-12">
+                <form>
+                    <div class="employer-contact-form-item">
+                        <label>Họ và tên:</label><br />
+                        <input type="text" class="employer-contact-form-inp" placeholder="Ví dụ: Nguyễn Viết Lương" />
+
+                    </div>
+                    <div class="employer-contact-form-item">
+                        <label>Số điện thoại:</label><br />
+                        <input type="text" class="employer-contact-form-inp" placeholder="Ví dụ: 0284237725" />
+
+                    </div>
+                    <div class="employer-contact-form-item">
+                        <label>Địa chỉ email:</label><br />
+                        <input type="text" class="employer-contact-form-inp" placeholder="Ví dụ: namvietjsc@gmail.com" />
+
+                    </div>
+                    <div class="employer-contact-form-item">
+                        <label>Tên công ty:</label><br />
+                        <input type="text" class="employer-contact-form-inp" placeholder="Ví dụ: NamVietJsc" />
+
+                    </div>
+                    <div class="employer-contact-form-item">
+                        <label>Địa chỉ:</label><br />
+                        <input type="text" class="employer-contact-form-inp" placeholder="Ví dụ: 262 - Nguyễn Huy Tưởng- Thanh Xuân - HN" />
+
+                    </div> <div class="employer-contact-form-item">
+                        <label>Khu vực tư vấn:</label><br />
+                        <input type="text" class="employer-contact-form-inp" placeholder="Ví dụ: Miền Bắc" />
+
+                    </div>
+                    <div class="employer-contact-form-btn">
+                        <button type="submit" class="employer-contact-form-sm">Đăng ký ngay</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="sign" id="sign">
+    <div class="container">
+        <div class="sign-content col-xl-7 ">
+            <div class="row sign-list">
+                <div class="sign-header">
+                    <div class="sign-header-list">
+
+                        <h1 class="sign-header-name">Đăng ký</h1>
+
+                    </div>
+                    <div class="sign-header-close">
+                        <i class="fa-solid fa-xmark" onclick="document.getElementById('sign').style.display= 'none'"></i>
+                    </div>
+                </div>
+
+                <div class="sign-detail">
+                    <h4>Tài khoản</h4>
+                    <div class="sign-detail-item">
+                        <label>Mã số thuế:</label> <br>
+                        <input type="text" class="sign-detail-item-name col-xl-12 col-12" value="" />
+                    </div>
+                    <div class="sign-detail-item">
+                        <label>Mật khẩu:</label> <br>
+                        <input type="password" class="sign-detail-item-name col-xl-12 col-12" value="" />
+                    </div>
+                    <h4 style="margin-top: 8px;">Thông tin công ty</h4>
+                    <div class="sign-detail-item">
+                        <label>Họ tên:</label> <br>
+                        <input type="text" class="sign-detail-item-name col-xl-12 col-12" value="" />
+                    </div>
+                    <div class="sign-detail-item">
+                        <label>Số điện thoại:</label> <br>
+                        <input type="text" class="sign-detail-item-name col-xl-12 col-12" value="" />
+                    </div>
+                    <div class="sign-detail-item">
+                        <label>Tên công ty:</label> <br>
+                        <input type="text" class="sign-detail-item-name col-xl-12 col-12" value="" />
+                    </div>
+                    <div class="sign-detail-item">
+                        <label>Mã số thuế:</label> <br>
+                        <input type="text" class="sign-detail-item-name col-xl-12 col-12" value="" />
+                    </div>
+                    <div class="sign-detail-item">
+                        <label>Địa điểm:</label> <br>
+                        <input type="text" class="sign-detail-item-name col-xl-12 col-12" value="" />
+                    </div>
+                    <div class="sign-detail-item">
+                        <label>Địa chỉ công ty:</label> <br>
+                        <input type="text" class="sign-detail-item-name col-xl-12 col-12" value="" />
+                    </div>
+                    <div class="sign-detail-item">
+                        <label>Lĩnh vực hoạt động:</label> <br>
+                        <input type="text" class="sign-detail-item-name col-xl-12 col-12" value="" />
+                    </div>
+                    <div class="sign-detail-item">
+                        <input type="hidden" class="sign-detail-item-name col-xl-12 col-12" value="0" />
+                    </div>
+                </div>
+                <div class="sign-btn" id="model-btn">
+                    <button type="submit" class="sign-sm">Nộp hồ sơ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

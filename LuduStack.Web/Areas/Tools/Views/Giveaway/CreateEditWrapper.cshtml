@@ -1,0 +1,57 @@
+﻿@model GiveawayViewModel
+@{
+    var isAjax = ViewContext.HttpContext.Request.IsAjaxRequest();
+    var canInteract = User.Identity.IsAuthenticated;
+}
+
+@section ComponentStyles {
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/tempusdominus/css/tempusdominus-bootstrap-4.css" />
+        <link rel="stylesheet" href="~/lib/dropzone/dropzone.css" />
+        <link rel="stylesheet" href="~/css/giveaway.css">
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.css"
+              asp-fallback-href="~/lib/dropzone/min/dropzone.min.css"
+              asp-fallback-test-class="dropzone"
+              asp-fallback-test-property="box-sizing"
+              asp-fallback-test-value="border-box"
+              integrity="sha512-bbUR1MeyQAnEuvdmss7V2LclMzO+R9BzRntEE57WIKInFVQjvX7l7QZSxjNDt8bg41Ww05oHSh0ycKFijqD7dA=="
+              crossorigin="anonymous" />
+        <link rel="stylesheet" href="~/css/giveawayedit.min.css" asp-append-version="true">
+    </environment>
+}
+
+@section Scripts {
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <environment include="Development">
+        <script src="~/lib/moment/moment-with-locales.js"></script>
+        <script src="~/lib/tempusdominus/js/tempusdominus-bootstrap-4.js"></script>
+        <script src="~/lib/dropzone/dropzone.js"></script>
+        <script src="~/js/shared/imagemanipulation.js"></script>
+        <script src="~/js/common-edit.js"></script>
+        <script src="~/js/giveaway/giveawaycommon.js"></script>
+        <script src="~/js/giveaway/giveawayedit.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/lib/moment/moment-with-locales.min.js"></script>
+        <script src="~/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.js"
+                asp-fallback-src="~/lib/dropzone/min/dropzone.min.js"
+                asp-fallback-test="window.Dropzone"
+                integrity="sha512-9WciDs0XP20sojTJ9E7mChDXy6pcO0qHpwbEJID1YVavz2H6QBz5eLoDD8lseZOb2yGT8xDNIV7HIe1ZbuiDWg=="
+                crossorigin="anonymous"></script>
+        <script src="~/js/giveaway/giveawayedit.min.js" asp-append-version="true"></script>
+    </environment>
+}
+
+<input type="hidden" id="urls" value="urls"
+       data-url-image="@Constants.DefaultImagePlaceholder" />
+
+<section class="content container">
+    <div id="featurecontainer" class="pb-3">
+        <partial name="_CreateEdit" model="Model" />
+    </div>
+</section>

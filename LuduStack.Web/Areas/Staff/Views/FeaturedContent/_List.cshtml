@@ -1,0 +1,59 @@
+﻿@model FeaturedContentScreenViewModel
+
+@{
+    ViewData["Title"] = "User Content Management";
+}
+<h3>Featured</h3>
+@if (!Model.Featured.Any())
+{
+    <span>Nothing... Emptyness.</span>
+}
+else
+{
+    <div class="col-12 table-responsive">
+        <table class="table table-hover table-striped text-center">
+            <caption class="sr-only">@SharedLocalizer["Featured Content"]</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Likes</th>
+                    <th scope="col">Comments</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Featured)
+                {
+                    <partial name="_FeaturedContentItem" model="item" />
+                }
+            </tbody>
+        </table>
+    </div>
+}
+<br />
+<hr />
+<br />
+<h3>Not Featured</h3>
+<div class="col-12 table-responsive">
+    <table class="table table-hover table-striped text-center">
+        <caption class="sr-only">@SharedLocalizer["Featured Content"]</caption>
+        <thead>
+            <tr>
+                <th scope="col" colspan="2">Title</th>
+                <th scope="col">Intro</th>
+                <th scope="col">Text</th>
+                <th scope="col">Date</th>
+                <th scope="col">Likes</th>
+                <th scope="col">Comments</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.NotFeatured)
+            {
+                <partial name="_FeaturedContentItem" model="item" />
+            }
+        </tbody>
+    </table>
+</div>

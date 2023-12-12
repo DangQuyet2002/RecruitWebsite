@@ -1,0 +1,50 @@
+﻿@{
+    var hasMessage = TempData["Message"] != null;
+    var games = ViewData["Games"] as List<GameListItemViewModel>;
+    var genre = (GameGenre)(ViewData["Genre"] ?? 0);
+    ViewData["Title"] = genre == 0 ? SharedLocalizer["Games"] : SharedLocalizer["{0} Games", genre.ToUiInfo().Display];
+
+    var description = SharedLocalizer["Check these awesome Games made by our community members."];
+
+    if (genre != 0)
+    {
+        description = SharedLocalizer["Check awesome {0} Games. If this is the type of game you like, you are in the right place!", genre.ToString()];
+    }
+
+    if (hasMessage)
+    {
+        description = SharedLocalizer[string.Format("{0} {1}", description.ToString(), TempData["Message"].ToString())];
+    }
+
+    ViewData["Description"] = description;
+
+    var noItems = new ListNoItemsViewModel("fas fa-dizzy", "No results to show!");
+
+    var showAds = (bool)(ViewData["ShowAds"] ?? false);
+}
+
+<div class="col-12">
+    <h1>@ViewData["Title"] (@games.Count)</h1>
+</div>
+
+@if (showAds)
+{
+    <div class="rounded-0 p-0 px-lg-5 my-3 mx-auto">
+        <partial name="_GoogleAdFeed" />
+    </div>
+}
+
+@if (games.Any())
+{
+    @await Html.PartialAsync("_Games", games)
+}
+else
+{
+    <div class="col-12">
+        <partial name="_ListNoItems" model="noItems" />
+    </div>
+}
+
+<div class="col-12 no-gutters">
+    <partial name="_TagList" model="@ViewData["Genres"]" />
+</div>

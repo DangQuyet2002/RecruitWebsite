@@ -1,0 +1,50 @@
+﻿@using LuduStack.Web.Models;
+@using MetaG.Application.ViewModels;
+@using MetaG.Domain.Models;
+@{
+    Layout = "~/Views/Shared/_LayoutHomePage.cshtml";
+
+    var banner = ViewData["Banner"] as List<BannerViewModel>;
+    
+    var noItems = new ListNoItemsViewModel("fas fa-dizzy", "No results to show!");
+
+    var showAds = (bool)(ViewData["ShowAds"] ?? false);
+}
+
+<div class="col-12">
+    <h1>Danh Sách banner (@banner.Count)</h1>
+</div>
+<div class="container">
+    <div class="row">
+
+        @if (banner != null && banner.Any())
+        {
+            @foreach (var category in banner)
+            {
+                <div class="col-md-12 mb-12" style="padding-bottom:20px">
+                    <div class="card">
+                        <img src="@category.FeaturedImage" class="card-img-top" style="width:100%" alt="@category.Id" href="@category.LinkURL">
+
+                        <div class="card-body">
+                            <h3 class="card-title" style="padding-bottom:10px">
+                                <button type="button" class="btn btn-danger">@category.TextButton</button>
+                            </h3>
+                            @Html.Raw(category.Description)
+                            <a asp-controller="Banner" asp-action="Edit" asp-route-id="@category.Id" method="post" class="btn btn-primary">Edit</a>
+                            <a asp-controller="Banner" asp-action="Delete" asp-route-id="@category.Id" method="delete" class="btn btn-primary">Delete</a>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p>Danh sách Banner trống.</p>
+        }
+    </div>
+</div>
+
+
+
+

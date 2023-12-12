@@ -1,0 +1,63 @@
+.wrapper {
+    width: 100vw;
+    position: relative;
+}
+
+.container {
+    max-width: 1880px;
+    margin: 0 auto;
+}
+
+body {
+    position: relative;
+    font-family: $font;
+    color: $text-color;
+    background-color: $darker-bg-color;
+}
+
+input {
+    font-family: $font;
+    border: none;
+    outline: none;
+}
+
+::placeholder {
+    color: $text-color;
+    word-wrap: break-word;
+    font-family: $font;
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+.mobile {
+    display: none!important;
+}
+
+.swiper-button-next::after, .swiper-button-prev::after {
+    display: none!important;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    margin-top: 0!important;
+    height: 24px!important;
+    left: unset!important;
+    right: unset!important;
+    top: unset!important;
+}
+
+@media only screen and (max-width: 1368px) {
+    .container {
+        max-width: 1328px;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .desktop {
+        display: none!important;
+    }
+
+    .mobile {
+        display: flex!important;
+    }
+}

@@ -1,0 +1,55 @@
+﻿@using MetaG.Application.ViewModels;
+@using MetaG.Domain.Models;
+@{
+
+    var categories = ViewData["Categories"] as List<GameCategoryViewModel>;
+    
+
+    var description = SharedLocalizer["Check these awesome Games made by our community members."];
+
+
+    ViewData["Description"] = description;
+
+    var noItems = new ListNoItemsViewModel("fas fa-dizzy", "No results to show!");
+
+    var showAds = (bool)(ViewData["ShowAds"] ?? false);
+}
+
+<div class="col-12">
+    <h1>Category (@categories.Count)</h1>
+</div>
+<div class="container">
+    <div class="row">
+
+        @if (categories != null && categories.Any())
+        {
+            @foreach (var category in categories)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="@category.LargeThumbImageUrl" class="card-img-top" alt="@category.Id">
+
+                        <div class="card-body">
+                            <h3 class="card-title" style="padding-bottom:10px">
+                                <a asp-controller="Game" asp-action="ListAllCategories" asp-route-take="0" asp-route-categoryId="@category.Id" method="get">@category.Name</a>
+                            </h3>
+
+                            <p class="card-text">@category.Description</p>
+                            <a asp-controller="GameCategory" asp-action="Edit" asp-route-id="@category.Id" method="post" class="btn btn-primary">Edit</a>
+                            <a asp-controller="GameCategory" asp-action="Delete" asp-route-id="@category.Id" method="delete" class="btn btn-primary">Delete</a>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p>Danh sách danh mục trống.</p>
+        }
+    </div>
+</div>
+
+
+
+

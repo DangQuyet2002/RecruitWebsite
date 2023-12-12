@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Thiết lập sự sáng tạo với META-G: Nền tảng lập trình game dành riêng cho những tâm hồn sáng tạo. Tạo và chia sẻ trải nghiệm game độc đáo với người dùng trên toàn thế giới. Bắt đầu sáng tạo ngay hôm nay!">
+        <link rel="stylesheet" href="../css/app.css" />  
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+        />
+        
+        <title>Document</title>
+    </head>
+    <!-- sass ./sass/app.scss ./css/app.css --watch -->
+    <body>
+        <div class="wrapper">
+            <header id="header">
+                <div class="container">
+                    <div class="header-container">
+                        <div class="header-info">
+                            <div class="info-item-group">
+                                <div class="info-item">
+                                    <img src="../assets/icon/header-info/wifi.svg" alt="">
+                                    <p class="info-item-count" style="color: #89f9ff">6.969</p>
+                                    <p class="info-item-name">Trực tuyến</p>
+                                </div>
+
+                                <div class="info-item">
+                                    <img src="../assets/icon/header-info/user.svg" alt="">
+                                    <p class="info-item-count" style="color: #ee6db0">6.969</p>
+                                    <p class="info-item-name">Người dùng</p>
+                                </div>
+
+                                <div class="info-item">
+                                    <img src="../assets/icon/header-info/gamepad.svg" alt="">
+                                    <p class="info-item-count" style="color: #b595fc">6.969</p>
+                                    <p class="info-item-name">Tựa game</p>
+                                </div>
+
+                                <div class="info-item">
+                                    <img src="../assets/icon/header-info/handfist.svg" alt="">
+
+                                    <p class="info-item-count" style="color: #6497fa">6.969</p>
+                                    <p class="info-item-name">Nhà cung cấp</p>
+                                </div>
+                            </div>
+
+                            <div class="social-item-group">
+                                <div class="social-item"><img src="../assets/icon/socialMedia/discord.svg" alt=""></div>
+
+                                <div class="social-item"><img src="../assets/icon/socialMedia/twitter.svg" alt=""></i></div>
+
+                                <div class="social-item">
+                                    <img src="../assets/icon/socialMedia/reddit.svg" alt="">
+                                </div>
+
+                                <div class="social-item"><img src="../assets/icon/socialMedia/tiktok.svg" alt=""></div>
+
+                                <div class="social-item">
+                                    <img src="../assets/icon/socialMedia/instagram-fill.svg" alt="">
+                                </div>
+
+                                <div class="social-item"><img src="../assets/icon/socialMedia/youtube.svg" alt=""></div>
+
+                                <div class="social-item"><img src="../assets/icon/socialMedia/facebook-fill.svg" alt=""></div>
+                            </div>
+                        </div>
+
+                        <div class="navbar" id="navbar">
+                            <div class="navbar-left">
+                                <a href="../index.html" alt="">
+                                    <div class="logo">
+                                        <img src="../assets/icon/logoMetaG.png" alt="" />
+                                        <p style="color: #4e28f5">Meta</p>
+                                        <p style="color: #bd4ba3">G</p>
+                                    </div>
+                                </a>
+                                <div class="categories">
+                                    <div class="category-item">
+                                        <div class="category-name">
+                                            <img class="freefire" src="../assets/icon/nav-bar/freefire.gif" alt="">
+                                            <span>Game hot</span>
+                                            <div class="shadow"></div>
+                                        </div>
+                                        <div class="shadow-top"></div>
+                                        <div class="shadow-bottom"></div>
+                                    </div>
+
+                                    <div class="category-item">
+                                        <div class="category-name">
+                                            <img src="../assets/icon/nav-bar/handfist.svg" alt="">
+                                            <span>Hành động</span>
+                                            <div class="shadow"></div>
+                                        </div>
+                                        <div class="shadow-top"></div>
+                                        <div class="shadow-bottom"></div>
+                                    </div>
+
+                                    <div class="category-item">
+                                        <div class="category-name">
+                                            <img src="../assets/icon/nav-bar/ghost.svg" alt="">
+                                            <span>Giải trí</span>
+                                            <div class="shadow"></div>
+                                        </div>
+                                        <div class="shadow-top"></div>
+                                        <div class="shadow-bottom"></div>
+                                    </div>
+
+                                    <div class="category-item">
+                                        <div class="category-name">
+                                            <img src="../assets/icon/nav-bar/hat.svg" alt="">
+                                            <span>Giáo dục</span>
+                                            <div class="shadow"></div>
+                                        </div>
+                                        <div class="shadow-top"></div>
+                                        <div class="shadow-bottom"></div>
+                                    </div>
+
+                                    <div class="category-item">
+                                        <div class="category-name">
+                                            <img src="../assets/icon/nav-bar/insertPiece.svg" alt="">
+                                            <span>Giải đố</span>
+                                            <div class="shadow"></div>
+                                        </div>
+                                        <div class="shadow-top"></div>
+                                        <div class="shadow-bottom"></div>
+                                    </div>
+
+                                    <div class="category-item">
+                                        <div class="category-name">
+                                            <img src="../assets/icon/nav-bar/ball.svg" alt="">
+                                            <span>Thể thao</span>
+                                            <div class="shadow"></div>
+                                        </div>
+                                        <div class="shadow-top"></div>
+                                        <div class="shadow-bottom"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="navbar-right">
+                                <button class="normal-style-btn small-size login-ref">
+                                    Đăng nhập
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="top-rank swiper-ranking">
+                            <div class="top-rank-heading">
+                                <img src="../assets/icon/ranking/trophy.svg" alt="">
+                                <p>Nhiều người chơi nhất</p>
+                            </div>
+
+                            <div class="slider-ranking ranking swiper-wrapper">
+                                <div class="border-ranking-item swiper-slide">
+                                    <div class="ranking-item top-1-box-shadow">
+                                        <div class="ranking-item-heading">
+                                            <img src="../assets/icon/ranking/Asset-6.png " alt="" />
+                                            Hạng #1
+                                        </div>
+
+                                        <div class="ranking-item-content">
+                                            <div class="ranking-item-img">
+                                                <img
+                                                    src="../assets/images/homePage/game-item/lol.png"    
+                                                alt=""
+                                                />
+                                            </div>
+
+                                            <div class="ranking-item-info">
+                                                <p class="ranking-item-name">League of Legends</p>
+                                                <div class="info-line">
+                                                    <p>Người chơi:</p>
+                                                    <span>1.123.234</span>
+                                                </div>
+                                                <div class="info-line">
+                                                    <p>Thể loại:</p>
+                                                    <span>Hành Động - Chiến Thuật</span>
+                                                </div>
+                                                <div class="info-line">
+                                                    <p>Nhà cung cấp:</p>
+                                                    <span>RiotGames</span>
+                                                </div>
+                                                <a href="../pages/gameDetail.html" alt="" class="play-now-btn styled-btn medium-size">
+                                                    Chơi ngay
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="border-ranking-item swiper-slide">
+                                    <div class="ranking-item">
+                                        <div class="ranking-item-heading">
+                                            <img src="../assets/icon/ranking/Asset-7.png" alt="" />
+                                            <p style="color: #bd4ba3">Hạng #2</p>
+                                        </div>
+
+                                        <div class="ranking-item-content">
+                                            <div class="ranking-item-img">
+                                                <img
+                                                    src="../assets/images/homePage/game-item/csgo.png"    
+                                                    alt=""
+                                                />
+                                            </div>
+
+                                            <div class="ranking-item-info">
+                                                <p class="ranking-item-name">Counter striker</p>
+                                                <div class="info-line">
+                                                    <p>Người chơi:</p>
+                                                    <span>1.123.234</span>
+                                                </div>
+                                                <div class="info-line">
+                                                    <p>Thể loại:</p>
+                                                    <span>Hành Động - Bắn súng</span>
+                                                </div>
+                                                <div class="info-line">
+                                                    <p>Nhà cung cấp:</p>
+                                                    <span>Valve</span>
+                                                </div>
+                                                <a href="../pages/gameDetail.html" alt="" class="play-now-btn styled-btn medium-size">
+                                                    Chơi ngay
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="border-ranking-item swiper-slide">
+                                    <div class="ranking-item">
+                                        <div class="ranking-item-heading">
+                                            <img src="../assets/icon/ranking/Asset-8.png" alt="" />
+                                            <p style="color: #bd4ba3">Hạng #3</p>
+                                        </div>
+
+                                        <div class="ranking-item-content">
+                                            <div class="ranking-item-img">
+                                                <img
+                                                    src="../assets/images/homePage/game-item/valorant.png"
+                                                alt=""
+                                                />
+                                            </div>
+
+                                            <div class="ranking-item-info">
+                                                <p class="ranking-item-name">Valorant</p>
+                                                <div class="info-line">
+                                                    <p>Người chơi:</p>
+                                                    <span>1.123.234</span>
+                                                </div>
+                                                <div class="info-line">
+                                                    <p>Thể loại:</p>
+                                                    <span>Hành Động - Bắn súng</span>
+                                                </div>
+                                                <div class="info-line">
+                                                    <p>Nhà cung cấp:</p>
+                                                    <span>RiotGames</span>
+                                                </div>
+                                                <a href="../pages/gameDetail.html" alt="" class="play-now-btn styled-btn medium-size">
+                                                    Chơi ngay
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="border-ranking-item swiper-slide">
+                                    <div class="ranking-item">
+                                        <div class="ranking-item-heading">
+                                            <img src="../assets/icon/ranking/Asset-9.png" alt="" />
+                                            <p style="color: #84819A">Hạng #4</p>
+                                        </div>
+
+                                        <div class="ranking-item-content">
+                                            <div class="ranking-item-img">
+                                                <img
+                                                src="../assets/images/homePage/game-item/minecraft.png"    
+                                                alt=""
+                                                />
+                                            </div>
+
+                                            <div class="ranking-item-info">
+                                                <p class="ranking-item-name">MINECRAFT</p>
+                                                <div class="info-line">
+                                                    <p>Người chơi:</p>
+                                                    <span>1.123.234</span>
+                                                </div>
+                                                <div class="info-line">
+                                                    <p>Thể loại:</p>
+                                                    <span>Thể Thao - Đá Bóng</span>
+                                                </div>
+                                                <div class="info-line">
+                                                    <p>Nhà cung cấp:</p>
+                                                    <span>Mojang</span>
+                                                </div>
+                                                <a href="../pages/gameDetail.html" alt="" class="play-now-btn styled-btn medium-size">
+                                                    Chơi ngay
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="border-ranking-item swiper-slide">
+                                    <div class="ranking-item">
+                                        <div class="ranking-item-heading">
+                                            <img src="../assets/icon/ranking/Asset-10.png" alt="" />
+                                            <p style="color: #84819A">Hạng #5</p>
+                                        </div>
+
+                                        <div class="ranking-item-content">
+                                            <div class="ranking-item-img">
+                                                <img
+                                                src="../assets/images/homePage/game-item/gunny.png"    
+                                                alt=""
+                                                />
+                                            </div>
+
+                                            <div class="ranking-item-info">
+                                                <p class="ranking-item-name">Gunny</p>
+                                                <div class="info-line">
+                                                    <p>Người chơi:</p>
+                                                    <span>1.123.234</span>
+                                                </div>
+                                                <div class="info-line">
+                                                    <p>Thể loại:</p>
+                                                    <span>Hành Động - Chiến Thuật</span>
+                                                </div>
+                                                <div class="info-line">
+                                                    <p>Nhà cung cấp:</p>
+                                                    <span>Blizzard</span>
+                                                </div>
+                                                <a href="../pages/gameDetail.html" alt="" class="play-now-btn styled-btn medium-size">
+                                                    Chơi ngay
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="border-view-all-btn swiper-slide">
+                                    <div class="view-all-btn">
+                                        <img src="../assets/icon/ranking/menu.svg" alt="">
+                                        <p>Xem tất cả</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main>
+                <div class="sectionA">
+                    <img src="../assets/images/homePage/homePage-banner.webp" alt="">
+
+                </div>
+
+                <div class="container">
+                    <div class="border-slide-section">
+                        <div class="slide-section swiper">
+                            <div class="heading">
+                                <p class="mobile">tựa game miễn phí nổi bật</p>
+                                
+                                <div class="nav-btn-group">
+                                    <div class="nav-btn swiper-button-prev backward-button">
+                                        <div class="backward-btn"></div>
+                                    </div>
+                                    <div class="nav-btn swiper-button-next forward-button">
+                                        <div class="forward-btn"></div>
+                                    </div>
+                                </div>
+
+                                <p class="desktop">tựa game miễn phí nổi bật</p>
+                            </div>
+
+                            <div class="slide-section-items swiper-wrapper" id="game-list">
+                                <div class="game-item swiper-slide">
+                                    <div class="left-content">
+                                        <img src="../assets/images/homePage/game-item/lol.png" alt="" />
+                                        <div class="score">4,5</div>
+                                    </div>
+
+                                    <div class="right-content">
+                                        <div class="info">
+                                            <div class="info-heading">
+                                                <p class="game-name">League of Legends</p>
+                                                <p class="release-date">Ngày ra mắt: 16/09/2023</p>
+                                            </div>
+
+                                            <div class="lines">
+                                                <div class="info-line">
+                                                    <p>Người chơi:</p>
+                                                    <span>1.123.234</span>
+                                                </div>
+                                                <div class="info-line">
+                                                    <p>Thể loại:</p>
+                                                    <span>Hành Động - Chiến Thuật</span>
+                                                </div>
+                                                <div class="info-line">
+                                                    <p>Nhà cung cấp:</p>
+                                                    <span>RiotGames</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <a href="../pages/gameDetail.html" alt="" class="styled-btn max-size">CHƠI NGAY</a>
+                                    </div>
+                                </div>
+
+                                <div class="game-item swiper-slide">
+                                    <div class="left-content">
+                                        <img src="../assets/images/homePage/game-item/csgo.png" alt="" />
+                                        <div class="score">4,5</div>
+                                    </div>
+
+                                    <div class="right-content">
+                                        <div class="info">
+                                            <div class="info-heading">
+                                                <p class="game-name">Counter-striker GO</p>
+                                                <p class="release-date">Ngày ra mắt: 16/09/2023</p>
+                                            </div>
+
+                                            <div class="lines">
+                                                <div class="info-line">
+                                                    <p>Người chơi:</p>
+                                                    <span>1.123.234</span>
+                                                </div>
+                                                <div class="info-line">
+                                                    <p>Thể loại:</p>
+                                                    <span>Hành Động - Chiến Thuật</span>
+                                                </div>
+                                                <div class="info-line">
+                                                    <p>Nhà cung cấp:</p>
+                                                    <span>Valve</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <a href="../pages/gameDetail.html" alt="" class="styled-btn max-size">CHƠI NGAY</a>
+                                    </div>
+                                </div>
+
+                                <div class="game-item swiper-slide">
+                                    <div class="left-content">
+                                        <img src="../assets/images/homePage/game-item/valorant.png" alt="" />
+                                        <div class="score">4,5</div>
+                                    </div>
+
+                                    <div class="right-content">
+                                        <div class="info">
+                                            <div class="info-heading">
+                                                <p class="game-name">Valorant</p>
+                                                <p class="release-date">Ngày ra mắt: 16/09/2023</p>
+                                            </div>
+
+                                            <div class="lines">
+                                                <div class="info-line">
+                                                    <p>Người chơi:</p>
+                                                    <span>1.123.234</span>
+                                                </div>
+                                                <div class="info-line">
+                                                    <p>Thể loại:</p>
+                                                    <span>Hành Động - Chiến Thuật</span>
+                                                </div>
+                                                <div class="info-line">
+                                                    <p>Nhà cung cấp:</p>
+                                                    <span>RiotGames</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <a href="../pages/gameDetail.html" alt="" class="styled-btn max-size">CHƠI NGAY</a>
+                                    </div>
+                                </div>
+
+                                <div class="game-item swiper-slide">
+                                    <div class="left-content">
+                                        <img src="../assets/images/homePage/game-item/minecraft.png" alt="" />
+                                        <div class="score">4,5</div>
+                                    </div>
+
+                                    <div class="right-content">
+                                        <div class="info">
+                                            <div class="info-heading">
+                                                <p class="game-name">Minecraft</p>
+                                                <p class="release-date">Ngày ra mắt: 16/09/2023</p>
+                                            </div>
+
+                                            <div class="lines">
+                                                <div class="info-line">
+                                                    <p>Người chơi:</p>
+                                                    <span>1.123.234</span>
+                                                </div>
+                                                <div class="info-line">
+                                                    <p>Thể loại:</p>
+                                                    <span>Hành Động - Chiến Thuật</span>
+                                                </div>
+                                                <div class="info-line">
+                                                    <p>Nhà cung cấp:</p>
+                                                    <span>Mojang</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <a href="../pages/gameDetail.html" alt="" class="styled-btn max-size">CHƠI NGAY</a>
+                                    </div>
+                                </div>
+
+                                <div class="game-item swiper-slide">
+                                    <div class="left-content">
+                                        <img src="../assets/images/homePage/game-item/lol.png" alt="" />
+                                        <div class="score">4,5</div>
+                                    </div>
+
+                                    <div class="right-content">
+                                        <div class="info">
+                                            <div class="info-heading">
+                                                <p class="game-name">League of Legends</p>
+                                                <p class="release-date">Ngày ra mắt: 16/09/2023</p>
+                                            </div>
+
+                                            <div class="lines">
+                                                <div class="info-line">
+                                                    <p>Người chơi:</p>
+                                                    <span>1.123.234</span>
+                                                </div>
+                                                <div class="info-line">
+                                                    <p>Thể loại:</p>
+                                                    <span>Hành Động - Chiến Thuật</span>
+                                                </div>
+                                                <div class="info-line">
+                                                    <p>Nhà cung cấp:</p>
+                                                    <span>RiotGames</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <a href="../pages/gameDetail.html" alt="" class="styled-btn max-size">CHƠI NGAY</a>
+                                    </div>
+                                </div>
+
+                                <div class="game-item swiper-slide">
+                                    <div class="left-content">
+                                        <img src="../assets/images/homePage/game-item/csgo.png" alt="" />
+                                        <div class="score">4,5</div>
+                                    </div>
+
+                                    <div class="right-content">
+                                        <div class="info">
+                                            <div class="info-heading">
+                                                <p class="game-name">Counter-striker GO</p>
+                                                <p class="release-date">Ngày ra mắt: 16/09/2023</p>
+                                            </div>
+
+                                            <div class="lines">
+                                                <div class="info-line">
+                                                    <p>Người chơi:</p>
+                                                    <span>1.123.234</span>
+                                                </div>
+                                                <div class="info-line">
+                                                    <p>Thể loại:</p>
+                                                    <span>Hành Động - Chiến Thuật</span>
+                                                </div>
+                                                <div class="info-line">
+                                                    <p>Nhà cung cấp:</p>
+                                                    <span>Valve</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <a href="../pages/gameDetail.html" alt="" class="styled-btn max-size">CHƠI NGAY</a>
+                                    </div>
+                                </div>
+
+                                <div class="game-item swiper-slide">
+                                    <div class="left-content">
+                                        <img src="../assets/images/homePage/game-item/valorant.png" alt="" />
+                                        <div class="score">4,5</div>
+                                    </div>
+
+                                    <div class="right-content">
+                                        <div class="info">
+                                            <div class="info-heading">
+                                                <p class="game-name">Valorant</p>
+                                                <p class="release-date">Ngày ra mắt: 16/09/2023</p>
+                                            </div>
+
+                                            <div class="lines">
+                                                <div class="info-line">
+                                                    <p>Người chơi:</p>
+                                                    <span>1.123.234</span>
+                                                </div>
+                                                <div class="info-line">
+                                                    <p>Thể loại:</p>
+                                                    <span>Hành Động - Chiến Thuật</span>
+                                                </div>
+                                                <div class="info-line">
+                                                    <p>Nhà cung cấp:</p>
+                                                    <span>RiotGames</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <a href="../pages/gameDetail.html" alt="" class="styled-btn max-size">CHƠI NGAY</a>
+                                    </div>
+                                </div>
+
+                                <div class="game-item swiper-slide">
+                                    <div class="left-content">
+                                        <img src="../assets/images/homePage/game-item/minecraft.png" alt="" />
+                                        <div class="score">4,5</div>
+                                    </div>
+
+                                    <div class="right-content">
+                                        <div class="info">
+                                            <div class="info-heading">
+                                                <p class="game-name">Minecraft</p>
+                                                <p class="release-date">Ngày ra mắt: 16/09/2023</p>
+                                            </div>
+
+                                            <div class="lines">
+                                                <div class="info-line">
+                                                    <p>Người chơi:</p>
+                                                    <span>1.123.234</span>
+                                                </div>
+                                                <div class="info-line">
+                                                    <p>Thể loại:</p>
+                                                    <span>Hành Động - Chiến Thuật</span>
+                                                </div>
+                                                <div class="info-line">
+                                                    <p>Nhà cung cấp:</p>
+                                                    <span>Mojang</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <a href="../pages/gameDetail.html" alt="" class="styled-btn max-size">CHƠI NGAY</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <footer>
+                <div class="container">
+                    <div class="mail">
+                        <div class="mail-info">
+                            <strong>Trở thành đối tác độc quyền</strong>
+                            <p>Hãy là người đầu tiên biết về các ưu đãi của chúng tôi</p>
+                        </div>
+
+                        <div class="mail-box">
+                            <div class="mail-box-input">
+                                <img src="../assets/icon/footer/mail.svg" alt="">
+                                <input type="text" placeholder="Để lại email của bạn" />
+                            </div>
+                            <button>Gửi</button>
+                        </div>
+                    </div>
+
+                    <div class="footer-info">
+                        <div class="logo">
+                            <a href="#" alt=""><img src="../assets/icon/logoMetaG.png" alt="" /></a>
+                            <p style="color: #4e28f5">Meta</p>
+                            <p style="color: #bd4ba3">G</p>
+                        </div>
+
+                        <div class="introduce">
+                            Chào mừng bạn đến với META-G - nơi tận hưởng trò chơi điện tử đa dạng và
+                            thú vị. Với hàng ngàn trò chơi từ nhiều thể loại khác nhau, bạn có thể
+                            trải nghiệm, thư giãn và thách thức bản thân. Giao diện đơn giản, truy
+                            cập dễ dàng và cập nhật thường xuyên là những điểm mạnh của trang web
+                            của chúng tôi. Hãy tham gia ngay và khám phá thế giới trò chơi tuyệt vời
+                            cùng chúng tôi!
+                        </div>
+
+                        <div class="contact">
+                            <div class="contact-item">
+                                <img src="../assets/icon/footer/phone.svg" alt="">
+                                <div class="contact-item-info">
+                                    <p>Số di động</p>
+                                    <p class="color">038-383-3838</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <img src="../assets/icon/footer/mail.svg" alt="">
+                                <div class="contact-item-info">
+                                    <p>Mail</p>
+                                    <p class="color">contact@metag.vn</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <img src="../assets/icon/footer/locate.svg" alt="">
+                                <div class="contact-item-info">
+                                    <p>Địa chỉ</p>
+                                    <p class="color">16 Ngõ 204 Trần Duy Hưng, Cầu Giấy, Hà Nội</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bottom-section">
+                        <div class="bottom-section-col">
+                            <p class="heading">Hành Động</p>
+                            <a href="#" class="type">Phiêu lưu</a>
+                            <a href="#" class="type">Võ Thuật</a>
+                            <a href="#" class="type">Đối Kháng</a>
+                            <a href="#" class="type">Bắn Súng</a>
+                            <a href="#" class="type">XEM TẤT CẢ >></a>
+                        </div>
+
+                        <div class="bottom-section-col">
+                            <p class="heading">Giải Trí</p>
+                            <a href="#" class="type">Xây Dựng</a>
+                            <a href="#" class="type">Âm Nhạc</a>
+                            <a href="#" class="type">Thời Trang</a>
+                            <a href="#" class="type">Nấu Ăn</a>
+                            <a href="#" class="type">XEM TẤT CẢ >></a>
+                        </div>
+
+                        <div class="bottom-section-col">
+                            <p class="heading">Giáo Dục</p>
+                            <a href="#" class="type">Từ Vựng</a>
+                            <a href="#" class="type">Toán Học</a>
+                            <a href="#" class="type">Ngôn Ngữ</a>
+                            <a href="#" class="type">Lịch Sử</a>
+                            <a href="#" class="type">XEM TẤT CẢ >></a>
+                        </div>
+
+                        <div class="bottom-section-col">
+                            <p class="heading">Giải Đố</p>
+                            <a href="#" class="type">Trí Tuệ</a>
+                            <a href="#" class="type">Giải Mã</a>
+                            <a href="#" class="type">Logic</a>
+                            <a href="#" class="type">Xếp Hình</a>
+                            <a href="#" class="type">XEM TẤT CẢ >></a>
+                        </div>
+
+                        <div class="bottom-section-col">
+                            <p class="heading">Thể Thao</p>
+                            <a href="#" class="type">Bóng Đá</a>
+                            <a href="#" class="type">Bóng Rổ</a>
+                            <a href="#" class="type">Đua Xe</a>
+                            <a href="#" class="type">Đánh Golf</a>
+                            <a href="#" class="type">XEM TẤT CẢ >></a>
+                        </div>
+                    </div>
+
+                    <div class="bottom-bar">
+                        <div class="social-item-group">
+                            <div class="social-item"><img src="../assets/icon/socialMedia/discord.svg" alt=""></div>
+
+                            <div class="social-item"><img src="../assets/icon/socialMedia/twitter.svg" alt=""></i></div>
+
+                            <div class="social-item">
+                                <img src="../assets/icon/socialMedia/reddit.svg" alt="">
+                            </div>
+
+                            <div class="social-item"><img src="../assets/icon/socialMedia/tiktok.svg" alt=""></div>
+
+                            <div class="social-item">
+                                <img src="../assets/icon/socialMedia/instagram-fill.svg" alt="">
+                            </div>
+
+                            <div class="social-item"><img src="../assets/icon/socialMedia/youtube.svg" alt=""></div>
+
+                            <div class="social-item"><img src="../assets/icon/socialMedia/facebook-fill.svg" alt=""></div>
+                        </div>
+
+                        <div class="copyright">© 2023, All Rights Reserved</div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        
+        <div class="overlay" id="overlay"></div>
+        
+        <div class="login-form-container" id="login-form">
+            <div class="first-border-login-form">
+                <div class="second-border-login-form">
+                    <div class="third-border-login-form">
+                        <div class="login-form">           
+                            <svg class="svg1" xmlns="http://www.w3.org/2000/svg" width="360" height="135" viewBox="0 0 360 135" fill="none">
+                                <path d="M0 134.215C46.2619 89.2242 101.681 54.6607 162.508 32.8626C165.551 31.7724 168.755 30.7008 171.958 31.1473C175.162 31.5938 178.328 34.057 178.41 37.2867C178.489 40.1183 176.316 42.4512 174.303 44.4419L155.813 62.5884C151.281 67.0535 146.378 73.4087 149.279 79.0532C151.191 82.774 155.952 84.2624 160.107 83.6559C164.263 83.0494 167.948 80.7983 171.514 78.6364C171.514 78.6364 308.726 9.83432 359.008 0.390821C307.397 8.42412 259.354 24.4275 212.41 47.2214C208.65 49.0483 202.594 51.3143 198.412 51.5301C194.23 51.7459 189.626 49.8371 188.066 45.9674C185.691 40.0811 191.154 34.1835 196.075 30.1613L216.14 13.7524C218.339 11.9515 220.714 9.82688 220.893 6.99532C221.102 3.78051 218.171 1.04197 215.02 0.2978C211.868 -0.446369 208.583 0.34245 205.454 1.14987C143.1 17.2351 58.4557 58.9606 4.72694 110.483L0 134.215Z" fill="gray"/>
+                            </svg>
+                            
+                            <svg class="svg2" xmlns="http://www.w3.org/2000/svg" width="371" height="140" viewBox="0 0 371 140" fill="none">
+                                <path d="M371 0.762695C323.196 47.252 265.931 82.9677 203.078 105.493C199.93 106.616 196.619 107.727 193.309 107.266C189.999 106.805 186.727 104.259 186.634 100.926C186.553 97.9998 188.799 95.5891 190.878 93.5321L209.98 74.7652C214.664 70.1513 219.73 63.5843 216.732 57.7516C214.761 53.9067 209.838 52.3687 205.544 52.9954C201.249 53.6222 197.441 55.9483 193.757 58.1783C193.757 58.1783 51.9705 129.278 0.015625 139.036C53.3556 130.747 102.999 114.21 151.509 90.6561C155.398 88.7682 161.656 86.4267 165.973 86.2037C170.291 85.9807 175.052 87.9531 176.669 91.9518C179.122 98.0344 173.474 104.129 168.393 108.285L147.655 125.241C145.386 127.102 142.928 129.297 142.743 132.219C142.531 135.545 145.556 138.371 148.812 139.14C152.068 139.909 155.464 139.094 158.701 138.26C223.133 121.638 310.599 78.5178 366.115 25.2815L371 0.762695Z" fill="gray"/>
+                            </svg>
+                            <div class="close-btn close-btn-form"><img src="../assets/images/formLogin/closeBtn.svg" alt=""></div>
+                            
+                            <div class="heading">
+                                <h2>Đăng nhập</h2>
+                                <p>Đăng nhập để trải nhiệm những trò chơi thú vị trên META-G</p>
+                            </div>
+
+                            <div class="input-group">
+                                <div class="username input-container">
+                                    <input type="text" placeholder="Tài khoản">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M8 0C9.06087 0 10.0783 0.421427 10.8284 1.17157C11.5786 1.92172 12 2.93913 12 4C12 5.06087 11.5786 6.07828 10.8284 6.82843C10.0783 7.57857 9.06087 8 8 8C6.93913 8 5.92172 7.57857 5.17157 6.82843C4.42143 6.07828 4 5.06087 4 4C4 2.93913 4.42143 1.92172 5.17157 1.17157C5.92172 0.421427 6.93913 0 8 0ZM8 10C12.42 10 16 11.79 16 14V16H0V14C0 11.79 3.58 10 8 10Z" fill="white"/>
+                                    </svg>                  
+                                </div>
+
+                                <div class="password input-container">
+                                    <input type="password" placeholder="Mật khẩu">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M10.0776 0C9.14195 0.000838676 8.21976 0.222872 7.38633 0.64797C6.5529 1.07307 5.83185 1.68918 5.28206 2.446C4.73228 3.20282 4.36934 4.0789 4.22287 5.00269C4.07641 5.92648 4.15058 6.87181 4.43933 7.76148L0.173394 12.0252C0.118362 12.0803 0.0747236 12.1456 0.0449721 12.2176C0.0152206 12.2895 -6.105e-05 12.3666 1.83293e-07 12.4444V15.4074C1.83293e-07 15.5646 0.0624557 15.7153 0.173627 15.8264C0.284799 15.9376 0.43558 16 0.5928 16H3.5568C3.71402 16 3.8648 15.9376 3.97597 15.8264C4.08715 15.7153 4.1496 15.5646 4.1496 15.4074V14.2222H5.3352C5.49242 14.2222 5.6432 14.1598 5.75437 14.0487C5.86555 13.9375 5.928 13.7868 5.928 13.6296V12.4444H7.1136C7.19147 12.4445 7.26859 12.4292 7.34055 12.3995C7.41252 12.3697 7.47791 12.3261 7.53301 12.2711L8.2414 11.5622C9.05615 11.8267 9.91855 11.9114 10.7692 11.8107C11.6199 11.71 12.4386 11.4262 13.169 10.9788C13.8994 10.5314 14.5242 9.93115 15.0002 9.21925C15.4763 8.50735 15.7924 7.70078 15.9267 6.85506C16.061 6.00933 16.0104 5.14456 15.7782 4.32028C15.5461 3.496 15.1381 2.73179 14.5822 2.08029C14.0263 1.42878 13.3358 0.905444 12.5581 0.546319C11.7805 0.187194 10.9342 0.000809414 10.0776 0ZM11.5596 5.62963C11.3251 5.62963 11.0959 5.56012 10.9009 5.42989C10.7059 5.29966 10.554 5.11456 10.4642 4.89799C10.3745 4.68143 10.351 4.44313 10.3968 4.21323C10.4425 3.98332 10.5554 3.77214 10.7213 3.60639C10.8871 3.44064 11.0983 3.32776 11.3283 3.28203C11.5583 3.2363 11.7967 3.25977 12.0133 3.34948C12.23 3.43918 12.4151 3.59109 12.5454 3.78599C12.6757 3.98089 12.7452 4.21004 12.7452 4.44444C12.7452 4.75878 12.6203 5.06023 12.3979 5.2825C12.1756 5.50476 11.874 5.62963 11.5596 5.62963Z" fill="white"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="password-options">
+                                <div class="save-password">
+                                    <input type="checkbox" id="checkbox">
+                                    <label for="checkbox">Lưu mật khẩu</label>
+                                </div>
+
+                                <a href="#" alt="">Quên mật khẩu?</a>
+                            </div>
+
+                            <!-- <div class="login-btn-svg" >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="370" height="225" viewBox="0 0 370 225" fill="none">
+                                    <g filter="url(#filter0_d_818_1550)">
+                                        <path d="M80 138.445L88.524 118.223L95.4982 113.556L110.221 122.111C110.543 123.915 111.506 125.539 112.931 126.684C114.357 127.828 116.147 128.414 117.97 128.334C122.007 128.303 125.707 124.883 126.494 121.334C125.505 121.936 124.469 122.457 123.395 122.889C123.078 123.525 122.465 123.808 121.845 124.445C118.542 127.83 113.533 124.715 112.546 122.889C113.083 123.091 119.52 118.223 119.52 118.223C120.243 118.816 121.022 119.337 121.845 119.778C121.861 117.271 119.154 116.087 116.421 115.111C116.821 115.022 123.395 110.445 123.395 110.445C123.395 110.445 129.571 110.289 129.594 113.556C129.682 115.11 129.682 116.668 129.594 118.223L135.018 113.556C135.297 113.556 135.523 113.58 135.793 113.556L141.993 108.889C142.744 108.889 142.845 109.326 142.768 109.667C143.937 108.343 144.738 106.734 145.092 105C143.814 105.964 142.186 107.06 140.443 108.111C139.74 108.845 138.898 109.429 137.966 109.83C137.034 110.231 136.032 110.44 135.018 110.445C133.174 110.445 131.673 110.169 130.369 108.889C128.971 107.411 128.146 105.48 128.044 103.445C128.089 102.354 128.394 101.291 128.933 100.344C129.472 99.3961 130.231 98.5925 131.144 98.0003C132.488 96.2509 134.05 94.6824 135.793 93.3337C135.535 93.3142 135.283 93.3337 135.018 93.3337C132.348 93.3363 129.786 94.4025 127.898 96.2981C126.009 98.1937 124.947 100.764 124.945 103.445L125.72 108.111L118.745 112.778C118.472 112.754 118.236 112.778 117.97 112.778C116.632 112.666 115.289 112.935 114.096 113.556L104.022 108.889L106.347 106.556L94.7232 101.111L106.347 79.3337L113.321 74.667L130.369 81.667L244.28 84.0003H290L273.727 89.4448L255.904 91.0003L274.502 94.1114L284.576 132.223L277.601 136.889L228.007 137.667L234.207 133.778H226.458L80 138.445ZM114.096 123.667C114.429 123.798 118.215 125.34 120.295 122.889C117.652 123.376 115.563 123.966 114.096 123.667C114.211 123.724 113.977 123.62 114.096 123.667Z" fill="url(#paint0_linear_818_1550)"/>
+                                    </g>
+                                    <g filter="url(#filter1_d_818_1550)">
+                                        <path d="M80 138.445L88.524 118.223L95.4982 113.556L110.221 122.111C110.543 123.915 111.506 125.539 112.931 126.684C114.357 127.828 116.147 128.414 117.97 128.334C122.007 128.303 125.707 124.883 126.494 121.334C125.505 121.936 124.469 122.457 123.395 122.889C123.078 123.525 122.465 123.808 121.845 124.445C118.542 127.83 113.533 124.715 112.546 122.889C113.083 123.091 119.52 118.223 119.52 118.223C120.243 118.816 121.022 119.337 121.845 119.778C121.861 117.271 119.154 116.087 116.421 115.111C116.821 115.022 123.395 110.445 123.395 110.445C123.395 110.445 129.571 110.289 129.594 113.556C129.682 115.11 129.682 116.668 129.594 118.223L135.018 113.556C135.297 113.556 135.523 113.58 135.793 113.556L141.993 108.889C142.744 108.889 142.845 109.326 142.768 109.667C143.937 108.343 144.738 106.734 145.092 105C143.814 105.964 142.186 107.06 140.443 108.111C139.74 108.845 138.898 109.429 137.966 109.83C137.034 110.231 136.032 110.44 135.018 110.445C133.174 110.445 131.673 110.169 130.369 108.889C128.971 107.411 128.146 105.48 128.044 103.445C128.089 102.354 128.394 101.291 128.933 100.344C129.472 99.3961 130.231 98.5925 131.144 98.0003C132.488 96.2509 134.05 94.6824 135.793 93.3337C135.535 93.3142 135.283 93.3337 135.018 93.3337C132.348 93.3363 129.786 94.4025 127.898 96.2981C126.009 98.1937 124.947 100.764 124.945 103.445L125.72 108.111L118.745 112.778C118.472 112.754 118.236 112.778 117.97 112.778C116.632 112.666 118.388 116.824 117.196 117.445L104.022 108.889L106.347 106.556L94.7232 101.111L106.347 79.3337L113.321 74.667L130.369 81.667L244.28 84.0003H290L273.727 89.4448L255.904 91.0003L274.502 94.1114L284.576 132.223L277.601 136.889L228.007 137.667L234.207 133.778H226.458L80 138.445ZM114.096 123.667C114.429 123.798 118.215 125.34 120.295 122.889C117.652 123.376 115.563 123.966 114.096 123.667C114.211 123.724 113.977 123.62 114.096 123.667Z" fill="url(#paint1_linear_818_1550)"/>
+                                    </g>
+                                    <path d="M84.3027 133.778L96.2734 113.556L117.196 117.445L110.997 104.223H117.971L101.698 96.4448L113.321 74.667L191.587 81.667L280.701 80.1114L290 84.0003L262.879 86.3337L281.476 89.4448L284.576 132.223L234.982 133L256.679 128.334L230.76 129.111L84.3027 133.778Z" fill="url(#paint2_linear_818_1550)"/>
+                                    <path d="M135.793 71.5556L95.498 64.5556L101.697 58.3333L108.671 56L142.767 69.2222L135.793 71.5556Z" fill="url(#paint3_linear_818_1550)"/>
+                                    <path d="M142.768 69.2222L102.473 62.2222L108.672 56L142.768 69.2222Z" fill="url(#paint4_linear_818_1550)"/>
+                                    <path d="M220.258 139.223L184.612 144.667L179.963 148.556L231.882 144.667L236.531 140.778L220.258 139.223Z" fill="url(#paint5_linear_818_1550)"/>
+                                    <path d="M220.258 138.444L184.612 144.667L236.531 140.778L220.258 138.444Z" fill="url(#paint6_linear_818_1550)"/>
+                                    <path d="M81.5498 146.222L85.4243 154L97.8229 146.222L101.697 141.556H85.4243L81.5498 146.222Z" fill="url(#paint7_linear_818_1550)"/>
+                                    <path d="M85.4248 141.556L89.2993 149.333L101.698 141.556H85.4248Z" fill="url(#paint8_linear_818_1550)"/>
+                                    <defs>
+                                    <filter id="filter0_d_818_1550" x="0" y="0.666992" width="370" height="223.777" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                    <feOffset dy="6"/>
+                                    <feGaussianBlur stdDeviation="40"/>
+                                    <feColorMatrix type="matrix" values="0 0 0 0 0.522042 0 0 0 0 0.194792 0 0 0 0 0.779167 0 0 0 0.478 0"/>
+                                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_818_1550"/>
+                                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_818_1550" result="shape"/>
+                                </filter>
+                                    <filter id="filter1_d_818_1550" x="56" y="53.667" width="258" height="111.777" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                    <feOffset dy="3"/>
+                                    <feGaussianBlur stdDeviation="12"/>
+                                    <feColorMatrix type="matrix" values="0 0 0 0 0.362745 0 0 0 0 0 0 0 0 0 0.490196 0 0 0 0.969 0"/>
+                                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_818_1550"/>
+                                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_818_1550" result="shape"/>
+                                    </filter>
+                                    <linearGradient id="paint0_linear_818_1550" x1="286.01" y1="80.4708" x2="252.057" y2="190.969" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#8754F4"/>
+                                    <stop offset="0.523" stop-color="#A686ED"/>
+                                    <stop offset="1" stop-color="#814BF4"/>
+                                    </linearGradient>
+                                    <linearGradient id="paint1_linear_818_1550" x1="286.01" y1="80.4708" x2="252.057" y2="190.969" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#A10BB9"/>
+                                    <stop offset="0.523" stop-color="#8700B7"/>
+                                    <stop offset="1" stop-color="#55006A"/>
+                                    </linearGradient>
+                                    <linearGradient id="paint2_linear_818_1550" x1="286.549" y1="83.2972" x2="266.305" y2="164.06" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#824CF6"/>
+                                    <stop offset="0.54" stop-color="#A887ED"/>
+                                    <stop offset="1" stop-color="#814BF4"/>
+                                    </linearGradient>
+                                    <linearGradient id="paint3_linear_818_1550" x1="140.451" y1="63.7778" x2="102.456" y2="79.6128" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#6500A3"/>
+                                    <stop offset="0.54" stop-color="#8D0FC9"/>
+                                    <stop offset="1" stop-color="#43006C"/>
+                                    </linearGradient>
+                                    <linearGradient id="paint4_linear_818_1550" x1="142.083" y1="57.9304" x2="137.06" y2="75.7119" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#5200FF"/>
+                                    <stop offset="0.54" stop-color="#B557FF"/>
+                                    <stop offset="1" stop-color="#8E00FE"/>
+                                    </linearGradient>
+                                    <linearGradient id="paint5_linear_818_1550" x1="235.569" y1="140.585" x2="232.49" y2="157.594" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#8A07B8"/>
+                                    <stop offset="0.54" stop-color="#6803B8"/>
+                                    <stop offset="1" stop-color="#7C00B6"/>
+                                    </linearGradient>
+                                    <linearGradient id="paint6_linear_818_1550" x1="235.649" y1="139.353" x2="234.726" y2="148.293" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#BD00FF"/>
+                                    <stop offset="0.54" stop-color="#AD00FE"/>
+                                    <stop offset="1" stop-color="#AD00FE"/>
+                                    </linearGradient>
+                                    <linearGradient id="paint7_linear_818_1550" x1="86.0024" y1="154" x2="93.8151" y2="137.763" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#48006A"/>
+                                    <stop offset="0.446" stop-color="#4F0074"/>
+                                    <stop offset="1" stop-color="#9A00E2"/>
+                                    </linearGradient>
+                                    <linearGradient id="paint8_linear_818_1550" x1="101.421" y1="142.691" x2="97.4468" y2="152.35" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#7F3CED"/>
+                                    <stop offset="0.54" stop-color="#A982FD"/>
+                                    <stop offset="1" stop-color="#4311D1"/>
+                                    </linearGradient>
+                                    </defs>
+                                
+                                </svg>
+                                <h2>Đăng nhập</h2>
+                            </div> -->
+
+                            <a href="../index.html" class="normal-style-btn large-size">Đăng nhập</a>
+                            <p class="spacer-text">-- hoặc --</p>
+
+                            <div class="social-login-options">
+                                <img src="../assets/icon/socialMedia/facebook-fill.svg" alt="">
+                                <img src="../assets/icon/socialMedia/youtube.svg" alt="">
+                                <img src="../assets/icon/socialMedia/reddit.svg" alt="">
+                                <img src="../assets/icon/socialMedia/discord.svg" alt="">
+                            </div>
+                                                       
+                            <p class="register-navigation-text">Bạn chưa có tài khoản? <span id="register-ref">Đăng ký</span></p>
+
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="register-form-container" id="register-form">
+            <div class="first-border-register-form">
+                <div class="second-border-register-form">
+                    <div class="third-border-register-form">
+                        <div class="register-form">
+                            <svg class="svg1" xmlns="http://www.w3.org/2000/svg" width="360" height="135" viewBox="0 0 360 135" fill="none">
+                                <path d="M0 134.215C46.2619 89.2242 101.681 54.6607 162.508 32.8626C165.551 31.7724 168.755 30.7008 171.958 31.1473C175.162 31.5938 178.328 34.057 178.41 37.2867C178.489 40.1183 176.316 42.4512 174.303 44.4419L155.813 62.5884C151.281 67.0535 146.378 73.4087 149.279 79.0532C151.191 82.774 155.952 84.2624 160.107 83.6559C164.263 83.0494 167.948 80.7983 171.514 78.6364C171.514 78.6364 308.726 9.83432 359.008 0.390821C307.397 8.42412 259.354 24.4275 212.41 47.2214C208.65 49.0483 202.594 51.3143 198.412 51.5301C194.23 51.7459 189.626 49.8371 188.066 45.9674C185.691 40.0811 191.154 34.1835 196.075 30.1613L216.14 13.7524C218.339 11.9515 220.714 9.82688 220.893 6.99532C221.102 3.78051 218.171 1.04197 215.02 0.2978C211.868 -0.446369 208.583 0.34245 205.454 1.14987C143.1 17.2351 58.4557 58.9606 4.72694 110.483L0 134.215Z" fill="gray"/>
+                            </svg>
+                            
+                            <svg class="svg2" xmlns="http://www.w3.org/2000/svg" width="371" height="140" viewBox="0 0 371 140" fill="none">
+                                <path d="M371 0.762695C323.196 47.252 265.931 82.9677 203.078 105.493C199.93 106.616 196.619 107.727 193.309 107.266C189.999 106.805 186.727 104.259 186.634 100.926C186.553 97.9998 188.799 95.5891 190.878 93.5321L209.98 74.7652C214.664 70.1513 219.73 63.5843 216.732 57.7516C214.761 53.9067 209.838 52.3687 205.544 52.9954C201.249 53.6222 197.441 55.9483 193.757 58.1783C193.757 58.1783 51.9705 129.278 0.015625 139.036C53.3556 130.747 102.999 114.21 151.509 90.6561C155.398 88.7682 161.656 86.4267 165.973 86.2037C170.291 85.9807 175.052 87.9531 176.669 91.9518C179.122 98.0344 173.474 104.129 168.393 108.285L147.655 125.241C145.386 127.102 142.928 129.297 142.743 132.219C142.531 135.545 145.556 138.371 148.812 139.14C152.068 139.909 155.464 139.094 158.701 138.26C223.133 121.638 310.599 78.5178 366.115 25.2815L371 0.762695Z" fill="gray"/>
+                            </svg>
+                            <div class="close-btn close-btn-form"><img src="../assets/images/formLogin/closeBtn.svg" alt=""></div>
+                            
+                            <div class="heading">
+                                <h2>Đăng ký</h2>
+                                <p>Đăng ký để trải nhiệm những trò chơi thú vị trên META-G</p>
+                            </div>
+
+                            <div class="input-group">
+                                <div class="username input-container">
+                                    <input type="text" placeholder="Tài khoản">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M8 0C9.06087 0 10.0783 0.421427 10.8284 1.17157C11.5786 1.92172 12 2.93913 12 4C12 5.06087 11.5786 6.07828 10.8284 6.82843C10.0783 7.57857 9.06087 8 8 8C6.93913 8 5.92172 7.57857 5.17157 6.82843C4.42143 6.07828 4 5.06087 4 4C4 2.93913 4.42143 1.92172 5.17157 1.17157C5.92172 0.421427 6.93913 0 8 0ZM8 10C12.42 10 16 11.79 16 14V16H0V14C0 11.79 3.58 10 8 10Z" fill="white"/>
+                                    </svg>              
+                                </div>
+
+                                <div class="password input-container">
+                                    <input type="tel" placeholder="Số điện thoại">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M10.0776 0C9.14195 0.000838676 8.21976 0.222872 7.38633 0.64797C6.5529 1.07307 5.83185 1.68918 5.28206 2.446C4.73228 3.20282 4.36934 4.0789 4.22287 5.00269C4.07641 5.92648 4.15058 6.87181 4.43933 7.76148L0.173394 12.0252C0.118362 12.0803 0.0747236 12.1456 0.0449721 12.2176C0.0152206 12.2895 -6.105e-05 12.3666 1.83293e-07 12.4444V15.4074C1.83293e-07 15.5646 0.0624557 15.7153 0.173627 15.8264C0.284799 15.9376 0.43558 16 0.5928 16H3.5568C3.71402 16 3.8648 15.9376 3.97597 15.8264C4.08715 15.7153 4.1496 15.5646 4.1496 15.4074V14.2222H5.3352C5.49242 14.2222 5.6432 14.1598 5.75437 14.0487C5.86555 13.9375 5.928 13.7868 5.928 13.6296V12.4444H7.1136C7.19147 12.4445 7.26859 12.4292 7.34055 12.3995C7.41252 12.3697 7.47791 12.3261 7.53301 12.2711L8.2414 11.5622C9.05615 11.8267 9.91855 11.9114 10.7692 11.8107C11.6199 11.71 12.4386 11.4262 13.169 10.9788C13.8994 10.5314 14.5242 9.93115 15.0002 9.21925C15.4763 8.50735 15.7924 7.70078 15.9267 6.85506C16.061 6.00933 16.0104 5.14456 15.7782 4.32028C15.5461 3.496 15.1381 2.73179 14.5822 2.08029C14.0263 1.42878 13.3358 0.905444 12.5581 0.546319C11.7805 0.187194 10.9342 0.000809414 10.0776 0ZM11.5596 5.62963C11.3251 5.62963 11.0959 5.56012 10.9009 5.42989C10.7059 5.29966 10.554 5.11456 10.4642 4.89799C10.3745 4.68143 10.351 4.44313 10.3968 4.21323C10.4425 3.98332 10.5554 3.77214 10.7213 3.60639C10.8871 3.44064 11.0983 3.32776 11.3283 3.28203C11.5583 3.2363 11.7967 3.25977 12.0133 3.34948C12.23 3.43918 12.4151 3.59109 12.5454 3.78599C12.6757 3.98089 12.7452 4.21004 12.7452 4.44444C12.7452 4.75878 12.6203 5.06023 12.3979 5.2825C12.1756 5.50476 11.874 5.62963 11.5596 5.62963Z" fill="white"/>
+                                    </svg>
+                                </div>
+
+                                <div class="password input-container">
+                                    <input type="password" placeholder="Mật khẩu">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M10.0776 0C9.14195 0.000838676 8.21976 0.222872 7.38633 0.64797C6.5529 1.07307 5.83185 1.68918 5.28206 2.446C4.73228 3.20282 4.36934 4.0789 4.22287 5.00269C4.07641 5.92648 4.15058 6.87181 4.43933 7.76148L0.173394 12.0252C0.118362 12.0803 0.0747236 12.1456 0.0449721 12.2176C0.0152206 12.2895 -6.105e-05 12.3666 1.83293e-07 12.4444V15.4074C1.83293e-07 15.5646 0.0624557 15.7153 0.173627 15.8264C0.284799 15.9376 0.43558 16 0.5928 16H3.5568C3.71402 16 3.8648 15.9376 3.97597 15.8264C4.08715 15.7153 4.1496 15.5646 4.1496 15.4074V14.2222H5.3352C5.49242 14.2222 5.6432 14.1598 5.75437 14.0487C5.86555 13.9375 5.928 13.7868 5.928 13.6296V12.4444H7.1136C7.19147 12.4445 7.26859 12.4292 7.34055 12.3995C7.41252 12.3697 7.47791 12.3261 7.53301 12.2711L8.2414 11.5622C9.05615 11.8267 9.91855 11.9114 10.7692 11.8107C11.6199 11.71 12.4386 11.4262 13.169 10.9788C13.8994 10.5314 14.5242 9.93115 15.0002 9.21925C15.4763 8.50735 15.7924 7.70078 15.9267 6.85506C16.061 6.00933 16.0104 5.14456 15.7782 4.32028C15.5461 3.496 15.1381 2.73179 14.5822 2.08029C14.0263 1.42878 13.3358 0.905444 12.5581 0.546319C11.7805 0.187194 10.9342 0.000809414 10.0776 0ZM11.5596 5.62963C11.3251 5.62963 11.0959 5.56012 10.9009 5.42989C10.7059 5.29966 10.554 5.11456 10.4642 4.89799C10.3745 4.68143 10.351 4.44313 10.3968 4.21323C10.4425 3.98332 10.5554 3.77214 10.7213 3.60639C10.8871 3.44064 11.0983 3.32776 11.3283 3.28203C11.5583 3.2363 11.7967 3.25977 12.0133 3.34948C12.23 3.43918 12.4151 3.59109 12.5454 3.78599C12.6757 3.98089 12.7452 4.21004 12.7452 4.44444C12.7452 4.75878 12.6203 5.06023 12.3979 5.2825C12.1756 5.50476 11.874 5.62963 11.5596 5.62963Z" fill="white"/>
+                                    </svg>
+                                </div>
+
+                                <div class="password input-container">
+                                    <input type="password" placeholder="Nhập lại mật khẩu">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M10.0776 0C9.14195 0.000838676 8.21976 0.222872 7.38633 0.64797C6.5529 1.07307 5.83185 1.68918 5.28206 2.446C4.73228 3.20282 4.36934 4.0789 4.22287 5.00269C4.07641 5.92648 4.15058 6.87181 4.43933 7.76148L0.173394 12.0252C0.118362 12.0803 0.0747236 12.1456 0.0449721 12.2176C0.0152206 12.2895 -6.105e-05 12.3666 1.83293e-07 12.4444V15.4074C1.83293e-07 15.5646 0.0624557 15.7153 0.173627 15.8264C0.284799 15.9376 0.43558 16 0.5928 16H3.5568C3.71402 16 3.8648 15.9376 3.97597 15.8264C4.08715 15.7153 4.1496 15.5646 4.1496 15.4074V14.2222H5.3352C5.49242 14.2222 5.6432 14.1598 5.75437 14.0487C5.86555 13.9375 5.928 13.7868 5.928 13.6296V12.4444H7.1136C7.19147 12.4445 7.26859 12.4292 7.34055 12.3995C7.41252 12.3697 7.47791 12.3261 7.53301 12.2711L8.2414 11.5622C9.05615 11.8267 9.91855 11.9114 10.7692 11.8107C11.6199 11.71 12.4386 11.4262 13.169 10.9788C13.8994 10.5314 14.5242 9.93115 15.0002 9.21925C15.4763 8.50735 15.7924 7.70078 15.9267 6.85506C16.061 6.00933 16.0104 5.14456 15.7782 4.32028C15.5461 3.496 15.1381 2.73179 14.5822 2.08029C14.0263 1.42878 13.3358 0.905444 12.5581 0.546319C11.7805 0.187194 10.9342 0.000809414 10.0776 0ZM11.5596 5.62963C11.3251 5.62963 11.0959 5.56012 10.9009 5.42989C10.7059 5.29966 10.554 5.11456 10.4642 4.89799C10.3745 4.68143 10.351 4.44313 10.3968 4.21323C10.4425 3.98332 10.5554 3.77214 10.7213 3.60639C10.8871 3.44064 11.0983 3.32776 11.3283 3.28203C11.5583 3.2363 11.7967 3.25977 12.0133 3.34948C12.23 3.43918 12.4151 3.59109 12.5454 3.78599C12.6757 3.98089 12.7452 4.21004 12.7452 4.44444C12.7452 4.75878 12.6203 5.06023 12.3979 5.2825C12.1756 5.50476 11.874 5.62963 11.5596 5.62963Z" fill="white"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="password-options">
+                                <div class="save-password">
+                                    <input type="checkbox" id="checkbox2">
+                                    <label for="checkbox2">Tôi chấp nhận Điều Khoản Sử Dụng của META-G</label>
+                                </div>
+                            </div>
+
+                            <a href="../index.html" class="normal-style-btn large-size">Đăng ký</a>
+                                                       
+                            <p class="register-navigation-text">Bạn đã có tài khoản? <span class="login-ref">Đăng nhập</span></p>                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mobile-menu" id="menu">
+            <div class="spacer-mobile-menu"></div>
+            <div class="heading">
+                <div class="user-info">
+                    <div class="">
+                        <p class="user-name">guest</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="spacer-mobile-menu"></div>
+
+            <div class="categories-menu-mobile">
+                <div class="category-item-mobile">
+                        <div class="category-name-mobile">
+                            <img class="freefire" src="../assets/icon/nav-bar/freefire.gif" alt="">
+                            <span>Game hot</span>
+                            <div class="shadow"></div>
+                        </div>
+                        <div class="shadow-top"></div>
+                        <div class="shadow-bottom"></div>
+                    </div>
+
+                <div class="category-item-mobile">
+                        <div class="category-name-mobile">
+                            <img src="../assets/icon/nav-bar/handfist.svg" alt="">
+                            <span>Hành động<span>
+                            <div class="shadow"></div>
+                        </div>
+                        <div class="shadow-top"></div>
+                        <div class="shadow-bottom"></div>
+                    </div>
+
+                <div class="category-item-mobile">
+                        <div class="category-name-mobile">
+                            <img src="../assets/icon/nav-bar/ghost.svg" alt="">
+                            <span>Giải trí</span>
+                            <div class="shadow"></div>
+                        </div>
+                        <div class="shadow-top"></div>
+                        <div class="shadow-bottom"></div>
+                    </div>
+
+                <div class="category-item-mobile">
+                        <div class="category-name-mobile">
+                            <img src="../assets/icon/nav-bar/hat.svg" alt="">
+                            <span>Giáo dục</span>
+                            <div class="shadow"></div>
+                        </div>
+                        <div class="shadow-top"></div>
+                        <div class="shadow-bottom"></div>
+                    </div>
+
+                <div class="category-item-mobile">
+                        <div class="category-name-mobile">
+                            <img src="../assets/icon/nav-bar/insertPiece.svg" alt="">
+                            <span>Giải đố</span>
+                            <div class="shadow"></div>
+                        </div>
+                        <div class="shadow-top"></div>
+                        <div class="shadow-bottom"></div>
+                    </div>
+
+                <div class="category-item-mobile">
+                        <div class="category-name-mobile">
+                            <img src="../assets/icon/nav-bar/ball.svg" alt="">
+                            <span>Thể thao</span>
+                            <div class="shadow"></div>
+                        </div>
+                        <div class="shadow-top"></div>
+                        <div class="shadow-bottom"></div>
+                    </div>               
+            </div>
+
+            <div class="spacer-mobile-menu"></div>
+            <div class="language">
+                <img src="../assets/icon/nav-bar/language.svg" alt="">
+                <p>VN</p>
+            </div>
+            <div class="spacer-mobile-menu"></div>
+
+            <div class="menu-mobile-info">
+                <div class="social-item-group">
+                    <div class="social-item"><img src="../assets/icon/socialMedia/discord.svg" alt=""></div>
+    
+                    <div class="social-item"><img src="../assets/icon/socialMedia/twitter.svg" alt=""></i></div>
+    
+                    <div class="social-item">
+                        <img src="../assets/icon/socialMedia/reddit.svg" alt="">
+                    </div>
+    
+                    <div class="social-item"><img src="../assets/icon/socialMedia/tiktok.svg" alt=""></div>
+    
+                    <div class="social-item">
+                        <img src="../assets/icon/socialMedia/instagram-fill.svg" alt="">
+                    </div>
+    
+                    <div class="social-item"><img src="../assets/icon/socialMedia/youtube.svg" alt=""></div>
+    
+                    <div class="social-item"><img src="../assets/icon/socialMedia/facebook-fill.svg" alt=""></div>
+                </div>
+                
+                <div class="info-item-group">
+                    <div class="info-item">
+                        <img src="../assets/icon/header-info/wifi.svg" alt="">
+                        <p class="info-item-count" style="color: #89f9ff">6.969</p>
+                        <p class="info-item-name">Trực tuyến</p>
+                    </div>
+
+                    <div class="info-item">
+                        <img src="../assets/icon/header-info/user.svg" alt="">
+                        <p class="info-item-count" style="color: #ee6db0">6.969</p>
+                        <p class="info-item-name">Người dùng</p>
+                    </div>
+
+                    <div class="info-item">
+                        <img src="../assets/icon/header-info/gamepad.svg" alt="">
+                        <p class="info-item-count" style="color: #b595fc">6.969</p>
+                        <p class="info-item-name">Tựa game</p>
+                    </div>
+
+                    <div class="info-item">
+                        <img src="../assets/icon/header-info/handfist.svg" alt="">
+
+                        <p class="info-item-count" style="color: #6497fa">6.969</p>
+                        <p class="info-item-name">Nhà cung cấp</p>
+                    </div>
+                </div>       
+            </div>
+
+        </div>
+        
+        <div class="nav-menu-mobile">
+            <div class="nav-menu-item">
+                <img src="../assets/icon/mobile/home.svg" alt="">
+                <p>Trang chủ</p>
+            </div>
+            <div class="nav-menu-item">
+                <img src="../assets/icon/mobile/gamepad.svg" alt="">
+                <p>Danh mục</p>
+            </div>
+            <div class="nav-menu-item">
+                <img src="../assets/icon/mobile/search.svg" alt="">
+                <p>Tìm kiếm</p>
+            </div>
+            <div class="nav-menu-item" id="toggle-menu">
+                <img id="toggle-menu-icon" src="../assets/icon/mobile/menu.svg" alt="">
+                <p id="toggle-menu-name">Menu</p>
+            </div>
+        </div>
+    </body>
+    <script src="../js/fixedHeaderSideBar.js"></script>
+    <script src="../js/toggleForm.js"></script>
+    <script src="../js/toggleMenu.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        slidesPerView: 4,
+        spaceBetween: 18,
+        slidesPerGroup: 4,
+        slidePrevClass: 'backward-button',
+        slideNextClass: 'forward-button',
+        autoHeight: true,
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.forward-button',
+            prevEl: '.backward-button',
+        },
+
+        breakpoints: {
+            // when window width is >= 320px
+            300: {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            spaceBetween: 8
+            },
+            // when window width is >= 480px
+            480: {
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+            spaceBetween: 18
+            },
+            // when window width is >= 640px
+            1300: {
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+            spaceBetween: 18
+            },
+
+            1600: {
+            slidesPerView: 4,
+            slidesPerGroup: 4,
+            spaceBetween: 18
+            }
+        }
+        });
+
+        const swiperRanking = new Swiper('.swiper-ranking', {
+        // Optional parameters
+        slidesPerView: 5,
+        spaceBetween: 18,
+        slidesPerGroup: 5,
+        autoHeight: true,
+
+        // Navigation arrows
+        navigation: false,
+
+        breakpoints: {
+            // when window width is >= 320px
+            300: {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            spaceBetween: 8
+            },
+            // when window width is >= 480px
+            480: {
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+            spaceBetween: 18
+            },
+            // when window width is >= 640px
+            1300: {
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+            spaceBetween: 18
+            },
+
+            1600: {
+            slidesPerView: 6,
+            slidesPerGroup: 0,
+            spaceBetween: 18
+            }
+        }
+        });
+    </script>
+</html>

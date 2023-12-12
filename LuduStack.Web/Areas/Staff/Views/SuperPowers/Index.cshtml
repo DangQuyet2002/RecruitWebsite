@@ -1,0 +1,122 @@
+﻿@{
+    ViewData["Title"] = "Super Powers!";
+    var isAdmin = User.IsInRole(Roles.Administrator.ToString());
+}
+
+@section Styles {
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/memberpowers.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/memberpowers.min.css" asp-append-version="true" />
+    </environment>
+}
+
+<div class="col-12">
+    <div class="row">
+        @if (isAdmin)
+        {
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-2">
+                <div class="flex-square clickable rectangle bordered hover m-0 bg-purple">
+                    <div class="flex-square-inner">
+                        <a asp-area="staff" asp-controller="platformsetting" asp-action="index">
+                            <div class="flex-square-inner-content text-white">
+                                <div><i class="fas fa-3x fa-cogs" aria-hidden="true"></i></div>
+                                <div>@SharedLocalizer["platform settings"]</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-2">
+                <div class="flex-square clickable rectangle bordered hover m-0 bg-red">
+                    <div class="flex-square-inner">
+                        <a asp-area="staff" asp-controller="admin" asp-action="index">
+                            <div class="flex-square-inner-content text-white">
+                                <div><i class="fas fa-3x fa-crown" aria-hidden="true"></i></div>
+                                <div>@SharedLocalizer["admin tasks"]</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-2">
+            <div class="flex-square clickable rectangle bordered hover m-0 bg-green">
+                <div class="flex-square-inner">
+                    <a asp-area="staff" asp-controller="featuredcontent" asp-action="index">
+                        <div class="flex-square-inner-content text-white">
+                            <div><i class="fas fa-3x fa-star" aria-hidden="true"></i></div>
+                            <div>@SharedLocalizer["featured content"]</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-2">
+            <div class="flex-square clickable rectangle bordered hover m-0 bg-purple">
+                <div class="flex-square-inner">
+                    <a asp-area="staff" asp-controller="gamificationlevel" asp-action="index">
+                        <div class="flex-square-inner-content text-white">
+                            <div><i class="fas fa-3x fa-trophy" aria-hidden="true"></i></div>
+                            <div>@SharedLocalizer["gamification level"]</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-2">
+            <div class="flex-square clickable rectangle bordered hover m-0 bg-blue">
+                <div class="flex-square-inner">
+                    <a asp-area="member" asp-controller="comics" asp-action="index">
+                        <div class="flex-square-inner-content text-white">
+                            <div><i class="fas fa-3x fa-grin-squint-tears" aria-hidden="true"></i></div>
+                            <div>@SharedLocalizer["comic strips"]</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-2">
+            <div class="flex-square clickable rectangle bordered hover m-0 bg-maroon">
+                <div class="flex-square-inner">
+                    <a asp-area="staff" asp-controller="forumgroup" asp-action="index">
+                        <div class="flex-square-inner-content text-white">
+                            <div><i class="fas fa-3x fa-comment-dots" aria-hidden="true"></i></div>
+                            <div>@SharedLocalizer["forum groups"]</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-2">
+            <div class="flex-square clickable rectangle bordered hover m-0 bg-teal">
+                <div class="flex-square-inner">
+                    <a asp-area="staff" asp-controller="forumcategory" asp-action="index">
+                        <div class="flex-square-inner-content text-white">
+                            <div><i class="fas fa-3x fa-comments" aria-hidden="true"></i></div>
+                            <div>@SharedLocalizer["forum categories"]</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-2">
+            <div class="flex-square clickable rectangle bordered hover m-0 m-0 bg-olive">
+                <div class="flex-square-inner">
+                    <a asp-area="staff" asp-controller="gameidea" asp-action="index">
+                        <div class="flex-square-inner-content text-white">
+                            <div><i class="fas fa-3x fa-lightbulb" aria-hidden="true"></i></div>
+                            <div>@SharedLocalizer["game ideas"]</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

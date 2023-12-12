@@ -1,0 +1,48 @@
+.mobile-search {
+    display: none;
+}
+
+@media only screen and (max-width: 420px) {
+    .mobile-search {
+        display: block;
+        position: fixed;
+        width: 100vw;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $darker-bg-color;
+        z-index: 100;
+        transition: right 0.3s ease;
+        overflow-y: scroll;
+        padding: 96px 12px 12px 12px;
+
+
+        .input-search {
+            display: flex;
+            position: relative;
+            .spacer {
+                height: 40px;
+                width: 2px;
+                background: linear-gradient(
+                        180deg,
+                        rgba(137, 249, 255, 0) 0%,
+                        #59a1a5 48%,
+                        rgba(137, 249, 255, 0) 100%
+                    ),
+                    linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
+            }
+
+            input {
+                background: linear-gradient(#24214200, #242142, #242142, #24214200);
+                width: 100%;
+                padding: 12px 0;
+                padding-left: 10px;
+            }
+
+            img {
+                position: absolute;
+                right: 0;
+            }
+        }
+    }
+}

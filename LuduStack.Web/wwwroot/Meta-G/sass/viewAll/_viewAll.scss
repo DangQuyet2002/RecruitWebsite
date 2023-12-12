@@ -1,0 +1,514 @@
+.view-all-page-wrapper {
+    display: flex;
+    margin-top: -120px;
+    gap: 24px;
+    max-width: 100%;
+    padding-right: 20px;
+}
+
+.side-bar {
+    background-color: $primary-bg-color;
+    padding: 24px 16px;
+    clip-path: $border-cutting-right-side-8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: calc(5% - 24px);
+    z-index: 98;
+    position: relative;
+    height: 300px;
+    #side-bar-arrow {
+        display: none;
+    }
+
+    .extended-scrollable-menu-container {
+        display: flex;
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: transparent;
+            display: none;
+            z-index: 1;
+        }
+
+        .extended-scrollable-menu {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            bottom: 0;
+            background-color: $primary-bg-color;
+            width: 300px;
+            padding: 10px 12px 36px;
+            // clip-path: $border-cutting-right-side-8;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            white-space: nowrap;
+            z-index: 2;
+
+            .button-close {
+                position: fixed;
+                top: 11%;
+                right: 5vw;
+                color: $pink-darker-text-color;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+
+            .extended-menu-item {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                .heading {
+                    display: flex;
+                    gap: 4px;
+
+                    p {
+                        font-size: 16px;
+                        font-weight: 500;
+                        text-transform: uppercase;
+                    }
+                }
+
+                a {
+                    color: $gray-text-color;
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .extended-menu-spacer {
+            position: absolute;
+            top: 0;
+            height: 100vh;
+            left: 100%;
+            width: 2.5px;
+            background: linear-gradient(
+                    180deg,
+                    rgba(137, 249, 255, 0) 0%,
+                    #59a1a5 48%,
+                    rgba(137, 249, 255, 0) 100%
+                ),
+                linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
+            z-index: 3;
+            }
+    }
+
+    .border-side-bar-item {
+        width: 32px;
+        height: 32px;
+        background-color: #575194;
+        clip-path: $border-cutting-4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1.4px;
+
+        .side-bar-item {
+            background-color: $primary-bg-color;
+            clip-path: $border-cutting-4;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+        &:hover {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+    }
+}
+
+.main-content {
+    max-width: 95%;
+    .main-section {
+        display: flex;
+        gap: 24px;
+        width: 100%;
+
+        .banner-slider-container {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            width: 100%;
+            .banner-slider {
+                background-image: url(../../assets/images/gameDetail/lol-bg.webp);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                width: 100%;
+                height: 500px;
+                position: relative;
+
+                .banner-slider-text {
+                    position: absolute;
+                    left: 5%;
+                    bottom: 10%;
+                    width: 40%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+
+                    img {
+                        display: none;
+                    }
+
+                    h2 {
+                        font-size: 36px;
+                        font-weight: 700;
+                    }
+
+                    p {
+                        font-size: 16px;
+                    }
+                }
+            }
+
+            .game-slider {
+                display: flex;
+                gap: 24px;
+            }
+        }
+
+        .chat-challenge-section {
+            width: 40%;
+            background-color: $primary-bg-color;
+            clip-path: $border-cutting-8;
+            padding: 8px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            .heading {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .heading-text {
+                    display: flex;
+                    gap: 4px;
+                }
+            }
+
+            .comments-group {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+
+                .username {
+                    color: $pink-text-color;
+                }
+            }
+
+            .challenging {
+                background-color: #19172e;
+                padding: 10px 12px;
+                clip-path: $border-cutting-8;
+
+                .heading {
+                    .heading-text {
+                        display: flex;
+                        align-items: center;
+                        gap: 6px;
+
+                        p {
+                            font-weight: 500;
+                            text-transform: uppercase;
+                        }
+                    }
+
+                    span {
+                        color: $pink-text-color;
+                    }
+                }
+
+                .challenger-info {
+                    margin-top: 18px;
+                    display: flex;
+                    justify-content: center;
+                    gap: 30px;
+                    .avatar {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+
+                        img {
+                            padding: 1px;
+                            width: 46px;
+                            height: 46px;
+                            border-radius: 46px;
+                            background: transparent / cover no-repeat;
+                            border: 1px solid rgba(119, 114, 132, 1);
+                        }
+
+                        p {
+                            margin-top: 6px;
+                            color: $pink-text-color;
+                            font-size: 14px;
+                        }
+                    }
+
+                    .vs {
+                        margin-top: 4px;
+                    }
+                }
+
+                .reward-info {
+                    margin-top: 8px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 4px;
+                    font-size: 12px;
+
+                    .reward-info-line {
+                        display: flex;
+                        gap: 4px;
+                        p {
+                            color: $gray-text-color;
+                        }
+
+                        span {
+                            color: $aqua-text-color;
+                        }
+                    }
+                }
+
+                button {
+                    margin: 16px auto 0;
+                }
+            }
+
+            .messenger {
+                display: flex;
+                input {
+                    background-color: #19172e;
+                    padding: 10px 12px;
+                    color: $text-color;
+                    font-size: 16px;
+                    border: none;
+                    outline: none;
+                    height: 100%;
+                    width: 85%;
+                    clip-path: polygon(
+                        0 0,
+                        calc(100% - 8px) 0,
+                        100% 8px,
+                        100% calc(100% - 8px),
+                        calc(100% - 8px) 100%,
+                        8px 100%,
+                        0 calc(100% - 8px)
+                    );
+                }
+
+                ::placeholder {
+                    color: $gray-text-color;
+                }
+
+                button {
+                    width: 15%;
+                }
+            }
+        }
+    }
+
+    .impressive-games {
+        margin-top: 68px;
+        .heading {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .related-games-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            .related-game-item {
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .impressive-games-mobile {
+        display: none;
+    }
+
+    .view-all-page-slider {
+        width: auto;
+    }
+}
+
+.sticky-side-bar {
+    position: fixed;
+    left: 0;
+    top: 10%;
+    bottom: 0;
+
+    & ~ .main-content {
+        margin-left: 5%;
+    }
+}
+
+@media only screen and (max-width: 1368px) {
+    .view-all-page-wrapper {
+        .side-bar {
+            padding: 24px 0;
+            align-items: center;
+        }
+
+        .main-content {
+            .main-section {
+                flex-direction: column;
+            }
+            .chat-challenge-section {
+                width: 100%;
+
+                .messenger {
+                    input {
+                        width: 140%;
+                    }
+                }
+            }
+
+            .impressive-games {
+                margin-top: 20px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 960px) {
+    .view-all-page-wrapper {
+        padding-right: 12px;
+        gap: 12px;
+        .side-bar {
+            width: calc(6% - 12px);
+        }
+
+        .main-content {
+            max-width: 94%;
+            .impressive-games {
+                .related-games-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 12px;
+                    padding: 0;
+                }
+            }
+            .main-section {
+                flex-direction: column;
+                .banner-slider-container {
+                    .game-slider {
+                        flex-direction: column;
+                    }
+                }
+            }
+        }
+    }
+
+    .sticky-side-bar {
+        & ~ .main-content {
+            margin-left: 6%;
+        }
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .view-all-page-wrapper {
+        padding: 0 12px;
+        .side-bar {
+            padding-bottom: 12px;
+            padding-top: 12px;
+            position: fixed;
+            left: 0;
+            width: 10%;
+            z-index: 100;
+            height: auto!important;
+            gap: 16px;
+
+            #side-bar-arrow {
+                display: block;
+            }
+            
+            .extended-scrollable-menu-container {
+                width: 100vw;
+            }
+        }
+
+        .main-content {
+            max-width: 100%;
+            .main-section {
+                .banner-slider {
+                    height: 200px;
+
+                    .banner-slider-text {
+                        width: 100%;
+                        left: 0;
+                        bottom: 50%;
+                        transform: translateY(50%);
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        p {
+                            display: none;
+                        }
+                        h2 {
+                            font-size: 18px;
+                        }
+
+                        img {
+                            display: block;
+                            clip-path: $border-cutting-8;
+                            width: 52px;
+                            height: 52px;
+                        }
+                    }
+                }
+                .banner-slider-container {
+                    .game-slider {
+                        flex-direction: column;
+                        gap: 12px;
+                    }
+                }
+            }
+
+            .impressive-games {
+                display: none;
+            }
+
+            .impressive-games-mobile {
+                display: block;
+            }
+
+            .chat-challenge-section {
+                .messenger {
+                    input {
+                        width: 80%;
+                    }
+
+                    button {
+                        width: 20%;
+                    }
+                }
+            }
+        }
+    }
+}

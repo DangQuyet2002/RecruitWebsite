@@ -1,0 +1,65 @@
+﻿@using LuduStack.Domain.Models;
+@using MetaG.Application.ViewModels;
+@model List<GameFeeViewModel>
+
+
+<div class="slide-section swiper2">
+    <div class="heading">
+        <p class="mobile">TỰA GAME CÓ PHÍ PHỔ BIẾN</p>
+
+        <div class="nav-btn-group">
+            <div class="nav-btn swiper-button-prev backward-button2">
+                <div class="backward-btn"></div>
+            </div>
+            <div class="nav-btn swiper-button-next forward-button2">
+                <div class="forward-btn"></div>
+            </div>
+        </div>
+
+        <p class="desktop">TỰA GAME CÓ PHÍ PHỔ BIẾN</p>
+    </div>
+
+    <div class="slide-section-items swiper-wrapper">
+        @foreach (var on in Model)
+        {
+            foreach (var data in on.RelatedGames)
+            {
+                <div class="game-item swiper-slide">
+                    <div class="left-content">
+                        <img src="@data.ThumbnailUrl" alt="" />
+                    <div class="score">4,5</div>
+                </div>
+
+                    <div class="right-content">
+                        <div class="info">
+                            <div class="info-heading">
+                                <p class="game-name">@data.Title</p>
+                                <p class="release-date">@data.PublishDate</p>
+                            </div>
+
+                            <div class="lines">
+                                <div class="info-line">
+                                    <p>Người chơi:</p>
+                                    <span>@data.NumberPlays</span>
+                                </div>
+                                <div class="info-line">
+                                    <p>Thể loại:</p>
+                                    <span>@data.Genre</span>
+                                </div>
+                                <div class="info-line">
+                                    <p>Nhà cung cấp:</p>
+                                    <span>@data.DeveloperName</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="./pages/gameDetail.html" alt="" class="styled-btn max-size fee">
+                            <img src="./assets/icon/coin/Coins.png" alt="" />
+                            <span>@on.Amount @on.Currency.Code</span> MUA
+                        </a>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

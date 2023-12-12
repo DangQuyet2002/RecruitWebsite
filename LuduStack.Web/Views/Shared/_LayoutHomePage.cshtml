@@ -1,0 +1,465 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Thiết lập sự sáng tạo với META-G: Nền tảng lập trình game dành riêng cho những tâm hồn sáng tạo. Tạo và chia sẻ trải nghiệm game độc đáo với người dùng trên toàn thế giới. Bắt đầu sáng tạo ngay hôm nay!">
+    <meta name="keywords" content="indie game, indie game developers, development, game development, article, social networking, international collaboration" />
+    <meta name="author" content="Anteater Games">
+    <link rel="stylesheet" href="~/meta-g/css/app.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+          rel="stylesheet" />
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="wrapper">
+        <header id="header">
+            <div class="container">
+                <div class="header-container">
+
+                    <partial name="_Header.cshtml" />
+
+                    @RenderSection("GameHotContent", required: false)
+                </div>
+            </div>
+        </header>
+        <main>
+            @RenderBody()
+        </main>
+        <footer>
+            <partial name="_Footer.cshtml" />
+        </footer>
+    </div>
+
+    <div class="mobile-menu" id="menu">
+        <div class="spacer-mobile-menu"></div>
+        <div class="heading">
+            <div class="user-info">
+                <div class="">
+                    <p class="user-name">Sieunhangao</p>
+                    <div class="wallet"> <img src="~/meta-g/assets/icon/coin/Coins.png" alt="">  12345678.12</div>
+                </div>
+            </div>
+
+            <a class="logout" href="./pages/guestPage.html" alt="">
+                <img src="~/meta-g/assets/icon/logout/logout.svg" alt="">
+            </a>
+        </div>
+        <div class="spacer-mobile-menu"></div>
+
+        <div class="categories-menu-mobile">
+            <div class="category-item-mobile">
+                <div class="category-name-mobile">
+                    <img class="freefire" src="~/meta-g/assets/icon/nav-bar/freefire.gif" alt="">
+                    <span>Game hot</span>
+                    <div class="shadow"></div>
+                </div>
+                <div class="shadow-top"></div>
+                <div class="shadow-bottom"></div>
+            </div>
+
+            <div class="category-item-mobile">
+                <div class="category-name-mobile">
+                    <img src="~/meta-g/assets/icon/nav-bar/handfist.svg" alt="">
+                    <span>
+                        Hành động<span>
+                            <div class="shadow"></div>
+                </div>
+                <div class="shadow-top"></div>
+                <div class="shadow-bottom"></div>
+            </div>
+
+            <div class="category-item-mobile">
+                <div class="category-name-mobile">
+                    <img src="~/meta-g/assets/icon/nav-bar/ghost.svg" alt="">
+                    <span>Giải trí</span>
+                    <div class="shadow"></div>
+                </div>
+                <div class="shadow-top"></div>
+                <div class="shadow-bottom"></div>
+            </div>
+
+            <div class="category-item-mobile">
+                <div class="category-name-mobile">
+                    <img src="~/meta-g/assets/icon/nav-bar/hat.svg" alt="">
+                    <span>Giáo dục</span>
+                    <div class="shadow"></div>
+                </div>
+                <div class="shadow-top"></div>
+                <div class="shadow-bottom"></div>
+            </div>
+
+            <div class="category-item-mobile">
+                <div class="category-name-mobile">
+                    <img src="~/meta-g/assets/icon/nav-bar/insertPiece.svg" alt="">
+                    <span>Giải đố</span>
+                    <div class="shadow"></div>
+                </div>
+                <div class="shadow-top"></div>
+                <div class="shadow-bottom"></div>
+            </div>
+
+            <div class="category-item-mobile">
+                <div class="category-name-mobile">
+                    <img src="~/meta-g/assets/icon/nav-bar/ball.svg" alt="">
+                    <span>Thể thao</span>
+                    <div class="shadow"></div>
+                </div>
+                <div class="shadow-top"></div>
+                <div class="shadow-bottom"></div>
+            </div>
+        </div>
+
+        <div class="spacer-mobile-menu"></div>
+        <div class="language">
+            <img src="~/meta-g/assets/icon/nav-bar/language.svg" alt="">
+            <p>VN</p>
+        </div>
+        <div class="spacer-mobile-menu"></div>
+
+        <div class="menu-mobile-info">
+            <div class="social-item-group">
+                <div class="social-item"><img src="~/meta-g/assets/icon/socialMedia/discord.svg" alt=""></div>
+
+                <div class="social-item"><img src="~/meta-g/assets/icon/socialMedia/twitter.svg" alt=""></i></div>
+
+                <div class="social-item">
+                    <img src="~/meta-g/assets/icon/socialMedia/reddit.svg" alt="">
+                </div>
+
+                <div class="social-item"><img src="~/meta-g/assets/icon/socialMedia/tiktok.svg" alt=""></div>
+
+                <div class="social-item">
+                    <img src="~/meta-g/assets/icon/socialMedia/instagram-fill.svg" alt="">
+                </div>
+
+                <div class="social-item"><img src="~/meta-g/assets/icon/socialMedia/youtube.svg" alt=""></div>
+
+                <div class="social-item"><img src="~/meta-g/assets/icon/socialMedia/facebook-fill.svg" alt=""></div>
+            </div>
+
+            <div class="info-item-group">
+                <div class="info-item">
+                    <img src="~/meta-g/assets/icon/header-info/wifi.svg" alt="">
+                    <p class="info-item-count" style="color: #89f9ff">6.969</p>
+                    <p class="info-item-name">Trực tuyến</p>
+                </div>
+
+                <div class="info-item">
+                    <img src="~/meta-g/assets/icon/header-info/user.svg" alt="">
+                    <p class="info-item-count" style="color: #ee6db0">6.969</p>
+                    <p class="info-item-name">Người dùng</p>
+                </div>
+
+                <div class="info-item">
+                    <img src="~/meta-g/assets/icon/header-info/gamepad.svg" alt="">
+                    <p class="info-item-count" style="color: #b595fc">6.969</p>
+                    <p class="info-item-name">Tựa game</p>
+                </div>
+
+                <div class="info-item">
+                    <img src="~/meta-g/assets/icon/header-info/handfist.svg" alt="">
+
+                    <p class="info-item-count" style="color: #6497fa">6.969</p>
+                    <p class="info-item-name">Nhà cung cấp</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="nav-menu-mobile">
+        <div class="nav-menu-item">
+            <img src="~/meta-g/assets/icon/mobile/home.svg" alt="">
+            <p>Trang chủ</p>
+        </div>
+        <div class="nav-menu-item">
+            <img src="~/meta-g/assets/icon/mobile/gamepad.svg" alt="">
+            <p>Danh mục</p>
+        </div>
+        <div class="nav-menu-item">
+            <img src="~/meta-g/assets/icon/mobile/search.svg" alt="">
+            <p>Tìm kiếm</p>
+        </div>
+        <div class="nav-menu-item" id="toggle-menu">
+            <img id="toggle-menu-icon" src="~/meta-g/assets/icon/mobile/menu.svg" alt="">
+            <p id="toggle-menu-name">Menu</p>
+        </div>
+    </div>
+
+
+
+    <script src="~/meta-g/js/fixedHeaderOnly.js"></script>
+    <script src="~/meta-g/js/toggleMenu.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <script>
+        const sectionASwiper = new Swiper('.swiper-sectionA', {
+            // Optional parameters
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            spaceBetween: 0,
+
+            // Navigation arrows
+            navigation: false,
+        });
+
+        const swiper = new Swiper('.swiper', {
+            // Optional parameters
+            slidesPerView: 4,
+            spaceBetween: 18,
+            slidesPerGroup: 4,
+            slidePrevClass: 'backward-button',
+            slideNextClass: 'forward-button',
+            autoHeight: true,
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.forward-button',
+                prevEl: '.backward-button',
+            },
+
+            breakpoints: {
+                // when window width is >= 320px
+                300: {
+                    slidesPerView: 1,
+                    slidesPerGroup: 1,
+                    spaceBetween: 8
+                },
+                // when window width is >= 480px
+                480: {
+                    slidesPerView: 2,
+                    slidesPerGroup: 2,
+                    spaceBetween: 18
+                },
+                // when window width is >= 640px
+                1300: {
+                    slidesPerView: 3,
+                    slidesPerGroup: 3,
+                    spaceBetween: 18
+                },
+
+                1600: {
+                    slidesPerView: 4,
+                    slidesPerGroup: 4,
+                    spaceBetween: 18
+                }
+            }
+        });
+
+        const swiper2 = new Swiper('.swiper2', {
+            // Optional parameters
+            slidesPerView: 4,
+            spaceBetween: 18,
+            slidesPerGroup: 4,
+            slidePrevClass: 'backward-button2',
+            slideNextClass: 'forward-button2',
+            autoHeight: true,
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.forward-button2',
+                prevEl: '.backward-button2',
+            },
+
+            breakpoints: {
+                // when window width is >= 320px
+                300: {
+                    slidesPerView: 1,
+                    slidesPerGroup: 1,
+                    spaceBetween: 8
+                },
+                // when window width is >= 480px
+                480: {
+                    slidesPerView: 2,
+                    slidesPerGroup: 2,
+                    spaceBetween: 18
+                },
+                // when window width is >= 640px
+                1300: {
+                    slidesPerView: 3,
+                    slidesPerGroup: 3,
+                    spaceBetween: 18
+                },
+
+                1600: {
+                    slidesPerView: 4,
+                    slidesPerGroup: 4,
+                    spaceBetween: 18
+                }
+            }
+        });
+
+        const swiperGroup = new Swiper('.swiper-group', {
+            // Optional parameters
+            slidesPerView: 2,
+            spaceBetween: 12,
+            slidesPerGroup: 2,
+            slidePrevClass: 'backward-button-group',
+            slideNextClass: 'forward-button-group',
+            grid: {
+                rows: 3,
+                fill: 'row',
+            },
+
+
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.forward-button-group',
+                prevEl: '.backward-button-group',
+            },
+
+            breakpoints: {
+                // when window width is >= 320px
+                300: {
+                    slidesPerView: 1,
+                    slidesPerGroup: 1,
+                    spaceBetween: 8,
+                    grid: {
+                        rows: 1,
+                        fill: "row"
+                    }
+                },
+                // when window width is >= 480px
+                480: {
+                    slidesPerView: 2,
+                    slidesPerGroup: 2,
+                    spaceBetween: 12,
+                    grid: {
+                        rows: 2,
+                        fill: "row"
+                    }
+                },
+                // when window width is >= 640px
+                1300: {
+                    slidesPerView: 2,
+                    spaceBetween: 12,
+                    grid: {
+                        rows: 2,
+                        fill: "row"
+                    }
+                },
+
+                1600: {
+                    slidesPerView: 2,
+                    spaceBetween: 12,
+                    grid: {
+                        rows: 3,
+                        fill: "row"
+                    }
+                }
+            }
+        });
+
+        const swiperGroup2 = new Swiper('.swiper-group2', {
+            // Optional parameters
+            slidesPerView: 2,
+            spaceBetween: 12,
+            slidesPerGroup: 2,
+            slidePrevClass: 'backward-button-group2',
+            slideNextClass: 'forward-button-group2',
+            grid: {
+                rows: 3,
+                fill: 'row',
+            },
+
+
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.forward-button-group2',
+                prevEl: '.backward-button-group2',
+            },
+
+            breakpoints: {
+                // when window width is >= 320px
+                300: {
+                    slidesPerView: 1,
+                    slidesPerGroup: 1,
+                    spaceBetween: 8,
+                    grid: {
+                        rows: 1,
+                        fill: "row"
+                    }
+                },
+                // when window width is >= 480px
+                480: {
+                    slidesPerView: 2,
+                    slidesPerGroup: 2,
+                    spaceBetween: 12,
+                    grid: {
+                        rows: 2,
+                        fill: "row"
+                    }
+                },
+                // when window width is >= 640px
+                1300: {
+                    slidesPerView: 2,
+                    spaceBetween: 12,
+                    grid: {
+                        rows: 2,
+                        fill: "row"
+                    }
+                },
+
+                1600: {
+                    slidesPerView: 2,
+                    spaceBetween: 12,
+                    grid: {
+                        rows: 3,
+                        fill: "row"
+                    }
+                }
+            }
+        });
+
+        const swiperRanking = new Swiper('.swiper-ranking', {
+            // Optional parameters
+            slidesPerView: 5,
+            spaceBetween: 18,
+            slidesPerGroup: 5,
+            autoHeight: true,
+
+            // Navigation arrows
+            navigation: false,
+
+            breakpoints: {
+                // when window width is >= 320px
+                300: {
+                    slidesPerView: 1,
+                    slidesPerGroup: 1,
+                    spaceBetween: 8
+                },
+                // when window width is >= 480px
+                480: {
+                    slidesPerView: 2,
+                    slidesPerGroup: 2,
+                    spaceBetween: 18
+                },
+                // when window width is >= 640px
+                1300: {
+                    slidesPerView: 3,
+                    slidesPerGroup: 3,
+                    spaceBetween: 18
+                },
+
+                1600: {
+                    slidesPerView: 6,
+                    slidesPerGroup: 0,
+                    spaceBetween: 18
+                }
+            }
+        });
+    </script>
+
+    @RenderSection("Scripts", required: false)
+
+
+</body>
+</html>

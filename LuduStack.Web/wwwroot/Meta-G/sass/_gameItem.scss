@@ -1,0 +1,117 @@
+.game-item {
+    display: flex !important;
+    width: 100%;
+    gap: 12px;
+    padding: 12px;
+    background-color: $primary-bg-color;
+    clip-path: $border-cutting-8;
+    .left-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        img {
+            clip-path: $border-cutting-8;
+            width: 108px;
+        }
+
+        .score {
+            width: 24px;
+            height: 24px;
+            padding: 24px;
+            color: $yellow-text-color;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: transparent;
+            z-index: 1;
+
+            border: 1px solid $aqua-text-color;
+        }
+    }
+
+    .right-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        .info {
+            .info-heading {
+                margin-bottom: 12px;
+                .game-name {
+                    font-size: 20px;
+                    word-wrap: break-word;
+                }
+
+                .release-date {
+                    margin-top: 2px;
+                    font-size: 10px;
+                    word-wrap: break-word;
+                    color: $gray-text-color;
+                }
+            }
+        }
+
+        .lines {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            .info-line {
+                font-size: 12px;
+                display: flex;
+                gap: 4px;
+                p {
+                    color: $gray-text-color;
+                }
+                span {
+                    color: $aqua-text-color;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 420px) {
+
+    .game-item {
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        .left-content {
+            justify-content: center;
+            
+            img {
+                width: 108px;
+                height: 108px;
+            }
+
+            .score {
+                display: none;
+            }
+        }
+
+        .right-content {
+            width: 65%;
+            gap: 14px;
+            .info {
+                .info-heading {
+                    .game-name {
+                        font-size: 20px;
+                    }
+                }
+            }
+
+            .lines {
+                display: none;
+            }
+
+            a {
+                width: 100%;
+            }
+        }
+    }
+}

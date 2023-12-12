@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\**" />
+    <EmbeddedResource Remove="Data\**" />
+    <None Remove="Data\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="6.0.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LuduStack.Domain\LuduStack.Domain.csproj" />
+    <ProjectReference Include="..\LuduStack.Infra.CrossCutting.Abstractions\LuduStack.Infra.CrossCutting.Abstractions.csproj" />
+    <ProjectReference Include="..\LuduStack.Infra.Data.MongoDb\LuduStack.Infra.Data.MongoDb.csproj" />
+  </ItemGroup>
+
+</Project>

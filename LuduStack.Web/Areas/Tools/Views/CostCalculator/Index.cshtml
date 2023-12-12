@@ -1,0 +1,316 @@
+﻿@model CostCalculatorViewModel
+
+@{
+    ViewData["Title"] = SharedLocalizer["Cost Calculator"];
+    ViewData["Description"] = SharedLocalizer["Estimate how much your idea for a game would cost approximately."];
+    ViewData["Url"] = ViewData["BaseUrl"] + Url.Action("index", "costcalculator", new { area = "tools" });
+    ViewData["OgImage"] = ViewData["BaseUrl"] + "/images/og/ogcostcalculator.png";
+
+    var isAjax = ViewContext.HttpContext.Request.IsAjaxRequest();
+    var canInteract = User.Identity.IsAuthenticated;
+
+    var showAds = (bool)(ViewData["ShowAds"] ?? false);
+
+    var visualDimensions = Html.GetEnumSelectList<Dimensions>();
+    var artStyles = Html.GetEnumSelectList<ArtStyle>();
+    var soundStyles = Html.GetEnumSelectList<SoundStyle>();
+}
+
+@section ComponentStyles {
+    <link rel="stylesheet" href="~/css/rangeslider.css" />
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/costcalculator.css">
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/costcalculator.min.css" asp-append-version="true">
+    </environment>
+}
+
+@section Scripts {
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script src="~/lib/rangeslider/rangeslider.min.js"></script>
+    <environment include="Development">
+        <script src="~/lib/moment/moment-with-locales.js"></script>
+        <script src="~/js/calculators/costcalculator.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/lib/moment/moment-with-locales.min.js"></script>
+        <script src="~/js/calculators/costcalculator.min.js" asp-append-version="true"></script>
+    </environment>
+}
+
+<section class="content container">
+    <div id="featurecontainer" class="pb-3">
+        <input type="hidden" id="urls" value="urls"
+               data-url-get-rates="@Url.Action("getrates", "costcalculator")" />
+
+        <h1 class="sr-only">@ViewData["Title"]</h1>
+
+        <div class="box bg-white">
+            <div class="box-header with-border">
+                <h2 class="card-title">@SharedLocalizer["You are estimating the cost of a videogame"]</h2>
+                <span class="card-subtitle">
+                    @SharedLocalizer["Play around to estimate how much would cost some freelance work for your game."]
+                </span>
+            </div>
+
+            <div class="box-body p-0 px-md-2">
+                <form id="frmCostCalculator" asp-area="tools" asp-controller="giveaway" asp-action="save" method="post">
+                    <div class="row mt-md-2">
+                        <div class="col-12 col-md-6 no-gutters rounded-0 border-right">
+                            <div class="row">
+                                <div class="col-12 d-block d-md-none">
+                                    <span class="col-form-label text-center bg-light d-block">@SharedLocalizer["Visual Arts"]</span>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label asp-for="VisualDimensions" class="col-form-label"></label>
+                                        <span asp-description-for="VisualDimensions" class="col-form-label"></span>
+                                        <select asp-for="VisualDimensions" asp-items="visualDimensions" class="form-control user-entry"></select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label asp-for="ArtStyle" class="col-form-label"></label>
+                                        <span asp-description-for="ArtStyle" class="col-form-label"></span>
+                                        <select asp-for="ArtStyle" asp-items="artStyles" class="form-control user-entry"></select>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label asp-for="ConceptArtCount" class="col-form-label"></label>
+                                        <span asp-description-for="ConceptArtCount" class="col-form-label"></span>
+                                        <div class="mt-2">
+                                            <input type="range" min="0" max="50" step="1" id="ConceptArtCount" name="ConceptArtCount" data-gameelement="@((int)GameElement.ConceptArt)" class="form-control" style="visibility:hidden" value="0" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 art-per-dimension" data-type="@((int)BillRateType.Visual)" data-subtype="@((int)Dimensions.TwoDee)">
+                                    <div class="form-group">
+                                        <label asp-for="CharacterCount2d" class="col-form-label"></label>
+                                        <span asp-description-for="CharacterCount2d" class="col-form-label"></span>
+                                        <div class="mt-2">
+                                            <input type="range" min="0" max="50" step="1" id="CharacterCount2d" name="CharacterCount2d" data-gameelement="@((int)GameElement.Character2d)" class="form-control" style="visibility:hidden" value="0" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 art-per-dimension" data-type="@((int)BillRateType.Visual)" data-subtype="@((int)Dimensions.TwoDee)">
+                                    <div class="form-group">
+                                        <label asp-for="AssetCount2d" class="col-form-label"></label>
+                                        <span asp-description-for="AssetCount2d" class="col-form-label"></span>
+                                        <div class="mt-2">
+                                            <input type="range" min="0" max="50" step="1" id="AssetCount2d" name="AssetCount2d" data-gameelement="@((int)GameElement.Asset2d)" class="form-control" style="visibility:hidden" value="0" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 art-per-dimension" data-type="@((int)BillRateType.Visual)" data-subtype="@((int)Dimensions.TwoDee)">
+                                    <div class="form-group">
+                                        <label asp-for="LevelCount2d" class="col-form-label"></label>
+                                        <span asp-description-for="LevelCount2d" class="col-form-label"></span>
+                                        <div class="mt-2">
+                                            <input type="range" min="0" max="50" step="1" id="LevelCount2d" name="LevelCount2d" data-gameelement="@((int)GameElement.Level2d)" class="form-control" style="visibility:hidden" value="0" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 art-per-dimension" data-type="@((int)BillRateType.Visual)" data-subtype="@((int)Dimensions.ThreeDee)">
+                                    <div class="form-group">
+                                        <label asp-for="CharacterCount3d" class="col-form-label"></label>
+                                        <span asp-description-for="CharacterCount3d" class="col-form-label"></span>
+                                        <div class="mt-2">
+                                            <input type="range" min="0" max="50" step="1" id="CharacterCount3d" name="CharacterCount3d" data-gameelement="@((int)GameElement.Character3d)" class="form-control" style="visibility:hidden" value="0" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 art-per-dimension" data-type="@((int)BillRateType.Visual)" data-subtype="@((int)Dimensions.ThreeDee)">
+                                    <div class="form-group">
+                                        <label asp-for="AssetCount3d" class="col-form-label"></label>
+                                        <span asp-description-for="AssetCount3d" class="col-form-label"></span>
+                                        <div class="mt-2">
+                                            <input type="range" min="0" max="50" step="1" id="AssetCount3d" name="AssetCount3d" data-gameelement="@((int)GameElement.Asset3d)" class="form-control" style="visibility:hidden" value="0" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 art-per-dimension" data-type="@((int)BillRateType.Visual)" data-subtype="@((int)Dimensions.ThreeDee)">
+                                    <div class="form-group">
+                                        <label asp-for="LevelCount3d" class="col-form-label"></label>
+                                        <span asp-description-for="LevelCount3d" class="col-form-label"></span>
+                                        <div class="mt-2">
+                                            <input type="range" min="0" max="50" step="1" id="LevelCount3d" name="LevelCount3d" data-gameelement="@((int)GameElement.Level3d)" class="form-control" style="visibility:hidden" value="0" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 no-gutters">
+                            <div class="row mt-2 mt-md-0">
+                                <div class="col-12 d-block d-md-none">
+                                    <span class="col-form-label text-center bg-light d-block">@SharedLocalizer["Audio"]</span>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label asp-for="SoundStyle" class="col-form-label"></label>
+                                        <span asp-description-for="SoundStyle" class="col-form-label"></span>
+                                        <select asp-for="SoundStyle" asp-items="soundStyles" class="form-control"></select>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label asp-for="SoundEffectCount" class="col-form-label"></label>
+                                        <span asp-description-for="SoundEffectCount" class="col-form-label"></span>
+                                        <div class="mt-2">
+                                            <input type="range" min="0" max="50" step="1" id="SoundEffectCount" name="SoundEffectCount" data-gameelement="@((int)GameElement.SoundFx)" class="form-control" style="visibility:hidden" value="0" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label asp-for="MusicTrackCount" class="col-form-label"></label>
+                                        <span asp-description-for="MusicTrackCount" class="col-form-label"></span>
+                                        <div class="mt-2">
+                                            <input type="range" min="0" max="50" step="1" id="MusicTrackCount" name="MusicTrackCount" data-gameelement="@((int)GameElement.MusicTrack)" class="form-control" style="visibility:hidden" value="0" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="row mt-2">
+                    <div class="col">
+                        <button id="btnCalculate" class="btn btn-lg btn-block btn-success text-uppercase">@SharedLocalizer["calculate"]</button>
+                    </div>
+                </div>
+
+                @if (showAds)
+                {
+                    <div class="rounded-0 p-0 px-lg-5 my-3 mx-auto">
+                        <partial name="_GoogleAdFeed" />
+                    </div>
+                }
+
+                <hr />
+
+                <div class="row">
+                    <div class="col col-md-6">
+                        <h2>@SharedLocalizer["How much it would cost (in US Dolars)"]</h2>
+                    </div>
+                </div>
+
+                <div class="row px-3">
+                    <div class="col-12 px-0 table-responsive">
+                        <table class="table table-striped">
+                            <caption class="sr-only">@SharedLocalizer["How much this game would cost"]</caption>
+                            <thead class="text-uppercase">
+                                <tr>
+                                    <th scope="col" class="font-weight-bold">&nbsp;</th>
+                                    <th scope="col" class="text-right font-weight-bold">@SharedLocalizer["quantity"]</th>
+                                    <th scope="col" class="text-right font-weight-bold">@SharedLocalizer["minimum"]</th>
+                                    <th scope="col" class="text-right font-weight-bold">@SharedLocalizer["average"]</th>
+                                    <th scope="col" class="text-right font-weight-bold">@SharedLocalizer["maximum"]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="row-concept">
+                                    <td class="text-uppercase">@SharedLocalizer["Concept Art Pieces"]</td>
+                                    <td class="text-right"><span id="txtConceptQuantity">0</span></td>
+                                    <td class="text-right"><span id="txtConceptMinimum" class="table-value">-</span></td>
+                                    <td class="text-right"><span id="txtConceptAverage" class="table-value">-</span></td>
+                                    <td class="text-right"><span id="txtConceptMaximum" class="table-value">-</span></td>
+                                </tr>
+                                <tr class="row-character">
+                                    <td class="text-uppercase">@SharedLocalizer["2D Characters"]</td>
+                                    <td class="text-right"><span id="txtCharacter2dQuantity">0</span></td>
+                                    <td class="text-right"><span id="txtCharacter2dMinimum" class="table-value">-</span></td>
+                                    <td class="text-right"><span id="txtCharacter2dAverage" class="table-value">-</span></td>
+                                    <td class="text-right"><span id="txtCharacter2dMaximum" class="table-value">-</span></td>
+                                </tr>
+                                <tr class="row-character">
+                                    <td class="text-uppercase">@SharedLocalizer["2D Assets"]</td>
+                                    <td class="text-right"><span id="txtAsset2dQuantity">0</span></td>
+                                    <td class="text-right"><span id="txtAsset2dMinimum" class="table-value">-</span></td>
+                                    <td class="text-right"><span id="txtAsset2dAverage" class="table-value">-</span></td>
+                                    <td class="text-right"><span id="txtAsset2dMaximum" class="table-value">-</span></td>
+                                </tr>
+                                <tr class="row-level">
+                                    <td class="text-uppercase">@SharedLocalizer["2D Levels/Maps/Tracks"]</td>
+                                    <td class="text-right"><span id="txtLevel2dQuantity">0</span></td>
+                                    <td class="text-right"><span id="txtLevel2dMinimum" class="table-value">-</span></td>
+                                    <td class="text-right"><span id="txtLevel2dAverage" class="table-value">-</span></td>
+                                    <td class="text-right"><span id="txtLevel2dMaximum" class="table-value">-</span></td>
+                                </tr>
+                                <tr class="row-character">
+                                    <td class="text-uppercase">@SharedLocalizer["3D Characters"]</td>
+                                    <td class="text-right"><span id="txtCharacter3dQuantity">0</span></td>
+                                    <td class="text-right"><span id="txtCharacter3dMinimum" class="table-value">-</span></td>
+                                    <td class="text-right"><span id="txtCharacter3dAverage" class="table-value">-</span></td>
+                                    <td class="text-right"><span id="txtCharacter3dMaximum" class="table-value">-</span></td>
+                                </tr>
+                                <tr class="row-character">
+                                    <td class="text-uppercase">@SharedLocalizer["3D Assets"]</td>
+                                    <td class="text-right"><span id="txtAsset3dQuantity">0</span></td>
+                                    <td class="text-right"><span id="txtAsset3dMinimum" class="table-value">-</span></td>
+                                    <td class="text-right"><span id="txtAsset3dAverage" class="table-value">-</span></td>
+                                    <td class="text-right"><span id="txtAsset3dMaximum" class="table-value">-</span></td>
+                                </tr>
+                                <tr class="row-level">
+                                    <td class="text-uppercase">@SharedLocalizer["3D Levels/Maps/Tracks"]</td>
+                                    <td class="text-right"><span id="txtLevel3dQuantity">0</span></td>
+                                    <td class="text-right"><span id="txtLevel3dMinimum" class="table-value">-</span></td>
+                                    <td class="text-right"><span id="txtLevel3dAverage" class="table-value">-</span></td>
+                                    <td class="text-right"><span id="txtLevel3dMaximum" class="table-value">-</span></td>
+                                </tr>
+                                <tr class="row-soundfx">
+                                    <td class="text-uppercase">@SharedLocalizer["Sound Effects"]</td>
+                                    <td class="text-right"><span id="txtSoundFxQuantity">0</span></td>
+                                    <td class="text-right"><span id="txtSoundFxMinimum" class="table-value">-</span></td>
+                                    <td class="text-right"><span id="txtSoundFxAverage" class="table-value">-</span></td>
+                                    <td class="text-right"><span id="txtSoundFxMaximum" class="table-value">-</span></td>
+                                </tr>
+                                <tr class="row-music">
+                                    <td class="text-uppercase">@SharedLocalizer["Music Tracks"]</td>
+                                    <td class="text-right"><span id="txtMusicQuantity">0</span></td>
+                                    <td class="text-right"><span id="txtMusicMinimum" class="table-value">-</span></td>
+                                    <td class="text-right"><span id="txtMusicAverage" class="table-value">-</span></td>
+                                    <td class="text-right"><span id="txtMusicMaximum" class="table-value">-</span></td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr class="alert alert-info">
+                                    <td>@SharedLocalizer["This game will cost:"]</td>
+                                    <td class="text-right"><span id="txtTotalQuantity">0</span></td>
+                                    <td class="text-right"><span id="txtTotalMinimum">-</span></td>
+                                    <td class="text-right"><span id="txtTotalAverage">-</span></td>
+                                    <td class="text-right"><span id="txtTotalMaximum">-</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <div class="col-12">
+                            <p class="alert alert-secondary text-center">
+                                @Html.Raw(SharedLocalizer["Are you a freelancer? {0} to help us improve the cost estimates.", string.Format("<a href=\"{0}\">{1}</a>", Url.Action("index", "billrate", new { area = "member" }), SharedLocalizer["Add your rates here"])])
+                            </p>
+                        </div>
+                    }
+                    <div class="col-12">
+                        <p class="alert alert-warning text-center">
+                            @SharedLocalizer["These values come from our database. All LudusStack users can contribute by anonymously publishing their rates so we can keep the values always updated."]
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

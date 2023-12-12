@@ -1,0 +1,147 @@
+﻿@using Microsoft.AspNetCore.Http;
+@{
+    int game = (int)ViewContext.HttpContext.Session.GetInt32("GamesCount");
+    int user = (int)ViewContext.HttpContext.Session.GetInt32("UsersCount");
+    int rank = (int)ViewContext.HttpContext.Session.GetInt32("Rank");
+}
+
+
+<div class="header-info">
+    <div class="info-item-group">
+        <div class="info-item">
+            <img src="~/meta-g/assets/icon/header-info/wifi.svg" alt="">
+            <p class="info-item-count" style="color: #89f9ff">6.969</p>
+            <p class="info-item-name">Trực tuyến</p>
+        </div>
+
+        <div class="info-item">
+            <img src="~/meta-g/assets/icon/header-info/user.svg" alt="">
+            <p class="info-item-count" style="color: #ee6db0">@user</p>
+            <p class="info-item-name">Người dùng</p>
+        </div>
+
+        <div class="info-item">
+            <img src="~/meta-g/assets/icon/header-info/gamepad.svg" alt="">
+            <p class="info-item-count" style="color: #b595fc">@game</p>
+            <p class="info-item-name">Tựa game</p>
+        </div>
+
+        <div class="info-item">
+            <img src="~/meta-g/assets/icon/header-info/handfist.svg" alt="">
+
+            <p class="info-item-count" style="color: #6497fa">@rank</p>
+            <p class="info-item-name">Nhà cung cấp</p>
+        </div>
+    </div>
+
+    <div class="social-item-group">
+        <div class="social-item"><img src="~/meta-g/assets/icon/socialMedia/discord.svg" alt=""></div>
+
+        <div class="social-item"><img src="~/meta-g/assets/icon/socialMedia/twitter.svg" alt=""></i></div>
+
+        <div class="social-item">
+            <img src="~/meta-g/assets/icon/socialMedia/reddit.svg" alt="">
+        </div>
+
+        <div class="social-item"><img src="~/meta-g/assets/icon/socialMedia/tiktok.svg" alt=""></div>
+
+        <div class="social-item">
+            <img src="~/meta-g/assets/icon/socialMedia/instagram-fill.svg" alt="">
+        </div>
+
+        <div class="social-item"><img src="~/meta-g/assets/icon/socialMedia/youtube.svg" alt=""></div>
+
+        <div class="social-item"><img src="~/meta-g/assets/icon/socialMedia/facebook-fill.svg" alt=""></div>
+    </div>
+</div>
+
+<div class="navbar" id="navbar">
+    <div class="navbar-left">
+        <div class="logo">
+            <a href="#" alt=""><img src="~/meta-g/assets/icon/logoMetaG.png" alt="" /></a>
+            <p style="color: #4e28f5">Cổng</p>
+            <p style="color: #bd4ba3">ViệcLàm</p>
+        </div>
+        <div class="categories">
+            <div class="category-item">
+                <div class="category-name">
+                    @*<img class="freefire" src="~/meta-g/assets/icon/nav-bar/freefire.gif" alt="">*@
+                    <span>Cơ Hội Việc Làm</span>
+                    <div class="shadow"></div>
+                </div>
+                <div class="shadow-top"></div>
+                <div class="shadow-bottom"></div>
+            </div>
+
+            <div class="category-item">
+                <div class="category-name">
+                    @*<img src="~/meta-g/assets/icon/nav-bar/handfist.svg" alt="">*@
+                    <span>Công Cụ</span>
+
+                    <div class="shadow">
+                    </div>
+
+                </div>
+                <div class="shadow-top"></div>
+                <div class="shadow-bottom"></div>
+            </div>
+
+            <div class="category-item">
+                <div class="category-name">
+                    @*<img src="~/meta-g/assets/icon/nav-bar/ghost.svg" alt="">*@
+                    <span>Gói Đăng Tin Miễn Phí</span>
+                    <div class="shadow"></div>
+                </div>
+                <div class="shadow-top"></div>
+                <div class="shadow-bottom"></div>
+            </div>
+
+            <div class="category-item">
+                <div class="category-name">
+                    @*<img src="~/meta-g/assets/icon/nav-bar/hat.svg" alt="">*@
+                    <span>Blog Tuyển Dụng</span>
+                    <div class="shadow"></div>
+                </div>
+                <div class="shadow-top"></div>
+                <div class="shadow-bottom"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navbar-right" id="navbar">   
+        <div class="settings">
+            <div class="navbar-spacer"></div>
+            <div class="language">
+                <p>Đăng Nhập / Đăng Kí</p>
+            </div>
+            <div class="navbar-spacer"></div>
+            <div class="language">
+                <i class="fa-solid fa-house-laptop"></i>
+                <a href="@Url.Action("Index", "Employer")"></a>
+                <a class="navbar-brand" asp-area="" asp-controller="Employer" asp-action="Index">Nhà Tuyển Dụng</a>
+            </div>
+            <div class="navbar-spacer"></div>          
+            <div class="language">
+                <img src="~/meta-g/assets/icon/nav-bar/language.svg" alt="">
+                <p>VN</p>
+            </div>
+            <div class="navbar-spacer"></div>
+        </div>
+        @*<div class="auth">
+            <div class="user-rank">1</div>
+            <div class="avatar">
+                <img src="~/meta-g/assets/images/avt/vc.png" alt="" />
+            </div>
+            <div class="user-info">
+                <div class="">
+                    <p class="user-name">Sieunhangao</p>
+                    <div class="wallet"> <img src="~/meta-g/assets/icon/coin/Coins.png" alt=""> 12345678.12</div>
+                </div>
+            </div>
+            <a class="logout" href="./pages/guestPage.html" alt="">
+                <img src="~/meta-g/assets/icon/logout/logout.svg" alt="">
+            </a>
+        </div>*@
+        
+    </div>
+</div>

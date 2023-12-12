@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LuduStack.Application\LuduStack.Application.csproj" />
+    <ProjectReference Include="..\LuduStack.Domain\LuduStack.Domain.csproj" />
+    <ProjectReference Include="..\LuduStack.Infra.CrossCutting.Abstractions\LuduStack.Infra.CrossCutting.Abstractions.csproj" />
+    <ProjectReference Include="..\LuduStack.Infra.CrossCutting.Identity\LuduStack.Infra.CrossCutting.Identity.csproj" />
+    <ProjectReference Include="..\LuduStack.Infra.CrossCutting.Notifications\LuduStack.Infra.CrossCutting.Notifications.csproj" />
+    <ProjectReference Include="..\LuduStack.Infra.Data.Cache\LuduStack.Infra.Data.Cache.csproj" />
+    <ProjectReference Include="..\LuduStack.Infra.Data.MongoDb\LuduStack.Infra.Data.MongoDb.csproj" />
+    <ProjectReference Include="..\LuduStack.Infra.Data\LuduStack.Infra.Data.csproj" />
+    <ProjectReference Include="..\MetaG.Application\MetaG.Application.csproj" />
+    <ProjectReference Include="..\MetaG.Data.Repository\MetaG.Data.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

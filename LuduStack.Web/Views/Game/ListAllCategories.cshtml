@@ -1,0 +1,65 @@
+﻿@using MetaG.Application.ViewModels;
+@model List<GameCategoryViewModel>
+@{
+    Layout = "~/Views/Shared/_LayoutHomePage.cshtml";
+}
+
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<style>
+    .game-card {
+        background-color: #fff;
+        border-radius: 5px;
+        margin: 10px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+</style>
+
+<div class="container">
+    <h1>Danh sách Game theo Category</h1>
+    <div class="slide-section-items swiper-wrapper">
+        @foreach (var on in Model)
+        {
+            foreach (var data in on.LatestGames)
+            {
+                <div class="game-item swiper-slide">
+                    <div class="left-content">
+                        <img src="@data.ThumbnailUrl" alt="" />
+                        <div class="score">4,5</div>
+                    </div>
+
+                    <div class="right-content">
+                        <div class="info">
+                            <div class="info-heading">
+                                <p class="game-name">@data.Title</p>
+                                <p class="release-date"></p>
+                            </div>
+
+                            <div class="lines">
+                                <div class="info-line">
+                                    <p>Người chơi:</p>
+                                    <span>@data.NumberPlays</span>
+                                </div>
+                                <div class="info-line">
+                                    <p>Thể loại:</p>
+                                    <span>@data.Genre</span>
+                                </div>
+                                <div class="info-line">
+                                    <p>Nhà cung cấp:</p>
+                                    <span>@data.DeveloperName</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="./pages/gameDetail.html" alt="" class="styled-btn max-size fee">
+                            <img src="./assets/icon/coin/Coins.png" alt="" />
+                            <span></span> Chơi Ngay
+                        </a>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

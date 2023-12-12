@@ -1,0 +1,42 @@
+﻿@using MetaG.Application.ViewModels;
+@model List<GameCategoryViewModel>
+
+<div class="background-image"></div>
+<div class="heading">Danh mục game</div>
+
+<div class="category-items">  
+    @{
+        int count = 1;
+    }
+    @foreach (var cate in Model)
+    {
+        <div class="category-item" style="background-image:url(@cate.LargeThumbImageUrl)">
+            <div class="category-item-info">
+                <div>
+                    <div class="info-heading">
+                        <i class="fa-solid fa-hand-fist"></i>
+                        <p>@cate.Name</p>
+                    </div>
+                    <div class="info">
+                        <a href="#" alt="">Game @cate.Name</a>
+                        @cate.Description
+                    </div>
+                </div>
+                <form method="get" action="/categories/0/@cate.Id">
+                    <button class="styled-btn-down-corner max-size">
+                        Khám phá ngay
+                    </button>
+                </form>
+            </div>
+        </div>
+        count++;
+
+        if (count > 5)
+        {
+            break;
+        }
+    }
+
+</div>
+
+

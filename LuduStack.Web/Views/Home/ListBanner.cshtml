@@ -1,0 +1,149 @@
+﻿@using LuduStack.Domain.Models;
+@using MetaG.Application.ViewModels;
+@model List<BannerViewModel>
+
+<style>
+    .content-search {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        z-index:10;
+        padding-right:200px;
+        background-color:aqua;
+        position: absolute;
+        border-radius: 5px;
+        background-color: rgb(35 14 91);
+        padding: 40px 36px;
+        left:100px;
+    }
+
+    .content-search-list {
+        margin-bottom: 20px;
+    }
+
+    .content-search-ipu {
+        position: relative;
+        display: flex;
+        align-items: center;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    .content-search-input{
+        display:flex;
+    }
+
+    .content-search-input input[type="text"]::placeholder {
+        position:relative;
+        display:flex;
+        color: black;
+        font-size:13px;
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        transform: translateY(-50%);
+        z-index: 1;
+        background-color: #f0f0f0;
+        padding: 5px;
+        font-weight: bold;
+    }
+    .content-search-ipu-item,
+    .content-search-ipu-nghe,
+    .content-search-ipu-city {
+        padding: 15px; 
+        border-radius: 6px;
+        margin-right: 10px;
+        padding-right:130px;
+        width: 220px
+    }
+
+    .content-search-ipu input[type="text"]::placeholder {
+        color: black;
+        position: absolute;
+        top: 50%;
+        font-size: 13px;
+        left: 5px;
+        transform: translateY(-50%);
+        z-index: 1;
+        background-color: #f0f0f0;
+        padding: 5px;
+        font-weight:bold;
+    }
+
+    .content-search-btn {
+        padding: 13px 20px;
+        background-color: blueviolet;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    .content-search-smallcatalog {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .content-search-smallcatalog-item {
+        margin-right: 10px;
+        font-size: 14px;
+    }
+
+    .input-container {
+        position: relative;
+        display: inline-block;
+    }
+
+
+        .input-container i {
+            position: absolute;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+            pointer-events: none; /* Đảm bảo rằng icon không ảnh hưởng đến việc nhập liệu */
+        }
+
+        /* Thay đổi kích thước và màu sắc của icon (tuỳ chọn) */
+        .input-container i {
+            font-size: 16px;
+            color: #999;
+        }
+</style>
+<div class="swiper-wrapper">
+    @foreach(var banner in Model)
+    {
+        <a href="#" alt="" class="swiper-slide trim"><img src="@banner.FeaturedImage" alt=""></a>
+    }
+</div>
+<div class="content-search">
+    <div class="content-search-list">
+        <div class="content-search-ipu pd-4 bgr-white">
+            <input type="text" name="" id="" class="content-search-ipu-item" placeholder="Tìm kiếm cơ hội việc làm">
+            <button type="submit" class="content-search-btn">Tìm Việc</button>
+        </div>
+    </div>
+    <div class="content-search-list">
+        <div class="content-search-input">
+            <div class="input-container">
+                <!-- <i class="fa-solid fa-briefcase"></i> -->
+                <input type="text" name="" id="" class="content-search-ipu-nghe" placeholder="Tất cả nghề nghiệp" /><i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="input-container">
+                <!-- <i class="fa-solid fa-location-dot"></i> -->
+                <input type="text" name="" id="" class="content-search-ipu-city" placeholder="Tất cả tỉnh thành"><i class="fa-solid fa-chevron-down"></i>
+            </div>
+        </div>
+    </div>
+    <ul class="content-search-smallcatalog">
+        <li class="content-search-smallcatalog-item">Công nghệ thông tin</li>
+        <li class="content-search-smallcatalog-item">Maketing</li>
+        <li class="content-search-smallcatalog-item">Kế toán</li>
+        <li class="content-search-smallcatalog-item">Công nghệ ô tô</li>
+    </ul>
+</div>
